@@ -1,0 +1,148 @@
+.sidebar {
+  position: sticky;
+  top: 0;
+  flex: 0 0 clamp(16rem, 26vw, 20rem);
+  height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding: clamp(2rem, 5vw, 3rem) clamp(1.5rem, 3vw, 2rem);
+  border-right: 1px solid rgba(209, 197, 192, 0.12);
+  background: linear-gradient(180deg, rgba(39, 41, 50, 0.6), rgba(39, 41, 50, 0.3));
+  /* Sidebar is the first thing to catch power — it lights up ahead of the main content. */
+  filter: brightness(calc(0.15 + var(--power, 1) * 0.85)) contrast(calc(0.8 + var(--power, 1) * 0.2))
+    drop-shadow(0 0 calc(var(--power, 1) * 10px) rgba(26, 197, 176, calc(var(--power, 1) * 0.25)));
+}
+
+.identity {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  opacity: 0.85;
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  box-shadow: 0 0 6px rgba(26, 197, 176, 0.8);
+}
+
+.name {
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  color: var(--color-text);
+  text-shadow: var(--glow-primary);
+}
+
+.title {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.04em;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.blockLabel {
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  opacity: 0.85;
+}
+
+.contactList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.contactLink {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  text-decoration: none;
+  color: var(--color-text-secondary);
+  transition: color 0.2s ease;
+}
+
+.contactLink:hover,
+.contactLink:focus-visible {
+  color: var(--color-secondary);
+}
+
+.contactKey {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.contactValue {
+  font-size: 0.85rem;
+  word-break: break-word;
+}
+
+.skillGroups {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.skillGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.skillGroupLabel {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+}
+
+.skillTags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.skillTag {
+  font-size: 0.72rem;
+  padding: 0.25rem 0.55rem;
+  border: 1px solid rgba(55, 235, 243, 0.3);
+  color: var(--color-text-secondary);
+  border-radius: 2px;
+}
+
+@media (max-width: 860px) {
+  .sidebar {
+    position: relative;
+    top: auto;
+    height: auto;
+    flex: none;
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid rgba(209, 197, 192, 0.12);
+  }
+}

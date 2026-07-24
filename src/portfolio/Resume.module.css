@@ -1,0 +1,128 @@
+.main {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.5rem, 6vw, 4rem) 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  --reveal-offset: 0.1;
+  --local-power: clamp(
+    0,
+    calc((var(--power, 1) - var(--reveal-offset)) / max(0.0001, 1 - var(--reveal-offset))),
+    1
+  );
+  filter: brightness(calc(0.15 + var(--local-power) * 0.85))
+    contrast(calc(0.8 + var(--local-power) * 0.2))
+    drop-shadow(0 0 calc(var(--local-power) * 10px) rgba(55, 235, 243, calc(var(--local-power) * 0.25)));
+}
+
+.block:nth-of-type(2) {
+  --reveal-offset: 0.2;
+}
+
+.block:nth-of-type(3) {
+  --reveal-offset: 0.3;
+}
+
+.blockLabel {
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  opacity: 0.85;
+}
+
+.summary {
+  max-width: 60ch;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+}
+
+.timeline {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.entry {
+  padding-left: 1.1rem;
+  border-left: 2px solid rgba(26, 197, 176, 0.3);
+}
+
+.entryHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1rem;
+}
+
+.entryRole {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.entryPeriod {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.04em;
+}
+
+.entryOrg {
+  font-size: 0.85rem;
+  color: var(--color-primary);
+  margin-top: 0.2rem;
+}
+
+.entryPoints {
+  margin-top: 0.6rem;
+  padding-left: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.projectList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.project {
+  padding: 1rem 1.2rem;
+  border: 1px solid rgba(209, 197, 192, 0.12);
+  border-radius: 2px;
+}
+
+.projectName {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.projectDescription {
+  margin-top: 0.4rem;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  max-width: 60ch;
+}
+
+.projectStack {
+  margin-top: 0.6rem;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.03em;
+}
