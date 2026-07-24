@@ -5,7 +5,6 @@ export type BootState =
   | 'Flicker1'
   | 'Flicker2'
   | 'Lighting'
-  | 'SystemOnline'
   | 'Interactive';
 
 export type BootEvent =
@@ -14,8 +13,7 @@ export type BootEvent =
   | { type: 'POWER_ON_COMPLETE' }
   | { type: 'FLICKER_1_COMPLETE' }
   | { type: 'FLICKER_2_COMPLETE' }
-  | { type: 'LIGHTING_COMPLETE' }
-  | { type: 'ONLINE_COMPLETE' };
+  | { type: 'LIGHTING_COMPLETE' };
 
 export interface BootHandlers {
   onReadyClick: () => void;
@@ -23,5 +21,4 @@ export interface BootHandlers {
   onFlicker1Complete: () => void;
   onFlicker2Complete: () => void;
   onLightingComplete: () => void;
-  onOnlineComplete: () => void;
 }

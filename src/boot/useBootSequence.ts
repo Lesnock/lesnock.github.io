@@ -46,7 +46,6 @@ export function useBootSequence(): UseBootSequenceResult {
       onFlicker1Complete: () => send('FLICKER_1_COMPLETE'),
       onFlicker2Complete: () => send('FLICKER_2_COMPLETE'),
       onLightingComplete: () => send('LIGHTING_COMPLETE'),
-      onOnlineComplete: () => send('ONLINE_COMPLETE'),
     }),
     [send]
   );

@@ -2,7 +2,6 @@ import { LoadingBar } from './LoadingBar';
 import { BootMessages } from './BootMessages';
 import { ReadyScreen } from './ReadyScreen';
 import { PoweringOnScreen } from './PoweringOnScreen';
-import { SystemOnlineBanner } from './SystemOnlineBanner';
 import type { BootHandlers, BootState } from './types';
 import type { BOOT_TIMINGS } from './constants';
 import styles from './Intro.module.css';
@@ -41,13 +40,6 @@ export function Intro({ state, progress, currentMessage, timings, handlers }: In
         <PoweringOnScreen
           durationMs={timings.poweringOnDurationMs}
           onComplete={handlers.onPowerOnComplete}
-        />
-      )}
-
-      {state === 'SystemOnline' && (
-        <SystemOnlineBanner
-          durationMs={timings.onlineBannerDurationMs}
-          onComplete={handlers.onOnlineComplete}
         />
       )}
     </div>

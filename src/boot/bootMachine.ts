@@ -18,8 +18,7 @@ const TRANSITIONS: TransitionTable = {
   PoweringOn: { POWER_ON_COMPLETE: 'Flicker1' },
   Flicker1: { FLICKER_1_COMPLETE: 'Flicker2' },
   Flicker2: { FLICKER_2_COMPLETE: 'Lighting' },
-  Lighting: { LIGHTING_COMPLETE: 'SystemOnline' },
-  SystemOnline: { ONLINE_COMPLETE: 'Interactive' },
+  Lighting: { LIGHTING_COMPLETE: 'Interactive' },
   Interactive: {},
 };
 

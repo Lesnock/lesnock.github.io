@@ -17,7 +17,6 @@ export const BOOT_TIMINGS = {
   flicker1DurationMs: 350,
   flicker2DurationMs: 450,
   lightingDurationMs: 850,
-  onlineBannerDurationMs: 1600,
 } as const;
 
 /** Multiplier applied to every animated duration when reduced motion is preferred. */

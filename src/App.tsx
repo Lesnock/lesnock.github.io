@@ -15,7 +15,6 @@ const POWERED_STATES: ReadonlySet<BootState> = new Set([
   'Flicker1',
   'Flicker2',
   'Lighting',
-  'SystemOnline',
   'Interactive',
 ]);
 
