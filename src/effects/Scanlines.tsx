@@ -1,8 +1,13 @@
 import styles from './Scanlines.module.css';
 
-export function Scanlines() {
+interface ScanlinesProps {
+  /** Fades the CRT scanline texture out once the boot sequence finishes. */
+  faded?: boolean;
+}
+
+export function Scanlines({ faded }: ScanlinesProps) {
   return (
-    <div className={styles.root} aria-hidden="true">
+    <div className={faded ? `${styles.root} ${styles.faded}` : styles.root} aria-hidden="true">
       <div className={styles.sweep} />
     </div>
   );

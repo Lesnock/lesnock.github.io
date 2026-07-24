@@ -201,7 +201,7 @@
   92%,
   100% {
     opacity: 1;
-    text-shadow: var(--glow-primary);
+    text-shadow: var(--glow-crisp-cyan);
   }
 
   /* single quick stutter */
@@ -221,13 +221,13 @@
   }
   29.4% {
     opacity: 0.45;
-    text-shadow: var(--glow-primary);
+    text-shadow: var(--glow-crisp-cyan);
   }
 
   /* faint tremble that barely registers */
   45.2% {
     opacity: 0.68;
-    text-shadow: var(--glow-primary);
+    text-shadow: var(--glow-crisp-cyan);
   }
 
   /* dying stutter: near-off, catch, drop, catch */
@@ -245,17 +245,17 @@
   }
   62.7% {
     opacity: 1;
-    text-shadow: var(--glow-primary);
+    text-shadow: var(--glow-crisp-cyan);
   }
 
   /* quick double flicker */
   77.8% {
     opacity: 0.5;
-    text-shadow: var(--glow-primary);
+    text-shadow: var(--glow-crisp-cyan);
   }
   78.2% {
     opacity: 1;
-    text-shadow: var(--glow-primary);
+    text-shadow: var(--glow-crisp-cyan);
   }
   78.6% {
     opacity: 0.35;
@@ -265,6 +265,6 @@
   /* last faint buzz before it settles again */
   91.4% {
     opacity: 0.72;
-    text-shadow: var(--glow-primary);
+    text-shadow: var(--glow-crisp-cyan);
   }
 }

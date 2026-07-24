@@ -38,6 +38,12 @@
   opacity: 0.85;
 }
 
+.blockLabel::before {
+  content: '// ';
+  color: var(--color-secondary);
+  opacity: 0.6;
+}
+
 .summary {
   max-width: 60ch;
   color: var(--color-text-secondary);
@@ -103,7 +109,8 @@
 .project {
   padding: 1rem 1.2rem;
   border: 1px solid rgba(209, 197, 192, 0.12);
-  border-radius: 2px;
+  border-left: 2px solid rgba(55, 235, 243, 0.35);
+  clip-path: polygon(10px 0, 100% 0, 100% 100%, 0 100%, 0 10px);
 }
 
 .projectName {

@@ -39,7 +39,7 @@ function App() {
         onFlicker2Complete={handlers.onFlicker2Complete}
         onLightingComplete={handlers.onLightingComplete}
       />
-      <BackgroundEffects />
+      <BackgroundEffects interactive={interactive} />
       <Intro
         state={state}
         progress={progress}

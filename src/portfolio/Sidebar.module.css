@@ -41,12 +41,13 @@
 }
 
 .name {
+  position: relative;
   font-size: clamp(1.5rem, 3vw, 1.9rem);
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  font-weight: 700;
+  letter-spacing: 0.03em;
   line-height: 1.2;
   color: var(--color-text);
-  text-shadow: var(--glow-primary);
+  text-shadow: var(--glow-crisp-cyan);
 }
 
 .title {
@@ -67,6 +68,12 @@
   text-transform: uppercase;
   color: var(--color-secondary);
   opacity: 0.85;
+}
+
+.blockLabel::before {
+  content: '// ';
+  color: var(--color-secondary);
+  opacity: 0.6;
 }
 
 .contactList {
@@ -130,9 +137,9 @@
 .skillTag {
   font-size: 0.72rem;
   padding: 0.25rem 0.55rem;
-  border: 1px solid rgba(55, 235, 243, 0.3);
+  border: 1px solid rgba(55, 235, 243, 0.35);
   color: var(--color-text-secondary);
-  border-radius: 2px;
+  clip-path: polygon(6px 0, 100% 0, 100% 100%, 0 100%, 0 6px);
 }
 
 @media (max-width: 860px) {
