@@ -1,7 +1,8 @@
 /*
  * Fluorescent tube that never fully settles: it stays lit but keeps buzzing
  * and stumbling forever, independent of the boot --power ramp, so it keeps
- * flickering long after the intro finishes.
+ * flickering long after the intro finishes. Opt-in only (the `blink` prop)
+ * since the ~1-2s stutter reads as distracting when left on by default.
  *
  * Snapped with steps(1, end) so every keyframe is an instantaneous cut, not
  * a fade — that hard on/off is what reads as an arc restriking rather than
@@ -12,9 +13,17 @@
   /* position: relative anchors the absolutely-positioned ghost layers below. */
   position: relative;
   display: inline-block;
-  animation: fluorescentBuzz 6.5s steps(1, end) infinite,
-    glitchSlice 2s steps(1, end) infinite;
+  --glitch-interval: 5s;
+  animation: glitchSlice var(--glitch-interval) steps(1, end) infinite;
   will-change: opacity, text-shadow, clip-path, transform;
+}
+
+/* Opt-in fluorescent flicker layer — off unless the blink prop is set. */
+.glitch.blink {
+  animation-name: fluorescentBuzz, glitchSlice;
+  animation-duration: 6.5s, var(--glitch-interval);
+  animation-timing-function: steps(1, end), steps(1, end);
+  animation-iteration-count: infinite, infinite;
 }
 
 /*
@@ -27,29 +36,35 @@
  */
 @media (prefers-reduced-motion: reduce) {
   .glitch {
-    animation-duration: 6.5s, 2s !important;
+    animation-duration: var(--glitch-interval) !important;
+    animation-iteration-count: infinite !important;
+  }
+
+  .glitch.blink {
+    animation-duration: 6.5s, var(--glitch-interval) !important;
     animation-iteration-count: infinite !important;
   }
 
   .glitch::before,
   .glitch::after {
-    animation-duration: 2s !important;
+    animation-duration: var(--glitch-interval) !important;
     animation-iteration-count: infinite !important;
   }
 }
 
 /*
- * Glitch burst — every 2s the text tears apart for a couple hundred ms: two
- * chromatic ghost layers (::before cyan, ::after magenta) slide out of
- * register while the whole text is sliced into horizontal bands that jump
- * left/right, so the letters look "broken" along scanlines before snapping
- * back. steps(1, end) keeps every jump an instantaneous cut, never a slide.
+ * Glitch burst — every --glitch-interval (default 5s) the text tears apart
+ * for a couple hundred ms: two chromatic ghost layers (::before cyan, ::after
+ * magenta) slide out of register while the whole text is sliced into
+ * horizontal bands that jump left/right, so the letters look "broken" along
+ * scanlines before snapping back. steps(1, end) keeps every jump an
+ * instantaneous cut, never a slide.
  *
  * The ghost layers are hidden (opacity 0) for the calm ~87% of the cycle and
- * only flash in during the burst window (87%–100% => the last ~0.26s of the
- * 2s loop), so the text reads clean between bursts and the glitch is a
- * periodic event, not a constant shimmer. 0%/100% rest aligned & hidden so
- * reduced-motion freezes on a clean text.
+ * only flash in during the burst window (87%–100% of the interval), so the
+ * text reads clean between bursts and the glitch is a periodic event, not a
+ * constant shimmer. 0%/100% rest aligned & hidden so reduced-motion freezes
+ * on a clean text.
  */
 .glitch::before,
 .glitch::after {
@@ -62,12 +77,12 @@
 
 .glitch::before {
   color: rgba(55, 235, 243, 0.9);
-  animation: glitchGhostBefore 2s steps(1, end) infinite;
+  animation: glitchGhostBefore var(--glitch-interval) steps(1, end) infinite;
 }
 
 .glitch::after {
   color: rgba(243, 55, 130, 0.9);
-  animation: glitchGhostAfter 2s steps(1, end) infinite;
+  animation: glitchGhostAfter var(--glitch-interval) steps(1, end) infinite;
 }
 
 /* Whole text gets sliced into shifting horizontal bands during the burst. */
