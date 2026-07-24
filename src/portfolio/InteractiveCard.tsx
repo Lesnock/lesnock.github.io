@@ -1,15 +1,20 @@
-import { useRef, type PointerEvent, type ReactNode } from 'react';
+import { useRef, useState, type KeyboardEvent, type PointerEvent, type ReactNode } from 'react';
 import { useReducedMotion } from '../hooks/useReducedMotion';
+import { Spinner } from './Spinner';
 import styles from './InteractiveCard.module.css';
+
+const ACTIVATION_DELAY_MS = 500;
 
 interface InteractiveCardProps {
   children: ReactNode;
   className?: string;
+  onActivate?: () => void;
 }
 
-export function InteractiveCard({ children, className }: InteractiveCardProps) {
+export function InteractiveCard({ children, className, onActivate }: InteractiveCardProps) {
   const cardRef = useRef<HTMLLIElement>(null);
   const prefersReducedMotion = useReducedMotion();
+  const [loading, setLoading] = useState(false);
 
   function handlePointerMove(event: PointerEvent<HTMLLIElement>) {
     if (prefersReducedMotion) return;
@@ -22,10 +27,42 @@ export function InteractiveCard({ children, className }: InteractiveCardProps) {
     card.style.setProperty('--my', `${(py * 100).toFixed(2)}%`);
   }
 
+  function activate() {
+    if (!onActivate || loading) return;
+    setLoading(true);
+    window.setTimeout(() => {
+      setLoading(false);
+      onActivate();
+    }, ACTIVATION_DELAY_MS);
+  }
+
+  function handleKeyDown(event: KeyboardEvent<HTMLLIElement>) {
+    if (!onActivate) return;
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    event.preventDefault();
+    activate();
+  }
+
+  const interactive = Boolean(onActivate);
+
   return (
-    <li ref={cardRef} className={[styles.card, className].filter(Boolean).join(' ')} onPointerMove={handlePointerMove}>
+    <li
+      ref={cardRef}
+      className={[styles.card, loading ? styles.loading : '', className].filter(Boolean).join(' ')}
+      onPointerMove={handlePointerMove}
+      onClick={interactive ? activate : undefined}
+      onKeyDown={interactive ? handleKeyDown : undefined}
+      tabIndex={interactive ? 0 : undefined}
+      role={interactive ? 'button' : undefined}
+      aria-busy={interactive ? loading : undefined}
+    >
       <div className={styles.cardGlow} aria-hidden="true" />
-      {children}
+      <div className={styles.cardContent}>{children}</div>
+      {loading && (
+        <div className={styles.cardLoading} aria-hidden="true">
+          <Spinner />
+        </div>
+      )}
     </li>
   );
 }

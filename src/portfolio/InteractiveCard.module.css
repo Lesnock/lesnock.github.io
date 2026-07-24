@@ -1,5 +1,8 @@
 .card {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 1 / 1;
   padding: 1.25rem 1.4rem;
   border: 1px solid rgba(209, 197, 192, 0.14);
   border-left: 2px solid rgba(26, 197, 176, 0.4);
@@ -14,6 +17,37 @@
   transform: translate(2px, -2px);
   border-color: rgba(55, 235, 243, 0.55);
   box-shadow: 0 0 24px rgba(55, 235, 243, 0.12);
+}
+
+.card[role='button'] {
+  cursor: pointer;
+}
+
+.card[role='button']:focus-visible {
+  outline: 1px solid rgba(55, 235, 243, 0.7);
+  outline-offset: 2px;
+}
+
+.card.loading {
+  cursor: progress;
+}
+
+.cardContent {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.card.loading .cardContent {
+  filter: blur(2px);
+}
+
+.cardLoading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cardGlow {

@@ -47,7 +47,7 @@
   letter-spacing: 0.03em;
   line-height: 1.2;
   color: var(--color-text);
-  text-shadow: var(--glow-crisp-cyan);
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.9), 0 0 8px rgba(55, 235, 243, 0.8), 0 0 20px rgba(55, 235, 243, 0.45);
 }
 
 .title {

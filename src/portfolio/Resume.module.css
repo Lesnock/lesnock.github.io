@@ -45,16 +45,18 @@
   font-size: clamp(1.1rem, 1.8vw, 1.2rem);
 }
 
-.timeline {
+.timeline,
+.projectList {
   list-style: none;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.5rem;
 }
 
-.projectList {
-  list-style: none;
+.modalPoints {
+  margin-top: 1rem;
+  padding-left: 1.1rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 0.45rem;
 }

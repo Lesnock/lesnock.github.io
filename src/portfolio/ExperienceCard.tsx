@@ -10,11 +10,12 @@ interface ExperienceEntry {
 
 interface ExperienceCardProps {
   entry: ExperienceEntry;
+  onSelect?: () => void;
 }
 
-export function ExperienceCard({ entry }: ExperienceCardProps) {
+export function ExperienceCard({ entry, onSelect }: ExperienceCardProps) {
   return (
-    <InteractiveCard>
+    <InteractiveCard onActivate={onSelect}>
       <div className={styles.entryHeader}>
         <h3 className={styles.entryRole}>{entry.role}</h3>
         <span className={styles.entryPeriod}>{entry.period}</span>
