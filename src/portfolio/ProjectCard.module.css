@@ -1,0 +1,23 @@
+.projectName {
+  position: relative;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.projectDescription {
+  position: relative;
+  margin-top: 0.4rem;
+  color: var(--color-text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  max-width: 60ch;
+}
+
+.projectStack {
+  position: relative;
+  margin-top: 0.6rem;
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.03em;
+}

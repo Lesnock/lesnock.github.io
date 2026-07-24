@@ -3,15 +3,15 @@ import { OPERATOR_NAME } from '../boot/constants';
 import styles from './Sidebar.module.css';
 
 const CONTACT_LINKS = [
-  { label: 'Email', href: 'mailto:caio@example.com', value: 'caio@example.com' },
   { label: 'GitHub', href: 'https://github.com/', value: 'github.com/caiolesnock' },
+  { label: 'Email', href: 'mailto:caio.lesnock@outlook.com', value: 'caio.lesnock@outlook.com' },
   { label: 'LinkedIn', href: 'https://linkedin.com/', value: 'linkedin.com/in/caiolesnock' },
 ];
 
 const SKILLS = [
-  { group: 'Languages', items: ['TypeScript', 'Python', 'Go', 'SQL'] },
-  { group: 'Frontend', items: ['React', 'Vite', 'CSS'] },
-  { group: 'Backend', items: ['Node.js', 'PostgreSQL', 'Docker'] },
+  { group: 'Languages', items: ['TypeScript', 'PHP', 'JavaScript', 'SQL'] },
+  { group: 'Frontend', items: ['React', 'Vue', 'Vite', 'CSS'] },
+  { group: 'Backend', items: ['Node.js', 'Laravel', 'Docker'] },
 ];
 
 export function Sidebar() {
@@ -23,7 +23,7 @@ export function Sidebar() {
           Online
         </p>
         <GlitchText as="h1" text={OPERATOR_NAME} className={styles.name} />
-        <p className={styles.title}>Full-Stack Engineer</p>
+        <p className={styles.title}>Senior Software Engineer</p>
       </div>
 
       <section className={styles.block} aria-label="Contact">

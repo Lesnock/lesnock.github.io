@@ -1,0 +1,38 @@
+.entryHeader {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1rem;
+}
+
+.entryRole {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.entryPeriod {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.04em;
+}
+
+.entryOrg {
+  position: relative;
+  font-size: 1rem;
+  color: var(--color-primary);
+  margin-top: 0.2rem;
+}
+
+.entryPoints {
+  position: relative;
+  margin-top: 0.6rem;
+  padding-left: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  color: var(--color-text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}

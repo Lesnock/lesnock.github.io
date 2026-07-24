@@ -1,0 +1,46 @@
+.card {
+  position: relative;
+  padding: 1.25rem 1.4rem;
+  border: 1px solid rgba(209, 197, 192, 0.14);
+  border-left: 2px solid rgba(26, 197, 176, 0.4);
+  background: linear-gradient(180deg, rgba(55, 235, 243, 0.04), transparent 60%);
+  clip-path: polygon(12px 0, 100% 0, 100% 100%, 0 100%, 0 12px);
+  transition: transform 0.2s ease-out, border-color 0.25s ease-out, box-shadow 0.25s ease-out;
+  overflow: hidden;
+}
+
+.card:hover,
+.card:focus-within {
+  transform: translate(2px, -2px);
+  border-color: rgba(55, 235, 243, 0.55);
+  box-shadow: 0 0 24px rgba(55, 235, 243, 0.12);
+}
+
+.cardGlow {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.25s ease-out;
+  background: radial-gradient(
+    220px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(55, 235, 243, 0.14),
+    transparent 70%
+  );
+}
+
+.card:hover .cardGlow,
+.card:focus-within .cardGlow {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: border-color 0.25s ease-out, box-shadow 0.25s ease-out;
+  }
+}
+
+@media (hover: none) {
+  .cardGlow {
+    display: none;
+  }
+}

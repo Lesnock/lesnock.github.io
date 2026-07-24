@@ -1,4 +1,19 @@
+import { ExperienceCard } from './ExperienceCard';
+import { ProjectCard } from './ProjectCard';
 import styles from './Resume.module.css';
+
+const PROJECTS = [
+  {
+    name: 'Placeholder Project One',
+    description: 'Placeholder one-line description of what this project does and why it matters.',
+    stack: 'TypeScript · React · Node',
+  },
+  {
+    name: 'Placeholder Project Two',
+    description: 'Placeholder one-line description of what this project does and why it matters.',
+    stack: 'Python · PostgreSQL',
+  },
+];
 
 const EXPERIENCE = [
   {
@@ -27,19 +42,6 @@ const EXPERIENCE = [
   },
 ];
 
-const PROJECTS = [
-  {
-    name: 'Placeholder Project One',
-    description: 'Placeholder one-line description of what this project does and why it matters.',
-    stack: 'TypeScript · React · Node',
-  },
-  {
-    name: 'Placeholder Project Two',
-    description: 'Placeholder one-line description of what this project does and why it matters.',
-    stack: 'Python · PostgreSQL',
-  },
-];
-
 export function Resume() {
   return (
     <main className={styles.main}>
@@ -51,37 +53,22 @@ export function Resume() {
         </p>
       </section>
 
-      <section className={styles.block} aria-label="Experience">
-        <h2 className={styles.blockLabel}>Experience</h2>
-        <ol className={styles.timeline}>
-          {EXPERIENCE.map((entry) => (
-            <li key={`${entry.role}-${entry.period}`} className={styles.entry}>
-              <div className={styles.entryHeader}>
-                <h3 className={styles.entryRole}>{entry.role}</h3>
-                <span className={styles.entryPeriod}>{entry.period}</span>
-              </div>
-              <p className={styles.entryOrg}>{entry.org}</p>
-              <ul className={styles.entryPoints}>
-                {entry.points.map((point) => (
-                  <li key={point}>{point}</li>
-                ))}
-              </ul>
-            </li>
-          ))}
-        </ol>
-      </section>
-
       <section className={styles.block} aria-label="Projects">
         <h2 className={styles.blockLabel}>Projects</h2>
         <ul className={styles.projectList}>
           {PROJECTS.map((project) => (
-            <li key={project.name} className={styles.project}>
-              <h3 className={styles.projectName}>{project.name}</h3>
-              <p className={styles.projectDescription}>{project.description}</p>
-              <p className={styles.projectStack}>{project.stack}</p>
-            </li>
+            <ProjectCard key={project.name} project={project} />
           ))}
         </ul>
+      </section>
+
+      <section className={styles.block} aria-label="Experience">
+        <h2 className={styles.blockLabel}>Experience</h2>
+        <ol className={styles.timeline}>
+          {EXPERIENCE.map((entry) => (
+            <ExperienceCard key={`${entry.role}-${entry.period}`} entry={entry} />
+          ))}
+        </ol>
       </section>
     </main>
   );
