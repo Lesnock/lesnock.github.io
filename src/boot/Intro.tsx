@@ -1,4 +1,3 @@
-import { OPERATOR_NAME } from './constants';
 import { LoadingBar } from './LoadingBar';
 import { BootMessages } from './BootMessages';
 import { ReadyScreen } from './ReadyScreen';
@@ -28,10 +27,6 @@ export function Intro({ state, progress, currentMessage, timings, handlers }: In
 
   return (
     <div className={styles.root}>
-      {(state === 'Initializing' || state === 'SystemReady') && (
-        <p className={styles.name}>{OPERATOR_NAME}</p>
-      )}
-
       {state === 'Initializing' && (
         <div className={styles.panel}>
           <p className={styles.label}>Initializing...</p>
