@@ -8,17 +8,15 @@ export const BOOT_TIMINGS = {
   loadingMinDurationMs: 2200,
   loadingMaxDurationMs: 3600,
   loadingCompleteHoldMs: 450,
-  poweringOnDurationMs: 1100,
+  poweringOnDurationMs: 350,
   /**
-   * The flicker phases are deliberately long: each is a *burst* of strobes
-   * that PLATEAU at full brightness for 160-320ms before dropping back, not
-   * instantaneous spikes. The hold is what makes the flash legible — below
-   * ~150ms the eye registers "something flashed" but cannot resolve the
-   * interface underneath. The lighting phase is the slow warm-up after.
+   * Trimmed to a quick, subtle power-on: two short flicker beats followed
+   * by a brief warm-up, totaling ~2s end to end rather than a long strobe
+   * sequence.
    */
-  flicker1DurationMs: 1400,
-  flicker2DurationMs: 1800,
-  lightingDurationMs: 3600,
+  flicker1DurationMs: 350,
+  flicker2DurationMs: 450,
+  lightingDurationMs: 850,
   onlineBannerDurationMs: 1600,
 } as const;
 
