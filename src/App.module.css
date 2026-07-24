@@ -1,0 +1,816 @@
+.root {
+  position: relative;
+  min-height: 100vh;
+}
+
+/*
+ * Single continuous drive for the whole power-on sequence (flicker 1,
+ * flicker 2, stabilization) — everything downstream (Overlay, sections,
+ * background fx) reads --power reactively via calc(), so nothing here ever
+ * "resets" to black between phases the way separately-mounted per-phase
+ * animations used to.
+ *
+ * Modelled on a Cyberpunk-2077-style neon tube igniting, specifically on
+ * the BALLAST BUZZ: a lit stretch is never a flat hold. The arc strikes
+ * and half-loses itself dozens of times a second, so every "on" plateau is
+ * a rapid irregular tremble between the lit level and a partial dropout,
+ * with occasional deeper stumbles. A flat hold reads as a dimmer switch;
+ * the tremble is what reads as an electric light fighting to stay lit.
+ *
+ * Three things make it read as light rather than as a fade:
+ *
+ *   1. Strobe PEAKS go bright enough to fully reveal the page (0.55, then
+ *      0.85/0.95), while the RESTING level between bursts is what climbs
+ *      step by step (0 -> ~0.09 -> ~0.29 -> 1).
+ *   2. Each peak HOLDS 120-380ms. Below ~150ms the eye registers that
+ *      something flashed but cannot resolve the interface underneath.
+ *   3. The buzz DECAYS through the warm-up. The climb still sputters, with
+ *      the sputter thinning to nothing by ~78% of the phase — the tremor
+ *      dying out is what "stabilizing" looks like.
+ *
+ * Values are generated from a seeded buzz model (seed 20770723), not hand
+ * authored: on-segments 13-30ms, off-segments 8-20ms dipping to 50-82% of
+ * level (18% chance of a 12-32% deep stumble). Percentages are ms/6800
+ * against the flicker1+flicker2+lighting total in boot/constants.ts
+ * (1400 + 1800 + 3600); phase boundaries land at 20.59% and 47.06%.
+ */
+.powering {
+  animation: powerOn var(--power-duration) linear forwards;
+}
+
+/*
+ * Reduced motion must REMOVE the strobing, not merely shorten it: the buzz
+ * swings full-viewport luminance far past the three-flashes-per-second
+ * guidance (WCAG 2.3.1), and REDUCED_MOTION_SCALE in boot/constants.ts only
+ * shrinks durations — on its own that would pack the same flashes into a
+ * third of the time.
+ *
+ * In practice the global reset in index.css (animation-duration: 0.01ms
+ * under this same query) already lands every animation on its end state
+ * immediately, so no flicker reaches these users today. This override is
+ * deliberate belt-and-braces: it states the safe end state locally, so the
+ * sequence stays non-flashing even if that global reset is ever narrowed.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .powering {
+    animation: powerOnSteady var(--power-duration) ease-out forwards;
+  }
+}
+
+@keyframes powerOnSteady {
+  0% {
+    --power: 0;
+    --surge: 0;
+  }
+  100% {
+    --power: 1;
+    --surge: 0;
+  }
+}
+
+@keyframes powerOn {
+  0% {
+    --power: 0;
+    --surge: 0;
+  }
+  2.941% {
+    --power: 0;
+    --surge: 0;
+  }
+  2.942% {
+    --power: 0.542;
+    --surge: 0.45;
+  }
+  3.162% {
+    --power: 0.276;
+    --surge: 0.113;
+  }
+  3.294% {
+    --power: 0.535;
+    --surge: 0.425;
+  }
+  3.5% {
+    --power: 0.308;
+    --surge: 0.119;
+  }
+  3.735% {
+    --power: 0.514;
+    --surge: 0.394;
+  }
+  4.044% {
+    --power: 0.414;
+    --surge: 0.148;
+  }
+  4.279% {
+    --power: 0.534;
+    --surge: 0.355;
+  }
+  4.632% {
+    --power: 0.373;
+    --surge: 0.12;
+  }
+  4.912% {
+    --power: 0.518;
+    --surge: 0.31;
+  }
+  5.147% {
+    --power: 0.083;
+    --surge: 0.023;
+  }
+  5.265% {
+    --power: 0.526;
+    --surge: 0.285;
+  }
+  5.588% {
+    --power: 0.31;
+    --surge: 0.08;
+  }
+  5.882% {
+    --power: 0.549;
+    --surge: 0.241;
+  }
+  6.132% {
+    --power: 0.302;
+    --surge: 0.066;
+  }
+  6.279% {
+    --power: 0.54;
+    --surge: 0.213;
+  }
+  6.706% {
+    --power: 0.103;
+    --surge: 0.02;
+  }
+  6.971% {
+    --power: 0.522;
+    --surge: 0.164;
+  }
+  7.059% {
+    --power: 0.522;
+    --surge: 0.158;
+  }
+  7.353% {
+    --power: 0.06;
+    --surge: 0.05;
+  }
+  7.941% {
+    --power: 0.04;
+    --surge: 0;
+  }
+  8.529% {
+    --power: 0.027;
+    --surge: 0;
+  }
+  9.735% {
+    --power: 0.034;
+    --surge: 0;
+  }
+  10.294% {
+    --power: 0.04;
+    --surge: 0;
+  }
+  10.295% {
+    --power: 0.434;
+    --surge: 0.35;
+  }
+  10.603% {
+    --power: 0.283;
+    --surge: 0.11;
+  }
+  10.838% {
+    --power: 0.437;
+    --surge: 0.312;
+  }
+  11.147% {
+    --power: 0.066;
+    --surge: 0.023;
+  }
+  11.368% {
+    --power: 0.42;
+    --surge: 0.275;
+  }
+  11.603% {
+    --power: 0.268;
+    --surge: 0.082;
+  }
+  11.882% {
+    --power: 0.442;
+    --surge: 0.238;
+  }
+  12.162% {
+    --power: 0.32;
+    --surge: 0.085;
+  }
+  12.412% {
+    --power: 0.446;
+    --surge: 0.201;
+  }
+  12.632% {
+    --power: 0.293;
+    --surge: 0.066;
+  }
+  12.824% {
+    --power: 0.425;
+    --surge: 0.172;
+  }
+  13.191% {
+    --power: 0.307;
+    --surge: 0.059;
+  }
+  13.485% {
+    --power: 0.428;
+    --surge: 0.126;
+  }
+  13.529% {
+    --power: 0.427;
+    --surge: 0.122;
+  }
+  13.897% {
+    --power: 0.05;
+    --surge: 0.03;
+  }
+  14.706% {
+    --power: 0.1;
+    --surge: 0;
+  }
+  16.176% {
+    --power: 0.1;
+    --surge: 0;
+  }
+  16.177% {
+    --power: 0.09;
+    --surge: 0;
+  }
+  16.765% {
+    --power: 0.089;
+    --surge: 0;
+  }
+  17.662% {
+    --power: 0.082;
+    --surge: 0;
+  }
+  18.529% {
+    --power: 0.08;
+    --surge: 0;
+  }
+  19.588% {
+    --power: 0.078;
+    --surge: 0;
+  }
+  20.588% {
+    --power: 0.09;
+    --surge: 0;
+  }
+  20.589% {
+    --power: 0.09;
+    --surge: 0;
+  }
+  21.176% {
+    --power: 0.086;
+    --surge: 0;
+  }
+  22.059% {
+    --power: 0.09;
+    --surge: 0;
+  }
+  22.06% {
+    --power: 0.799;
+    --surge: 0.7;
+  }
+  22.412% {
+    --power: 0.63;
+    --surge: 0.259;
+  }
+  22.691% {
+    --power: 0.798;
+    --surge: 0.649;
+  }
+  23.118% {
+    --power: 0.458;
+    --surge: 0.175;
+  }
+  23.412% {
+    --power: 0.82;
+    --surge: 0.59;
+  }
+  23.647% {
+    --power: 0.602;
+    --surge: 0.209;
+  }
+  23.941% {
+    --power: 0.835;
+    --surge: 0.547;
+  }
+  24.162% {
+    --power: 0.446;
+    --surge: 0.143;
+  }
+  24.294% {
+    --power: 0.817;
+    --surge: 0.518;
+  }
+  24.559% {
+    --power: 0.689;
+    --surge: 0.21;
+  }
+  24.706% {
+    --power: 0.812;
+    --surge: 0.484;
+  }
+  25.074% {
+    --power: 0.476;
+    --surge: 0.136;
+  }
+  25.206% {
+    --power: 0.803;
+    --surge: 0.444;
+  }
+  25.515% {
+    --power: 0.546;
+    --surge: 0.143;
+  }
+  25.676% {
+    --power: 0.815;
+    --surge: 0.405;
+  }
+  25.926% {
+    --power: 0.246;
+    --surge: 0.059;
+  }
+  26.118% {
+    --power: 0.848;
+    --surge: 0.37;
+  }
+  26.324% {
+    --power: 0.626;
+    --surge: 0.136;
+  }
+  26.441% {
+    --power: 0.821;
+    --surge: 0.343;
+  }
+  26.824% {
+    --power: 0.655;
+    --surge: 0.132;
+  }
+  27.059% {
+    --power: 0.819;
+    --surge: 0.293;
+  }
+  27.485% {
+    --power: 0.436;
+    --surge: 0.075;
+  }
+  27.647% {
+    --power: 0.807;
+    --surge: 0.245;
+  }
+  28.162% {
+    --power: 0.18;
+    --surge: 0.08;
+  }
+  28.676% {
+    --power: 0.14;
+    --surge: 0;
+  }
+  29.265% {
+    --power: 0.121;
+    --surge: 0;
+  }
+  30.588% {
+    --power: 0.14;
+    --surge: 0;
+  }
+  30.589% {
+    --power: 0.926;
+    --surge: 0.75;
+  }
+  30.809% {
+    --power: 0.63;
+    --surge: 0.249;
+  }
+  31.088% {
+    --power: 0.925;
+    --surge: 0.701;
+  }
+  31.5% {
+    --power: 0.693;
+    --surge: 0.256;
+  }
+  31.779% {
+    --power: 0.886;
+    --surge: 0.634;
+  }
+  32% {
+    --power: 0.529;
+    --surge: 0.177;
+  }
+  32.279% {
+    --power: 0.906;
+    --surge: 0.585;
+  }
+  32.559% {
+    --power: 0.547;
+    --surge: 0.169;
+  }
+  32.824% {
+    --power: 0.908;
+    --surge: 0.532;
+  }
+  33.074% {
+    --power: 0.744;
+    --surge: 0.208;
+  }
+  33.353% {
+    --power: 0.9;
+    --surge: 0.48;
+  }
+  33.632% {
+    --power: 0.676;
+    --surge: 0.171;
+  }
+  33.794% {
+    --power: 0.903;
+    --surge: 0.437;
+  }
+  34.103% {
+    --power: 0.683;
+    --surge: 0.157;
+  }
+  34.338% {
+    --power: 0.887;
+    --surge: 0.384;
+  }
+  34.618% {
+    --power: 0.643;
+    --surge: 0.13;
+  }
+  34.853% {
+    --power: 0.92;
+    --surge: 0.334;
+  }
+  35.221% {
+    --power: 0.706;
+    --surge: 0.124;
+  }
+  35.353% {
+    --power: 0.928;
+    --surge: 0.285;
+  }
+  35.544% {
+    --power: 0.771;
+    --surge: 0.116;
+  }
+  35.588% {
+    --power: 0.902;
+    --surge: 0.262;
+  }
+  36.103% {
+    --power: 0.22;
+    --surge: 0.1;
+  }
+  36.618% {
+    --power: 0.684;
+    --surge: 0.4;
+  }
+  36.853% {
+    --power: 0.161;
+    --surge: 0.046;
+  }
+  37.059% {
+    --power: 0.686;
+    --surge: 0.366;
+  }
+  37.485% {
+    --power: 0.494;
+    --surge: 0.129;
+  }
+  37.691% {
+    --power: 0.692;
+    --surge: 0.317;
+  }
+  38.103% {
+    --power: 0.425;
+    --surge: 0.096;
+  }
+  38.353% {
+    --power: 0.698;
+    --surge: 0.267;
+  }
+  38.647% {
+    --power: 0.412;
+    --surge: 0.079;
+  }
+  38.912% {
+    --power: 0.689;
+    --surge: 0.224;
+  }
+  39.191% {
+    --power: 0.447;
+    --surge: 0.071;
+  }
+  39.456% {
+    --power: 0.665;
+    --surge: 0.182;
+  }
+  39.75% {
+    --power: 0.502;
+    --surge: 0.065;
+  }
+  39.941% {
+    --power: 0.684;
+    --surge: 0.145;
+  }
+  40% {
+    --power: 0.665;
+    --surge: 0.14;
+  }
+  40.515% {
+    --power: 0.26;
+    --surge: 0.05;
+  }
+  41.029% {
+    --power: 0.3;
+    --surge: 0;
+  }
+  43.382% {
+    --power: 0.3;
+    --surge: 0;
+  }
+  43.383% {
+    --power: 0.29;
+    --surge: 0;
+  }
+  43.971% {
+    --power: 0.261;
+    --surge: 0;
+  }
+  45.132% {
+    --power: 0.268;
+    --surge: 0;
+  }
+  46.132% {
+    --power: 0.275;
+    --surge: 0;
+  }
+  47.059% {
+    --power: 0.29;
+    --surge: 0;
+  }
+  47.06% {
+    --power: 0.3;
+    --surge: 0;
+  }
+  48.294% {
+    --power: 0.211;
+    --surge: 0;
+  }
+  48.691% {
+    --power: 0.322;
+    --surge: 0;
+  }
+  49.897% {
+    --power: 0.228;
+    --surge: 0;
+  }
+  50.397% {
+    --power: 0.344;
+    --surge: 0;
+  }
+  51.529% {
+    --power: 0.29;
+    --surge: 0;
+  }
+  51.971% {
+    --power: 0.365;
+    --surge: 0;
+  }
+  53.353% {
+    --power: 0.287;
+    --surge: 0;
+  }
+  53.838% {
+    --power: 0.39;
+    --surge: 0;
+  }
+  54.853% {
+    --power: 0.224;
+    --surge: 0.203;
+  }
+  55.162% {
+    --power: 0.407;
+    --surge: 0;
+  }
+  56.529% {
+    --power: 0.316;
+    --surge: 0;
+  }
+  57.029% {
+    --power: 0.432;
+    --surge: 0;
+  }
+  58.574% {
+    --power: 0.272;
+    --surge: 0.174;
+  }
+  58.897% {
+    --power: 0.457;
+    --surge: 0;
+  }
+  60.235% {
+    --power: 0.393;
+    --surge: 0;
+  }
+  60.662% {
+    --power: 0.48;
+    --surge: 0;
+  }
+  61.956% {
+    --power: 0.417;
+    --surge: 0;
+  }
+  62.235% {
+    --power: 0.501;
+    --surge: 0;
+  }
+  63.441% {
+    --power: 0.33;
+    --surge: 0.13;
+  }
+  63.691% {
+    --power: 0.52;
+    --surge: 0;
+  }
+  64.926% {
+    --power: 0.388;
+    --surge: 0.118;
+  }
+  65.221% {
+    --power: 0.54;
+    --surge: 0;
+  }
+  66.221% {
+    --power: 0.499;
+    --surge: 0;
+  }
+  66.426% {
+    --power: 0.556;
+    --surge: 0;
+  }
+  67.765% {
+    --power: 0.523;
+    --surge: 0;
+  }
+  68.162% {
+    --power: 0.579;
+    --surge: 0;
+  }
+  69.706% {
+    --power: 0.548;
+    --surge: 0;
+  }
+  70.147% {
+    --power: 0.605;
+    --surge: 0;
+  }
+  70.985% {
+    --power: 0.565;
+    --surge: 0;
+  }
+  71.309% {
+    --power: 0.621;
+    --surge: 0;
+  }
+  72.118% {
+    --power: 0.594;
+    --surge: 0;
+  }
+  72.338% {
+    --power: 0.634;
+    --surge: 0;
+  }
+  73.529% {
+    --power: 0.608;
+    --surge: 0;
+  }
+  73.912% {
+    --power: 0.655;
+    --surge: 0;
+  }
+  75.441% {
+    --power: 0.616;
+    --surge: 0;
+  }
+  75.824% {
+    --power: 0.68;
+    --surge: 0;
+  }
+  76.735% {
+    --power: 0.62;
+    --surge: 0.04;
+  }
+  77.206% {
+    --power: 0.699;
+    --surge: 0;
+  }
+  78.412% {
+    --power: 0.684;
+    --surge: 0;
+  }
+  78.721% {
+    --power: 0.719;
+    --surge: 0;
+  }
+  80.103% {
+    --power: 0.68;
+    --surge: 0.026;
+  }
+  80.5% {
+    --power: 0.742;
+    --surge: 0;
+  }
+  81.309% {
+    --power: 0.71;
+    --surge: 0.019;
+  }
+  81.691% {
+    --power: 0.758;
+    --surge: 0;
+  }
+  82.779% {
+    --power: 0.745;
+    --surge: 0;
+  }
+  83.074% {
+    --power: 0.776;
+    --surge: 0;
+  }
+  84.603% {
+    --power: 0.769;
+    --surge: 0;
+  }
+  85.015% {
+    --power: 0.802;
+    --surge: 0;
+  }
+  86.368% {
+    --power: 0.8;
+    --surge: 0;
+  }
+  86.853% {
+    --power: 0.826;
+    --surge: 0;
+  }
+  87.941% {
+    --power: 0.841;
+    --surge: 0;
+  }
+  89.515% {
+    --power: 0.861;
+    --surge: 0;
+  }
+  90.75% {
+    --power: 0.878;
+    --surge: 0;
+  }
+  91.632% {
+    --power: 0.889;
+    --surge: 0;
+  }
+  92.559% {
+    --power: 0.902;
+    --surge: 0;
+  }
+  93.706% {
+    --power: 0.917;
+    --surge: 0;
+  }
+  94.779% {
+    --power: 0.931;
+    --surge: 0;
+  }
+  95.75% {
+    --power: 0.944;
+    --surge: 0;
+  }
+  96.809% {
+    --power: 0.958;
+    --surge: 0;
+  }
+  97.618% {
+    --power: 0.968;
+    --surge: 0;
+  }
+  98.912% {
+    --power: 0.986;
+    --surge: 0;
+  }
+  100% {
+    --power: 1;
+    --surge: 0;
+  }
+  100.001% {
+    --power: 1;
+    --surge: 0;
+  }
+}

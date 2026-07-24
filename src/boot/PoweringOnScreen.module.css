@@ -1,0 +1,42 @@
+.root {
+  font-family: var(--font-mono);
+  font-size: clamp(0.95rem, 2.6vw, 1.25rem);
+  letter-spacing: 0.1em;
+  color: var(--color-primary);
+  text-shadow: var(--glow-primary);
+  text-transform: uppercase;
+  animation: unstablePower var(--duration) ease-in-out forwards;
+}
+
+@keyframes unstablePower {
+  0% {
+    opacity: 0.3;
+    filter: brightness(0.7);
+  }
+  20% {
+    opacity: 1;
+    filter: brightness(1.2);
+  }
+  35% {
+    opacity: 0.5;
+    filter: brightness(0.8);
+  }
+  55% {
+    opacity: 1;
+    filter: brightness(1.1);
+  }
+  75% {
+    opacity: 0.7;
+    filter: brightness(0.9);
+  }
+  100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root {
+    animation-duration: calc(var(--duration) * 0.6);
+  }
+}

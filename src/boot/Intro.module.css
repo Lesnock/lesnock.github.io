@@ -1,0 +1,41 @@
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1.5rem;
+  text-align: center;
+  pointer-events: none;
+}
+
+.root :global(button) {
+  pointer-events: auto;
+}
+
+.name {
+  font-family: var(--font-mono);
+  font-size: clamp(1.5rem, 5vw, 2.75rem);
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: var(--color-text);
+  text-shadow: var(--glow-primary);
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  width: min(90vw, 420px);
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: clamp(0.8rem, 2.2vw, 0.95rem);
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}

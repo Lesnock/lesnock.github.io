@@ -1,0 +1,33 @@
+.root {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  bottom: -5%;
+  border-radius: 50%;
+  background: var(--particle-color, var(--color-secondary));
+  box-shadow: 0 0 4px 1px var(--particle-color, var(--color-secondary));
+  animation: drift var(--drift-duration) linear var(--drift-delay) infinite;
+  will-change: transform;
+}
+
+@keyframes drift {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-55vh) translateX(6px);
+  }
+  100% {
+    transform: translateY(-110vh) translateX(-6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .particle {
+    animation: none;
+  }
+}

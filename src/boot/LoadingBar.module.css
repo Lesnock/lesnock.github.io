@@ -1,0 +1,29 @@
+.root {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  font-family: var(--font-mono);
+}
+
+.glyphs {
+  font-size: clamp(0.85rem, 2.4vw, 1.25rem);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.filled {
+  color: var(--color-primary);
+  text-shadow: var(--glow-primary);
+}
+
+.empty {
+  color: var(--color-text-muted);
+  opacity: 0.25;
+}
+
+.percentage {
+  min-width: 3.5ch;
+  font-size: clamp(0.75rem, 2vw, 0.95rem);
+  color: var(--color-text-secondary);
+}

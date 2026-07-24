@@ -1,0 +1,47 @@
+/*
+ * Drives the power-on sequence: 0 = unpowered/black, 1 = fully lit.
+ * Registered as a typed number so the browser can smoothly interpolate it
+ * across the boot animation instead of jump-cutting between keyframes.
+ * Defaults to 1 (full power) so anything reading it outside the boot
+ * sequence renders at normal brightness.
+ */
+@property --power {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 1;
+}
+
+/*
+ * Intensity of the neon "bloom in the air" wash, spiking on each strobe
+ * peak and settling to 0. Separate from --power so a flash can throw light
+ * into the room without permanently raising the interface's power level.
+ */
+@property --surge {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+
+:root {
+  --color-bg: #272932;
+  --color-surface: #d1c5c0;
+
+  --color-primary: #1ac5b0;
+  --color-secondary: #37ebf3;
+  --color-success: #1ac5b0;
+  --color-warning: #fdf500;
+  --color-danger: #710000;
+
+  --color-accent-purple: #9370db;
+  --color-accent-pink: #e455ae;
+  --color-accent-magenta: #cb1dcd;
+
+  --color-text: #ffffff;
+  --color-text-secondary: #d1c5c0;
+  --color-text-muted: #a5a5a5;
+
+  --glow-primary: 0 0 8px rgba(26, 197, 176, 0.55), 0 0 20px rgba(26, 197, 176, 0.25);
+  --glow-secondary: 0 0 8px rgba(55, 235, 243, 0.55), 0 0 20px rgba(55, 235, 243, 0.25);
+
+  --font-mono: ui-monospace, 'SFMono-Regular', 'Cascadia Code', Menlo, Consolas, monospace;
+}

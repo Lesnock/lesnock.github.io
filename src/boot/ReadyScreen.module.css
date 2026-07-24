@@ -1,0 +1,61 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.status {
+  font-family: var(--font-mono);
+  font-size: clamp(0.9rem, 2.4vw, 1.1rem);
+  letter-spacing: 0.12em;
+  color: var(--color-secondary);
+  text-shadow: var(--glow-secondary);
+  text-transform: uppercase;
+}
+
+.button {
+  font-family: var(--font-mono);
+  font-size: clamp(0.9rem, 2.2vw, 1.05rem);
+  letter-spacing: 0.08em;
+  color: var(--color-primary);
+  background: transparent;
+  border: 1px solid rgba(26, 197, 176, 0.4);
+  padding: 0.85em 1.75em;
+  cursor: pointer;
+  text-shadow: var(--glow-primary);
+  box-shadow: 0 0 12px rgba(26, 197, 176, 0.15);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.15s ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  border-color: rgba(55, 235, 243, 0.9);
+  box-shadow: 0 0 22px rgba(55, 235, 243, 0.35), 0 0 6px rgba(55, 235, 243, 0.6) inset;
+  outline: none;
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root {
+    animation: none;
+  }
+  .button {
+    transition: none;
+  }
+}
