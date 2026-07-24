@@ -34,11 +34,24 @@
 
 .cardContent {
   position: relative;
+  flex: 1;
   min-height: 0;
   overflow: hidden;
 }
 
 .card.loading .cardContent {
+  filter: blur(2px);
+}
+
+.cardFooter {
+  position: relative;
+  margin: 0.9rem -1.4rem -1.25rem;
+  padding: 0.6rem 1.4rem;
+  border-top: 1px solid rgba(209, 197, 192, 0.14);
+  background: linear-gradient(0deg, rgba(55, 235, 243, 0.05), transparent 100%);
+}
+
+.card.loading .cardFooter {
   filter: blur(2px);
 }
 

@@ -7,11 +7,12 @@ const ACTIVATION_DELAY_MS = 500;
 
 interface InteractiveCardProps {
   children: ReactNode;
+  footer?: ReactNode;
   className?: string;
   onActivate?: () => void;
 }
 
-export function InteractiveCard({ children, className, onActivate }: InteractiveCardProps) {
+export function InteractiveCard({ children, footer, className, onActivate }: InteractiveCardProps) {
   const cardRef = useRef<HTMLLIElement>(null);
   const prefersReducedMotion = useReducedMotion();
   const [loading, setLoading] = useState(false);
@@ -58,6 +59,7 @@ export function InteractiveCard({ children, className, onActivate }: Interactive
     >
       <div className={styles.cardGlow} aria-hidden="true" />
       <div className={styles.cardContent}>{children}</div>
+      {footer && <div className={styles.cardFooter}>{footer}</div>}
       {loading && (
         <div className={styles.cardLoading} aria-hidden="true">
           <Spinner />

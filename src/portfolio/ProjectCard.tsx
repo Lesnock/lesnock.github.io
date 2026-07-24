@@ -13,11 +13,23 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, onSelect }: ProjectCardProps) {
+  const techs = project.stack.split('·').map((tech) => tech.trim()).filter(Boolean);
+
   return (
-    <InteractiveCard onActivate={onSelect}>
+    <InteractiveCard
+      onActivate={onSelect}
+      footer={
+        <ul className={styles.techList}>
+          {techs.map((tech) => (
+            <li key={tech} className={styles.techTag}>
+              {tech}
+            </li>
+          ))}
+        </ul>
+      }
+    >
       <h3 className={styles.projectName}>{project.name}</h3>
       <p className={styles.projectDescription}>{project.description}</p>
-      <p className={styles.projectStack}>{project.stack}</p>
     </InteractiveCard>
   );
 }
