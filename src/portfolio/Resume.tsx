@@ -81,9 +81,15 @@ export function Resume() {
     <main className={styles.main}>
       <section className={styles.block} aria-label="Summary">
         <h2 className={styles.blockLabel}>Summary</h2>
-        <p className={styles.summary}>
-          Hi! I'm Caio, a Software Engineer with over 10 years of experience building scalable web applications. Feel free to explore some of my work below.
-        </p>
+        <div className={styles.summaryRow}>
+          <img src="/profile.jpg" alt="Caio Lesnock" className={styles.avatar} />
+          <p className={styles.summary}>
+            Hi!👋 <br />
+            I'm Caio Lesnock, a Software Engineer with {' '}
+            <span className={styles.summaryHighlight}>10+ years</span> of experience building
+            scalable web applications. Feel free to explore some of my work below.
+          </p>
+        </div>
       </section>
 
       <section className={styles.block} aria-label="Projects">
