@@ -1,0 +1,270 @@
+/*
+ * Fluorescent tube that never fully settles: it stays lit but keeps buzzing
+ * and stumbling forever, independent of the boot --power ramp, so it keeps
+ * flickering long after the intro finishes.
+ *
+ * Snapped with steps(1, end) so every keyframe is an instantaneous cut, not
+ * a fade — that hard on/off is what reads as an arc restriking rather than
+ * a dimmer. Both 0% and 100% rest at full brightness so reduced-motion
+ * users (index.css collapses the duration) freeze on a clean, lit text.
+ */
+.glitch {
+  /* position: relative anchors the absolutely-positioned ghost layers below. */
+  position: relative;
+  display: inline-block;
+  animation: fluorescentBuzz 6.5s steps(1, end) infinite,
+    glitchSlice 2s steps(1, end) infinite;
+  will-change: opacity, text-shadow, clip-path, transform;
+}
+
+/*
+ * The buzz + glitch are intentional signature motion. index.css globally
+ * zeroes animation-duration/iteration-count on *, *::before, *::after under
+ * prefers-reduced-motion: reduce; re-assert them here so the text keeps
+ * animating. Higher specificity (.glitch) plus !important overrides that
+ * universal-selector reset. Remove this block to respect reduced-motion
+ * and let the text rest static for those visitors.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .glitch {
+    animation-duration: 6.5s, 2s !important;
+    animation-iteration-count: infinite !important;
+  }
+
+  .glitch::before,
+  .glitch::after {
+    animation-duration: 2s !important;
+    animation-iteration-count: infinite !important;
+  }
+}
+
+/*
+ * Glitch burst — every 2s the text tears apart for a couple hundred ms: two
+ * chromatic ghost layers (::before cyan, ::after magenta) slide out of
+ * register while the whole text is sliced into horizontal bands that jump
+ * left/right, so the letters look "broken" along scanlines before snapping
+ * back. steps(1, end) keeps every jump an instantaneous cut, never a slide.
+ *
+ * The ghost layers are hidden (opacity 0) for the calm ~87% of the cycle and
+ * only flash in during the burst window (87%–100% => the last ~0.26s of the
+ * 2s loop), so the text reads clean between bursts and the glitch is a
+ * periodic event, not a constant shimmer. 0%/100% rest aligned & hidden so
+ * reduced-motion freezes on a clean text.
+ */
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.glitch::before {
+  color: rgba(55, 235, 243, 0.9);
+  animation: glitchGhostBefore 2s steps(1, end) infinite;
+}
+
+.glitch::after {
+  color: rgba(243, 55, 130, 0.9);
+  animation: glitchGhostAfter 2s steps(1, end) infinite;
+}
+
+/* Whole text gets sliced into shifting horizontal bands during the burst. */
+@keyframes glitchSlice {
+  0%,
+  87%,
+  100% {
+    clip-path: none;
+    transform: none;
+  }
+  87.5% {
+    clip-path: inset(12% 0 78% 0);
+    transform: translateX(-14px);
+  }
+  88.5% {
+    clip-path: inset(64% 0 22% 0);
+    transform: translateX(16px);
+  }
+  89.5% {
+    clip-path: inset(38% 0 46% 0);
+    transform: translateX(-20px);
+  }
+  90.5% {
+    clip-path: inset(84% 0 4% 0);
+    transform: translateX(12px);
+  }
+  91.5% {
+    clip-path: inset(22% 0 62% 0);
+    transform: translateX(-10px);
+  }
+  92.5% {
+    clip-path: inset(54% 0 30% 0);
+    transform: translateX(18px);
+  }
+  93.5% {
+    clip-path: inset(6% 0 84% 0);
+    transform: translateX(-8px);
+  }
+  94.5% {
+    clip-path: inset(46% 0 38% 0);
+    transform: translateX(14px);
+  }
+  95.5% {
+    clip-path: inset(74% 0 12% 0);
+    transform: translateX(-16px);
+  }
+  96.5% {
+    clip-path: inset(30% 0 56% 0);
+    transform: translateX(9px);
+  }
+  97.5% {
+    clip-path: inset(90% 0 2% 0);
+    transform: translateX(-12px);
+  }
+  98.5% {
+    clip-path: none;
+    transform: translateX(4px);
+  }
+}
+
+/* Cyan ghost: tears to the left, different bands than the magenta layer. */
+@keyframes glitchGhostBefore {
+  0%,
+  87%,
+  100% {
+    opacity: 0;
+    clip-path: none;
+    transform: none;
+  }
+  87.5% {
+    opacity: 0.9;
+    clip-path: inset(20% 0 64% 0);
+    transform: translateX(-16px);
+  }
+  90.5% {
+    opacity: 0.9;
+    clip-path: inset(70% 0 14% 0);
+    transform: translateX(-22px);
+  }
+  93.5% {
+    opacity: 0.9;
+    clip-path: inset(44% 0 40% 0);
+    transform: translateX(-12px);
+  }
+  96.5% {
+    opacity: 0.9;
+    clip-path: inset(4% 0 84% 0);
+    transform: translateX(-20px);
+  }
+}
+
+/* Magenta ghost: tears to the right. */
+@keyframes glitchGhostAfter {
+  0%,
+  87%,
+  100% {
+    opacity: 0;
+    clip-path: none;
+    transform: none;
+  }
+  87.5% {
+    opacity: 0.9;
+    clip-path: inset(58% 0 28% 0);
+    transform: translateX(18px);
+  }
+  90.5% {
+    opacity: 0.9;
+    clip-path: inset(16% 0 70% 0);
+    transform: translateX(24px);
+  }
+  93.5% {
+    opacity: 0.9;
+    clip-path: inset(80% 0 6% 0);
+    transform: translateX(10px);
+  }
+  96.5% {
+    opacity: 0.9;
+    clip-path: inset(34% 0 50% 0);
+    transform: translateX(20px);
+  }
+}
+
+@keyframes fluorescentBuzz {
+  0%,
+  11%,
+  12.7%,
+  30%,
+  46%,
+  63%,
+  79%,
+  92%,
+  100% {
+    opacity: 1;
+    text-shadow: var(--glow-primary);
+  }
+
+  /* single quick stutter */
+  11.5% {
+    opacity: 0.32;
+    text-shadow: none;
+  }
+
+  /* deep dropout, then a bright restrike (arc catching) */
+  28.4% {
+    opacity: 0.12;
+    text-shadow: none;
+  }
+  28.9% {
+    opacity: 1;
+    text-shadow: 0 0 10px rgba(55, 235, 243, 0.85), 0 0 28px rgba(55, 235, 243, 0.4);
+  }
+  29.4% {
+    opacity: 0.45;
+    text-shadow: var(--glow-primary);
+  }
+
+  /* faint tremble that barely registers */
+  45.2% {
+    opacity: 0.68;
+    text-shadow: var(--glow-primary);
+  }
+
+  /* dying stutter: near-off, catch, drop, catch */
+  61.4% {
+    opacity: 0.1;
+    text-shadow: none;
+  }
+  61.9% {
+    opacity: 1;
+    text-shadow: 0 0 10px rgba(55, 235, 243, 0.85), 0 0 28px rgba(55, 235, 243, 0.4);
+  }
+  62.3% {
+    opacity: 0.4;
+    text-shadow: none;
+  }
+  62.7% {
+    opacity: 1;
+    text-shadow: var(--glow-primary);
+  }
+
+  /* quick double flicker */
+  77.8% {
+    opacity: 0.5;
+    text-shadow: var(--glow-primary);
+  }
+  78.2% {
+    opacity: 1;
+    text-shadow: var(--glow-primary);
+  }
+  78.6% {
+    opacity: 0.35;
+    text-shadow: none;
+  }
+
+  /* last faint buzz before it settles again */
+  91.4% {
+    opacity: 0.72;
+    text-shadow: var(--glow-primary);
+  }
+}
