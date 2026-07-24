@@ -25,11 +25,11 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.72rem;
+  font-size: 0.85rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--color-primary);
-  opacity: 0.85;
+  text-shadow: var(--glow-primary);
 }
 
 .statusDot {
@@ -51,7 +51,7 @@
 }
 
 .title {
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: var(--color-text-secondary);
   letter-spacing: 0.04em;
 }
@@ -63,17 +63,11 @@
 }
 
 .blockLabel {
-  font-size: 0.72rem;
+  font-size: 0.85rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--color-secondary);
-  opacity: 0.85;
-}
-
-.blockLabel::before {
-  content: '// ';
-  color: var(--color-secondary);
-  opacity: 0.6;
+  text-shadow: var(--glow-secondary);
 }
 
 .contactList {
@@ -98,14 +92,14 @@
 }
 
 .contactKey {
-  font-size: 0.65rem;
+  font-size: 0.78rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--color-text-muted);
 }
 
 .contactValue {
-  font-size: 0.85rem;
+  font-size: 1rem;
   word-break: break-word;
 }
 
@@ -122,7 +116,7 @@
 }
 
 .skillGroupLabel {
-  font-size: 0.72rem;
+  font-size: 0.85rem;
   color: var(--color-text-muted);
   letter-spacing: 0.05em;
 }
@@ -135,7 +129,7 @@
 }
 
 .skillTag {
-  font-size: 0.72rem;
+  font-size: 0.85rem;
   padding: 0.25rem 0.55rem;
   border: 1px solid rgba(55, 235, 243, 0.35);
   color: var(--color-text-secondary);

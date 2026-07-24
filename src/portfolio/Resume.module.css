@@ -31,24 +31,18 @@
 }
 
 .blockLabel {
-  font-size: 0.72rem;
+  font-size: 0.85rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--color-secondary);
-  opacity: 0.85;
-}
-
-.blockLabel::before {
-  content: '// ';
-  color: var(--color-secondary);
-  opacity: 0.6;
+  text-shadow: var(--glow-secondary);
 }
 
 .summary {
   max-width: 60ch;
   color: var(--color-text-secondary);
   line-height: 1.7;
-  font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+  font-size: clamp(1.1rem, 1.8vw, 1.2rem);
 }
 
 .timeline {
@@ -71,19 +65,19 @@
 }
 
 .entryRole {
-  font-size: 1.05rem;
+  font-size: 1.2rem;
   font-weight: 600;
   color: var(--color-text);
 }
 
 .entryPeriod {
-  font-size: 0.75rem;
+  font-size: 0.88rem;
   color: var(--color-text-muted);
   letter-spacing: 0.04em;
 }
 
 .entryOrg {
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: var(--color-primary);
   margin-top: 0.2rem;
 }
@@ -95,7 +89,7 @@
   flex-direction: column;
   gap: 0.35rem;
   color: var(--color-text-secondary);
-  font-size: 0.9rem;
+  font-size: 1.05rem;
   line-height: 1.6;
 }
 
@@ -114,7 +108,7 @@
 }
 
 .projectName {
-  font-size: 1rem;
+  font-size: 1.15rem;
   font-weight: 600;
   color: var(--color-text);
 }
@@ -122,14 +116,14 @@
 .projectDescription {
   margin-top: 0.4rem;
   color: var(--color-text-secondary);
-  font-size: 0.9rem;
+  font-size: 1.05rem;
   line-height: 1.6;
   max-width: 60ch;
 }
 
 .projectStack {
   margin-top: 0.6rem;
-  font-size: 0.75rem;
+  font-size: 0.88rem;
   color: var(--color-text-muted);
   letter-spacing: 0.03em;
 }
