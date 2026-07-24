@@ -82,8 +82,7 @@ export function Resume() {
       <section className={styles.block} aria-label="Summary">
         <h2 className={styles.blockLabel}>Summary</h2>
         <p className={styles.summary}>
-          Placeholder summary — a couple of sentences on what Caio builds, the kind of
-          problems he likes solving, and how he works.
+          Hi! I'm Caio, a Software Engineer with over 10 years of experience building scalable web applications. Feel free to explore some of my work below.
         </p>
       </section>
 
