@@ -51,4 +51,7 @@
   --glow-crisp-cyan: 0 0 1px rgba(55, 235, 243, 0.9), 0 0 6px rgba(55, 235, 243, 0.35);
 
   --font-mono: ui-monospace, 'SFMono-Regular', 'Cascadia Code', Menlo, Consolas, monospace;
+
+  /* Caps content width on wide viewports now that the page is a single centered column. */
+  --content-max-width: 75rem;
 }

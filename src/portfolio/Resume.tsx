@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FiUser, FiCode, FiFolder, FiBriefcase } from 'react-icons/fi';
+import { FiCode, FiFolder, FiBriefcase } from 'react-icons/fi';
 import { ExperienceCard } from './ExperienceCard';
 import { ProjectCard } from './ProjectCard';
 import { DetailModal } from './DetailModal';
@@ -82,21 +82,6 @@ export function Resume() {
 
   return (
     <main className={styles.main}>
-      <section className={styles.block} aria-label="Summary">
-        <h2 className={styles.blockLabel}>
-          <FiUser aria-hidden="true" /> Summary
-        </h2>
-        <div className={styles.summaryRow}>
-          <img src="/profile.jpg" alt="Caio Lesnock" className={styles.avatar} />
-          <p className={styles.summary}>
-            Hi!👋 <br />
-            I'm Caio Lesnock, a Software Engineer with {' '}
-            <span className={styles.summaryHighlight}>10+ years</span> of experience building
-            scalable web applications. Feel free to explore some of my work below.
-          </p>
-        </div>
-      </section>
-
       <section className={styles.block} aria-label="Skills">
         <h2 className={styles.blockLabel}>
           <FiCode aria-hidden="true" /> Skills
@@ -110,7 +95,7 @@ export function Resume() {
         </ul>
       </section>
 
-      <section className={styles.block} aria-label="Projects">
+      <section id="projects" className={styles.block} aria-label="Projects">
         <h2 className={styles.blockLabel}>
           <FiFolder aria-hidden="true" /> Projects
         </h2>

@@ -1,4 +1,4 @@
-import { Sidebar } from './Sidebar';
+import { Hero } from './Hero';
 import { Resume } from './Resume';
 import { ContactNav } from './ContactNav';
 import styles from './Portfolio.module.css';
@@ -12,7 +12,7 @@ export function Portfolio({ interactive }: PortfolioProps) {
   return (
     <div className={styles.root} inert={!interactive}>
       <ContactNav />
-      <Sidebar />
+      <Hero />
       <Resume />
     </div>
   );
