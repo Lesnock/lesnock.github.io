@@ -45,6 +45,9 @@ export interface TranslationDict {
     scrollAria: string;
   };
   resume: {
+    techShowcaseAria: string;
+    techShowcaseLabel: string;
+    techShowcaseCaption: string;
     projectsAria: string;
     projectsLabel: string;
     experienceAria: string;
@@ -79,7 +82,7 @@ export const translations: Record<Language, TranslationDict> = {
       profileAria: 'Profile',
       title: 'Senior Software Engineer',
       greeting: 'Hi!👋',
-      summaryIntro: "I'm Caio Lesnock, a Software Engineer with",
+      summaryIntro: "I'm Caio, a Software Engineer with",
       summaryYears: '10+ years',
       summaryOutro:
         'of experience building scalable web applications. Feel free to explore some of my work below.',
@@ -89,6 +92,10 @@ export const translations: Record<Language, TranslationDict> = {
       scrollAria: 'Scroll to projects',
     },
     resume: {
+      techShowcaseAria: 'Toolbox',
+      techShowcaseLabel: 'Toolbox',
+      techShowcaseCaption:
+        'Placeholder — a few lines about how I like to work, or whatever you want visitors to read here.',
       projectsAria: 'Projects',
       projectsLabel: 'Projects',
       experienceAria: 'Experience',
@@ -191,7 +198,7 @@ export const translations: Record<Language, TranslationDict> = {
       profileAria: 'Perfil',
       title: 'Desenvolvedor Sênior',
       greeting: 'Olá!👋',
-      summaryIntro: 'Sou o Caio Lesnock, Desenvolvedor Sênior com',
+      summaryIntro: 'Eu sou o Caio, Desenvolvedor Sênior com',
       summaryYears: '10+ anos',
       summaryOutro:
         'de experiência construindo aplicações web escaláveis. Fique à vontade para explorar alguns dos meus trabalhos abaixo.',
@@ -201,6 +208,10 @@ export const translations: Record<Language, TranslationDict> = {
       scrollAria: 'Rolar até os projetos',
     },
     resume: {
+      techShowcaseAria: 'Caixa de Ferramentas',
+      techShowcaseLabel: 'Caixa de Ferramentas',
+      techShowcaseCaption:
+        'Placeholder — algumas linhas sobre como eu gosto de trabalhar, ou o que você quiser que os visitantes leiam aqui.',
       projectsAria: 'Projetos',
       projectsLabel: 'Projetos',
       experienceAria: 'Experiência',

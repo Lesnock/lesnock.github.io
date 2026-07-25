@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { FiFolder, FiBriefcase } from 'react-icons/fi';
+import { FiFolder, FiBriefcase, FiBox } from 'react-icons/fi';
 import { ExperienceCard } from './ExperienceCard';
 import { ProjectCard } from './ProjectCard';
+import { TechBox } from './TechBox';
 import { DetailModal } from './DetailModal';
 import { useLanguage } from '../i18n/LanguageContext';
 import type { TranslationDict } from '../i18n/translations';
@@ -17,6 +18,13 @@ export function Resume() {
 
   return (
     <main className={styles.main}>
+      <section className={styles.block} aria-label={t.resume.techShowcaseAria}>
+        <h2 className={styles.blockLabel}>
+          <FiBox aria-hidden="true" /> {t.resume.techShowcaseLabel}
+        </h2>
+        <TechBox />
+      </section>
+
       <section id="projects" className={styles.block} aria-label={t.resume.projectsAria}>
         <h2 className={styles.blockLabel}>
           <FiFolder aria-hidden="true" /> {t.resume.projectsLabel}
