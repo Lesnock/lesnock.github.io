@@ -11,11 +11,6 @@ export function Hero() {
       <div className={styles.glow} aria-hidden="true" />
 
       <div className={styles.inner}>
-        <p className={styles.status}>
-          <span className={styles.statusDot} aria-hidden="true" />
-          Online
-        </p>
-
         <div className={styles.content}>
           <div className={styles.text}>
             <GlitchText as="h1" text={OPERATOR_NAME} className={styles.name} />
