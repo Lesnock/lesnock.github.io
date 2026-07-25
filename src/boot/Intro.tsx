@@ -2,6 +2,7 @@ import { LoadingBar } from './LoadingBar';
 import { BootMessages } from './BootMessages';
 import { ReadyScreen } from './ReadyScreen';
 import { PoweringOnScreen } from './PoweringOnScreen';
+import { useLanguage } from '../i18n/LanguageContext';
 import type { BootHandlers, BootState } from './types';
 import type { BOOT_TIMINGS } from './constants';
 import styles from './Intro.module.css';
@@ -20,6 +21,8 @@ interface IntroProps {
  * states the portfolio itself, seen through the Overlay, is the visual.
  */
 export function Intro({ state, progress, currentMessage, timings, handlers }: IntroProps) {
+  const { t } = useLanguage();
+
   if (state === 'Interactive' || state === 'Flicker1' || state === 'Flicker2' || state === 'Lighting') {
     return null;
   }
@@ -28,7 +31,7 @@ export function Intro({ state, progress, currentMessage, timings, handlers }: In
     <div className={styles.root}>
       {state === 'Initializing' && (
         <div className={styles.panel}>
-          <p className={styles.label}>Initializing...</p>
+          <p className={styles.label}>{t.boot.initializing}</p>
           <LoadingBar progress={progress} />
           <BootMessages message={currentMessage} />
         </div>

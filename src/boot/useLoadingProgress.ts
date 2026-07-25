@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
-import { BOOT_MESSAGES } from './constants';
 
 interface UseLoadingProgressOptions {
   enabled: boolean;
   minDurationMs: number;
   maxDurationMs: number;
   holdMs: number;
+  messages: readonly string[];
   onComplete: () => void;
 }
 
@@ -30,12 +30,9 @@ function computeProgress(elapsedMs: number, durationMs: number, previous: number
   return Math.min(100, Math.max(previous, raw));
 }
 
-function messageForProgress(progress: number): string {
-  const index = Math.min(
-    BOOT_MESSAGES.length - 1,
-    Math.floor((progress / 100) * BOOT_MESSAGES.length)
-  );
-  return BOOT_MESSAGES[index];
+function messageForProgress(progress: number, messages: readonly string[]): string {
+  const index = Math.min(messages.length - 1, Math.floor((progress / 100) * messages.length));
+  return messages[index];
 }
 
 export function useLoadingProgress({
@@ -43,6 +40,7 @@ export function useLoadingProgress({
   minDurationMs,
   maxDurationMs,
   holdMs,
+  messages,
   onComplete,
 }: UseLoadingProgressOptions): UseLoadingProgressResult {
   const [progress, setProgress] = useState(0);
@@ -81,5 +79,5 @@ export function useLoadingProgress({
     };
   }, [enabled, minDurationMs, maxDurationMs, holdMs]);
 
-  return { progress, currentMessage: messageForProgress(progress) };
+  return { progress, currentMessage: messageForProgress(progress, messages) };
 }

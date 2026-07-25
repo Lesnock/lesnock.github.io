@@ -1,4 +1,5 @@
 import { useEffect, useRef, type ReactNode } from 'react';
+import { useLanguage } from '../i18n/LanguageContext';
 import styles from './DetailModal.module.css';
 
 interface DetailModalProps {
@@ -9,6 +10,7 @@ interface DetailModalProps {
 }
 
 export function DetailModal({ title, subtitle, onClose, children }: DetailModalProps) {
+  const { t } = useLanguage();
   const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -35,7 +37,7 @@ export function DetailModal({ title, subtitle, onClose, children }: DetailModalP
           type="button"
           className={styles.closeButton}
           onClick={onClose}
-          aria-label="Close details"
+          aria-label={t.detailModal.closeAria}
         >
           ×
         </button>

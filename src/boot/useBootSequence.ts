@@ -3,6 +3,7 @@ import { bootReducer, INITIAL_BOOT_STATE } from './bootMachine';
 import { useLoadingProgress } from './useLoadingProgress';
 import { BOOT_TIMINGS, REDUCED_MOTION_SCALE } from './constants';
 import { useReducedMotion } from '../hooks/useReducedMotion';
+import { useLanguage } from '../i18n/LanguageContext';
 import type { BootEvent, BootHandlers, BootState } from './types';
 
 interface UseBootSequenceResult {
@@ -19,6 +20,7 @@ interface UseBootSequenceResult {
 export function useBootSequence(): UseBootSequenceResult {
   const [state, dispatch] = useReducer(bootReducer, INITIAL_BOOT_STATE);
   const reducedMotion = useReducedMotion();
+  const { t } = useLanguage();
   const motionScale = reducedMotion ? REDUCED_MOTION_SCALE : 1;
 
   const send = useCallback((type: BootEvent['type']) => dispatch({ type } as BootEvent), []);
@@ -36,6 +38,7 @@ export function useBootSequence(): UseBootSequenceResult {
     minDurationMs: timings.loadingMinDurationMs,
     maxDurationMs: timings.loadingMaxDurationMs,
     holdMs: timings.loadingCompleteHoldMs,
+    messages: t.boot.messages,
     onComplete: () => send('LOADING_COMPLETE'),
   });
 

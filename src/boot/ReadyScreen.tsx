@@ -1,3 +1,4 @@
+import { useLanguage } from '../i18n/LanguageContext';
 import styles from './ReadyScreen.module.css';
 
 interface ReadyScreenProps {
@@ -5,11 +6,13 @@ interface ReadyScreenProps {
 }
 
 export function ReadyScreen({ onReadyClick }: ReadyScreenProps) {
+  const { t } = useLanguage();
+
   return (
     <div className={styles.root}>
-      <p className={styles.status}>System Ready</p>
+      <p className={styles.status}>{t.boot.systemReady}</p>
       <button type="button" className={styles.button} onClick={onReadyClick} autoFocus>
-        [ Conhecer Caio ]
+        {t.boot.readyButton}
       </button>
     </div>
   );

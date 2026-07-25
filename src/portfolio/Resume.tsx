@@ -3,89 +3,26 @@ import { FiFolder, FiBriefcase } from 'react-icons/fi';
 import { ExperienceCard } from './ExperienceCard';
 import { ProjectCard } from './ProjectCard';
 import { DetailModal } from './DetailModal';
+import { useLanguage } from '../i18n/LanguageContext';
+import type { TranslationDict } from '../i18n/translations';
 import styles from './Resume.module.css';
 
-const PROJECTS = [
-  {
-    name: 'Placeholder Project One',
-    description: 'Placeholder one-line description of what this project does and why it matters.',
-    stack: 'TypeScript · React · Node',
-    details:
-      'Placeholder expanded write-up of Project One — the problem it solved, the approach taken, and the outcome or impact once shipped.',
-  },
-  {
-    name: 'Placeholder Project Two',
-    description: 'Placeholder one-line description of what this project does and why it matters.',
-    stack: 'Python · PostgreSQL',
-    details:
-      'Placeholder expanded write-up of Project Two — the problem it solved, the approach taken, and the outcome or impact once shipped.',
-  },
-];
-
-const EXPERIENCE = [
-  {
-    role: 'Senior Full-Stack Engineer',
-    org: 'Placeholder Company',
-    period: '2023 — Present',
-    points: [
-      'Placeholder highlight about a system designed or shipped.',
-      'Placeholder highlight about scale, performance, or impact.',
-    ],
-    details:
-      'Placeholder expanded write-up of this role — scope of ownership, notable projects, and how the role evolved over time.',
-  },
-  {
-    role: 'Full-Stack Engineer',
-    org: 'Placeholder Company',
-    period: '2020 — 2023',
-    points: [
-      'Placeholder highlight about ownership or cross-team work.',
-      'Placeholder highlight about a specific technical outcome.',
-    ],
-    details:
-      'Placeholder expanded write-up of this role — scope of ownership, notable projects, and how the role evolved over time.',
-  },
-  {
-    role: 'Software Engineer',
-    org: 'Placeholder Company',
-    period: '2018 — 2020',
-    points: ['Placeholder highlight about early career work or growth.'],
-    details:
-      'Placeholder expanded write-up of this role — scope of ownership, notable projects, and how the role evolved over time.',
-  },
-  {
-    role: 'Software Engineer',
-    org: 'Placeholder Company',
-    period: '2018 — 2020',
-    points: ['Placeholder highlight about early career work or growth.'],
-    details:
-      'Placeholder expanded write-up of this role — scope of ownership, notable projects, and how the role evolved over time.',
-  },
-  {
-    role: 'Software Engineer',
-    org: 'Placeholder Company',
-    period: '2018 — 2020',
-    points: ['Placeholder highlight about early career work or growth.'],
-    details:
-      'Placeholder expanded write-up of this role — scope of ownership, notable projects, and how the role evolved over time.',
-  },
-];
-
 type Detail =
-  | { kind: 'project'; entry: (typeof PROJECTS)[number] }
-  | { kind: 'experience'; entry: (typeof EXPERIENCE)[number] };
+  | { kind: 'project'; entry: TranslationDict['resume']['projects'][number] }
+  | { kind: 'experience'; entry: TranslationDict['resume']['experience'][number] };
 
 export function Resume() {
+  const { t } = useLanguage();
   const [detail, setDetail] = useState<Detail | null>(null);
 
   return (
     <main className={styles.main}>
-      <section id="projects" className={styles.block} aria-label="Projects">
+      <section id="projects" className={styles.block} aria-label={t.resume.projectsAria}>
         <h2 className={styles.blockLabel}>
-          <FiFolder aria-hidden="true" /> Projects
+          <FiFolder aria-hidden="true" /> {t.resume.projectsLabel}
         </h2>
         <ul className={styles.projectList}>
-          {PROJECTS.map((project) => (
+          {t.resume.projects.map((project) => (
             <ProjectCard
               key={project.name}
               project={project}
@@ -95,12 +32,12 @@ export function Resume() {
         </ul>
       </section>
 
-      <section className={styles.block} aria-label="Experience">
+      <section className={styles.block} aria-label={t.resume.experienceAria}>
         <h2 className={styles.blockLabel}>
-          <FiBriefcase aria-hidden="true" /> Experience
+          <FiBriefcase aria-hidden="true" /> {t.resume.experienceLabel}
         </h2>
         <ol className={styles.timeline}>
-          {EXPERIENCE.map((entry) => (
+          {t.resume.experience.map((entry) => (
             <ExperienceCard
               key={`${entry.role}-${entry.period}`}
               entry={entry}

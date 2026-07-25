@@ -22,12 +22,4 @@ export const BOOT_TIMINGS = {
 /** Multiplier applied to every animated duration when reduced motion is preferred. */
 export const REDUCED_MOTION_SCALE = 0.35;
 
-export const BOOT_MESSAGES = [
-  'Loading UI...',
-  'Loading Components...',
-  'Loading Projects...',
-  'Loading Experience...',
-  'Finalizing...',
-] as const;
-
 export const LOADING_BAR_SEGMENTS = 24;
