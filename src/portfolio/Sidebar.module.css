@@ -56,53 +56,6 @@
   letter-spacing: 0.04em;
 }
 
-.block {
-  display: flex;
-  flex-direction: column;
-  gap: 0.9rem;
-}
-
-.blockLabel {
-  font-size: 0.85rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--color-secondary);
-  text-shadow: var(--glow-secondary);
-}
-
-.contactList {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
-.contactLink {
-  display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
-  text-decoration: none;
-  color: var(--color-text-secondary);
-  transition: color 0.2s ease;
-}
-
-.contactLink:hover,
-.contactLink:focus-visible {
-  color: var(--color-secondary);
-}
-
-.contactKey {
-  font-size: 0.78rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
-}
-
-.contactValue {
-  font-size: 1rem;
-  word-break: break-word;
-}
-
 @media (max-width: 860px) {
   .sidebar {
     position: relative;

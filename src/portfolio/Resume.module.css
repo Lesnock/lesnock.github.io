@@ -35,6 +35,9 @@
 }
 
 .blockLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 0.85rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;

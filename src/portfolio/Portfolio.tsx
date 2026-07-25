@@ -1,5 +1,6 @@
 import { Sidebar } from './Sidebar';
 import { Resume } from './Resume';
+import { ContactNav } from './ContactNav';
 import styles from './Portfolio.module.css';
 
 interface PortfolioProps {
@@ -10,6 +11,7 @@ interface PortfolioProps {
 export function Portfolio({ interactive }: PortfolioProps) {
   return (
     <div className={styles.root} inert={!interactive}>
+      <ContactNav />
       <Sidebar />
       <Resume />
     </div>

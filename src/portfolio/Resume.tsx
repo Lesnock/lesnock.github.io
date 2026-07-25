@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FiUser, FiCode, FiFolder, FiBriefcase } from 'react-icons/fi';
 import { ExperienceCard } from './ExperienceCard';
 import { ProjectCard } from './ProjectCard';
 import { DetailModal } from './DetailModal';
@@ -82,7 +83,9 @@ export function Resume() {
   return (
     <main className={styles.main}>
       <section className={styles.block} aria-label="Summary">
-        <h2 className={styles.blockLabel}>Summary</h2>
+        <h2 className={styles.blockLabel}>
+          <FiUser aria-hidden="true" /> Summary
+        </h2>
         <div className={styles.summaryRow}>
           <img src="/profile.jpg" alt="Caio Lesnock" className={styles.avatar} />
           <p className={styles.summary}>
@@ -95,7 +98,9 @@ export function Resume() {
       </section>
 
       <section className={styles.block} aria-label="Skills">
-        <h2 className={styles.blockLabel}>Skills</h2>
+        <h2 className={styles.blockLabel}>
+          <FiCode aria-hidden="true" /> Skills
+        </h2>
         <ul className={styles.skillTags}>
           {SKILLS.map((item) => (
             <li key={item} className={styles.skillTag}>
@@ -106,7 +111,9 @@ export function Resume() {
       </section>
 
       <section className={styles.block} aria-label="Projects">
-        <h2 className={styles.blockLabel}>Projects</h2>
+        <h2 className={styles.blockLabel}>
+          <FiFolder aria-hidden="true" /> Projects
+        </h2>
         <ul className={styles.projectList}>
           {PROJECTS.map((project) => (
             <ProjectCard
@@ -119,7 +126,9 @@ export function Resume() {
       </section>
 
       <section className={styles.block} aria-label="Experience">
-        <h2 className={styles.blockLabel}>Experience</h2>
+        <h2 className={styles.blockLabel}>
+          <FiBriefcase aria-hidden="true" /> Experience
+        </h2>
         <ol className={styles.timeline}>
           {EXPERIENCE.map((entry) => (
             <ExperienceCard
