@@ -44,21 +44,6 @@
   text-shadow: var(--glow-secondary);
 }
 
-.skillTags {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-
-.skillTag {
-  font-size: 0.85rem;
-  padding: 0.25rem 0.55rem;
-  border: 1px solid rgba(55, 235, 243, 0.35);
-  color: var(--color-text-secondary);
-  clip-path: polygon(6px 0, 100% 0, 100% 100%, 0 100%, 0 6px);
-}
-
 .timeline,
 .projectList {
   list-style: none;

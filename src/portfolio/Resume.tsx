@@ -1,11 +1,9 @@
 import { useState } from 'react';
-import { FiCode, FiFolder, FiBriefcase } from 'react-icons/fi';
+import { FiFolder, FiBriefcase } from 'react-icons/fi';
 import { ExperienceCard } from './ExperienceCard';
 import { ProjectCard } from './ProjectCard';
 import { DetailModal } from './DetailModal';
 import styles from './Resume.module.css';
-
-const SKILLS = ['Node.js', 'TypeScript', 'JavaScript', 'PHP', 'Laravel', 'React', 'Vue', 'SQL', 'Vite', 'CSS', 'Docker'];
 
 const PROJECTS = [
   {
@@ -82,19 +80,6 @@ export function Resume() {
 
   return (
     <main className={styles.main}>
-      <section className={styles.block} aria-label="Skills">
-        <h2 className={styles.blockLabel}>
-          <FiCode aria-hidden="true" /> Skills
-        </h2>
-        <ul className={styles.skillTags}>
-          {SKILLS.map((item) => (
-            <li key={item} className={styles.skillTag}>
-              {item}
-            </li>
-          ))}
-        </ul>
-      </section>
-
       <section id="projects" className={styles.block} aria-label="Projects">
         <h2 className={styles.blockLabel}>
           <FiFolder aria-hidden="true" /> Projects

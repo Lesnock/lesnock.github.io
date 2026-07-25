@@ -3,6 +3,8 @@ import { GlitchText } from '../effects/GlitchText';
 import { OPERATOR_NAME } from '../boot/constants';
 import styles from './Hero.module.css';
 
+const SKILLS = ['Node.js', 'TypeScript', 'React', 'PHP', 'Vue'];
+
 export function Hero() {
   return (
     <header className={styles.hero} aria-label="Profile">
@@ -24,6 +26,13 @@ export function Hero() {
               <span className={styles.summaryHighlight}>10+ years</span> of experience building
               scalable web applications. Feel free to explore some of my work below.
             </p>
+            <ul className={styles.skillTags}>
+              {SKILLS.map((item) => (
+                <li key={item} className={styles.skillTag}>
+                  {item}
+                </li>
+              ))}
+            </ul>
             <div className={styles.actions}>
               <a href="#projects" className={styles.primaryButton}>
                 View My Work
