@@ -8,12 +8,6 @@ const CONTACT_LINKS = [
   { label: 'LinkedIn', href: 'https://linkedin.com/', value: 'linkedin.com/in/caiolesnock' },
 ];
 
-const SKILLS = [
-  { group: 'Languages', items: ['TypeScript', 'PHP', 'JavaScript', 'SQL'] },
-  { group: 'Frontend', items: ['React', 'Vue', 'Vite', 'CSS'] },
-  { group: 'Backend', items: ['Node.js', 'Laravel', 'Docker'] },
-];
-
 export function Sidebar() {
   return (
     <aside className={styles.sidebar} aria-label="Profile">
@@ -38,24 +32,6 @@ export function Sidebar() {
             </li>
           ))}
         </ul>
-      </section>
-
-      <section className={styles.block} aria-label="Skills">
-        <h2 className={styles.blockLabel}>Skills</h2>
-        <div className={styles.skillGroups}>
-          {SKILLS.map((group) => (
-            <div key={group.group} className={styles.skillGroup}>
-              <p className={styles.skillGroupLabel}>{group.group}</p>
-              <ul className={styles.skillTags}>
-                {group.items.map((item) => (
-                  <li key={item} className={styles.skillTag}>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
       </section>
     </aside>
   );

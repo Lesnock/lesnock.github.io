@@ -4,6 +4,8 @@ import { ProjectCard } from './ProjectCard';
 import { DetailModal } from './DetailModal';
 import styles from './Resume.module.css';
 
+const SKILLS = ['Node.js', 'TypeScript', 'JavaScript', 'PHP', 'Laravel', 'React', 'Vue', 'SQL', 'Vite', 'CSS', 'Docker'];
+
 const PROJECTS = [
   {
     name: 'Placeholder Project One',
@@ -90,6 +92,17 @@ export function Resume() {
             scalable web applications. Feel free to explore some of my work below.
           </p>
         </div>
+      </section>
+
+      <section className={styles.block} aria-label="Skills">
+        <h2 className={styles.blockLabel}>Skills</h2>
+        <ul className={styles.skillTags}>
+          {SKILLS.map((item) => (
+            <li key={item} className={styles.skillTag}>
+              {item}
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section className={styles.block} aria-label="Projects">
