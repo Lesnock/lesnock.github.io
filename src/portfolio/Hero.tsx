@@ -44,7 +44,7 @@ export function Hero() {
         </div>
       </div>
 
-      <a href="#projects" className={styles.scrollCue} aria-label={t.hero.scrollAria}>
+      <a href="#toolbox" className={styles.scrollCue} aria-label={t.hero.scrollAria}>
         <span>{t.hero.scroll}</span>
         <FiArrowDown aria-hidden="true" className={styles.scrollIcon} />
       </a>

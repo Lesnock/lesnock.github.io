@@ -18,7 +18,7 @@ export function Resume() {
 
   return (
     <main className={styles.main}>
-      <section className={styles.block} aria-label={t.resume.techShowcaseAria}>
+      <section id="toolbox" className={styles.block} aria-label={t.resume.techShowcaseAria}>
         <div className={styles.blockHeader}>
           <h2 className={styles.blockLabel}>
             <FiBox aria-hidden="true" /> {t.resume.techShowcaseLabel}

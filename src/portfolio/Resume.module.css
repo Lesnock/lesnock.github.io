@@ -25,6 +25,10 @@
     drop-shadow(0 0 calc(var(--local-power) * 10px) rgba(55, 235, 243, calc(var(--local-power) * 0.25)));
 }
 
+#toolbox {
+  scroll-margin-top: 1.5rem;
+}
+
 .block:nth-of-type(2) {
   --reveal-offset: 0.2;
 }
