@@ -19,9 +19,15 @@ export function Resume() {
   return (
     <main className={styles.main}>
       <section className={styles.block} aria-label={t.resume.techShowcaseAria}>
-        <h2 className={styles.blockLabel}>
-          <FiBox aria-hidden="true" /> {t.resume.techShowcaseLabel}
-        </h2>
+        <div className={styles.blockHeader}>
+          <h2 className={styles.blockLabel}>
+            <FiBox aria-hidden="true" /> {t.resume.techShowcaseLabel}
+          </h2>
+          <span className={styles.hint}>
+            <span className={styles.hintDot} aria-hidden="true" />
+            {t.resume.techShowcaseHint}
+          </span>
+        </div>
         <TechBox />
       </section>
 

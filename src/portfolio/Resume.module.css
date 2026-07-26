@@ -44,6 +44,46 @@
   text-shadow: var(--glow-secondary);
 }
 
+.blockHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+}
+
+.hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  color: var(--color-text-secondary);
+  opacity: 0.85;
+}
+
+.hintDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-secondary);
+  box-shadow: 0 0 4px var(--color-secondary), 0 0 9px rgba(55, 235, 243, 0.7);
+  animation: hintPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes hintPulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.75);
+  }
+}
+
 .timeline,
 .projectList {
   list-style: none;
