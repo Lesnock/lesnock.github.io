@@ -234,44 +234,83 @@
   }
 }
 
-.avatarStatus {
+.avatarLight {
   position: absolute;
-  left: 50%;
-  bottom: 0;
+  top: 0;
+  left: 18px;
   z-index: 3;
-  transform: translate(-50%, 50%);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.3rem 0.7rem;
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--color-text-secondary);
-  background: #1b1d24;
-  border: 1px solid rgba(55, 235, 243, 0.4);
-  clip-path: polygon(6px 0, 100% 0, 100% 100%, 6px 100%, 0 calc(100% - 6px), 0 6px);
-  box-shadow: 0 0 12px rgba(55, 235, 243, 0.2);
-  white-space: nowrap;
+  width: 50px;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.95) 50%, rgba(255, 255, 255, 0) 100%);
+  box-shadow: 0 0 14px 3px rgba(255, 255, 255, 0.85), 0 0 34px 8px rgba(55, 235, 243, 0.7),
+    0 0 60px 16px rgba(26, 197, 176, 0.45);
+  transform: translate(-50%, -50%) rotate(0deg);
+  animation: avatarLightTravel 10s linear infinite;
+  pointer-events: none;
+  will-change: top, left, transform;
 }
 
-.avatarStatusDot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--color-primary);
-  box-shadow: 0 0 4px var(--color-primary), 0 0 9px rgba(26, 197, 176, 0.7);
-  animation: avatarStatusPulse 2.4s ease-in-out infinite;
-}
-
-@keyframes avatarStatusPulse {
-  0%,
-  100% {
-    opacity: 1;
+@keyframes avatarLightTravel {
+  0% {
+    top: 0;
+    left: 18px;
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  16.67% {
+    top: 0;
+    left: 100%;
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  16.68% {
+    top: 0;
+    left: 100%;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  33.33% {
+    top: calc(100% - 18px);
+    left: 100%;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  33.34% {
+    top: calc(100% - 18px);
+    left: 100%;
+    transform: translate(-50%, -50%) rotate(45deg);
   }
   50% {
-    opacity: 0.4;
+    top: 100%;
+    left: calc(100% - 18px);
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  50.01% {
+    top: 100%;
+    left: calc(100% - 18px);
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  66.67% {
+    top: 100%;
+    left: 0;
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  66.68% {
+    top: 100%;
+    left: 0;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  83.33% {
+    top: 18px;
+    left: 0;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  83.34% {
+    top: 18px;
+    left: 0;
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  100% {
+    top: 0;
+    left: 18px;
+    transform: translate(-50%, -50%) rotate(45deg);
   }
 }
 
@@ -280,7 +319,7 @@
     animation: none;
   }
 
-  .avatarStatusDot {
+  .avatarLight {
     animation: none;
   }
 }

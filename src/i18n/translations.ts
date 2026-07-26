@@ -50,7 +50,6 @@ export interface TranslationDict {
     profileAria: string;
     eyebrow: string;
     title: string;
-    statusOnline: string;
     greeting: string;
     summaryIntro: string;
     summaryYears: string;
@@ -105,7 +104,6 @@ export const translations: Record<Language, TranslationDict> = {
       profileAria: 'Profile',
       eyebrow: 'Profile',
       title: 'Senior Full Stack Software Engineer',
-      statusOnline: 'Online',
       greeting: 'Hi!👋',
       summaryIntro: "I'm Caio, a Software Engineer with",
       summaryYears: '10+ years',
@@ -321,7 +319,6 @@ export const translations: Record<Language, TranslationDict> = {
       profileAria: 'Perfil',
       eyebrow: 'Perfil',
       title: 'Desenvolvedor Full Stack Sênior',
-      statusOnline: 'Online',
       greeting: 'Olá!👋',
       summaryIntro: 'Eu sou o Caio, Desenvolvedor Sênior com',
       summaryYears: '10+ anos',

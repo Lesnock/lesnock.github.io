@@ -39,10 +39,7 @@ export function Hero() {
             <span className={`${styles.avatarCorner} ${styles.avatarCornerBr}`} aria-hidden="true" />
             <div className={styles.avatarScan} aria-hidden="true" />
             <img src="/profile.jpg" alt="Caio Lesnock" className={styles.avatar} />
-            <span className={styles.avatarStatus}>
-              <span className={styles.avatarStatusDot} aria-hidden="true" />
-              {t.hero.statusOnline}
-            </span>
+            <span className={styles.avatarLight} aria-hidden="true" />
           </div>
         </div>
       </div>
