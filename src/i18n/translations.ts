@@ -115,10 +115,10 @@ export const translations: Record<Language, TranslationDict> = {
         'Every project presents a different challenge, but my goal remains the same: deliver software that is reliable, scalable, and enjoyable to work on. I enjoy modeling complex business domains, designing clean architectures, and leveraging Domain-Driven Design and event-driven systems to build applications that are easy to evolve and maintain.',
       systemAnalysisAttributes: [
         { label: 'Technical Ability', value: 5, max: 5, hint: 'Full-stack breadth across languages and infra' },
-        { label: 'Intelligence', value: 4, max: 5, hint: 'Architecture, DDD, event-driven systems' },
-        { label: 'Cool', value: 4, max: 5, hint: 'Reliability under production pressure' },
-        { label: 'Reflexes', value: 4, max: 5, hint: 'Fast iteration, CI/CD-driven delivery' },
-        { label: 'Leadership', value: 4, max: 5, hint: '10+ years owning systems end-to-end' },
+        { label: 'Intelligence', value: 5, max: 5, hint: 'Architecture, DDD, event-driven systems' },
+        { label: 'Cool', value: 5, max: 5, hint: 'Reliability under production pressure' },
+        { label: 'Reflexes', value: 5, max: 5, hint: 'Fast iteration, CI/CD-driven delivery' },
+        { label: 'Leadership', value: 5, max: 5, hint: '10+ years owning systems end-to-end' },
       ],
       projectsAria: 'Projects',
       projectsLabel: 'Projects',
@@ -132,7 +132,7 @@ export const translations: Record<Language, TranslationDict> = {
           stack: 'TypeScript · React · Node',
           details:
             'Placeholder expanded write-up of Project One — the problem it solved, the approach taken, and the outcome or impact once shipped.',
-          difficulty: 3,
+          difficulty: 5,
           impact: 'High Impact',
         },
         {
@@ -142,8 +142,8 @@ export const translations: Record<Language, TranslationDict> = {
           stack: 'Python · PostgreSQL',
           details:
             'Placeholder expanded write-up of Project Two — the problem it solved, the approach taken, and the outcome or impact once shipped.',
-          difficulty: 2,
-          impact: 'Moderate Impact',
+          difficulty: 5,
+          impact: 'High Impact',
         },
       ],
       experience: [
@@ -246,10 +246,10 @@ export const translations: Record<Language, TranslationDict> = {
         'Cada projeto apresenta um desafio diferente, mas meu objetivo continua o mesmo: entregar software confiável, escalável e agradável de se trabalhar. Gosto de modelar domínios de negócio complexos, projetar arquiteturas limpas e utilizar Domain-Driven Design e sistemas orientados a eventos para construir aplicações fáceis de evoluir e manter.',
       systemAnalysisAttributes: [
         { label: 'Habilidade Técnica', value: 5, max: 5, hint: 'Amplitude full-stack em linguagens e infraestrutura' },
-        { label: 'Inteligência', value: 4, max: 5, hint: 'Arquitetura, DDD, sistemas orientados a eventos' },
-        { label: 'Sangue-Frio', value: 4, max: 5, hint: 'Confiabilidade sob pressão em produção' },
-        { label: 'Reflexos', value: 4, max: 5, hint: 'Iteração rápida, entrega orientada a CI/CD' },
-        { label: 'Liderança', value: 4, max: 5, hint: 'Mais de 10 anos responsável por sistemas de ponta a ponta' },
+        { label: 'Inteligência', value: 5, max: 5, hint: 'Arquitetura, DDD, sistemas orientados a eventos' },
+        { label: 'Sangue-Frio', value: 5, max: 5, hint: 'Confiabilidade sob pressão em produção' },
+        { label: 'Reflexos', value: 5, max: 5, hint: 'Iteração rápida, entrega orientada a CI/CD' },
+        { label: 'Liderança', value: 5, max: 5, hint: 'Mais de 10 anos responsável por sistemas de ponta a ponta' },
       ],
       projectsAria: 'Projetos',
       projectsLabel: 'Projetos',
@@ -263,7 +263,7 @@ export const translations: Record<Language, TranslationDict> = {
           stack: 'TypeScript · React · Node',
           details:
             'Descrição expandida placeholder do Projeto Um — o problema resolvido, a abordagem adotada e o resultado ou impacto após o lançamento.',
-          difficulty: 3,
+          difficulty: 5,
           impact: 'Alto Impacto',
         },
         {
@@ -273,8 +273,8 @@ export const translations: Record<Language, TranslationDict> = {
           stack: 'Python · PostgreSQL',
           details:
             'Descrição expandida placeholder do Projeto Dois — o problema resolvido, a abordagem adotada e o resultado ou impacto após o lançamento.',
-          difficulty: 2,
-          impact: 'Impacto Moderado',
+          difficulty: 5,
+          impact: 'Alto Impacto',
         },
       ],
       experience: [
