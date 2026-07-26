@@ -134,82 +134,82 @@ export const translations: Record<Language, TranslationDict> = {
         {
           name: 'Node.js',
           description:
-            "Primary backend runtime for most of the APIs and services I've built over the years — from REST endpoints to event-driven workers.",
+            "My weapon of choice for building scalable systems for the last 10 years.",
         },
         {
           name: 'TypeScript',
           description:
-            'Default language for anything beyond a quick script — static types catch entire classes of bugs before they reach production.',
+            'JavaScript is fun. TypeScript is fun and catches my mistakes before production.',
         },
         {
           name: 'React',
           description:
-            'Go-to library for building interactive UIs, from small widgets to full single-page applications.',
+            'My favorite way to turn coffee into user interfaces.',
         },
         {
           name: 'Next.js',
           description:
-            'Used for full-stack React applications that need server-side rendering, routing, and API routes in one place.',
+            'Whenever performance, SEO, or a great developer experience matters, Next.js usually earns its spot in the stack.',
         },
         {
           name: 'Laravel',
           description:
-            'Framework of choice for PHP backends — clean architecture, Eloquent ORM, and a mature ecosystem for building APIs quickly.',
+            'The PHP framework that convinced me PHP could actually be elegant.',
         },
         {
           name: 'PHP',
           description:
-            'Years of experience building and maintaining production PHP applications, from legacy codebases to modern Laravel projects.',
+            "One of my oldest companions. We've both grown a lot over the last 10 years.",
         },
         {
           name: 'Docker',
           description:
-            'Containerize every service I ship — local development environments mirror production, and deployments become predictable.',
+            "It works on my machine... because my machine is a container.",
         },
         {
           name: 'RabbitMQ',
           description:
-            'Message broker of choice for decoupling services and building event-driven, asynchronous workflows.',
+            'When services need to talk without yelling at each other.',
         },
         {
           name: 'Redis',
           description:
-            'Used extensively for caching, session storage, and rate limiting in high-traffic applications.',
+            'Need it faster? Throw Redis at it. (Usually works.)',
         },
         {
           name: 'MySQL',
           description:
-            'Primary relational database for most projects — schema design, query optimization, and replication.',
+            "I've probably written enough SQL queries to fill a small book. Performance tuning and database design are part of the fun.",
         },
         {
           name: 'PostgreSQL',
           description:
-            'Reach for Postgres when I need advanced querying, strong data integrity, or JSONB flexibility.',
+            'My go-to choice whenever a project needs powerful SQL features and rock-solid reliability.',
         },
         {
           name: 'SQL Server',
           description:
-            'Experience working with SQL Server in enterprise environments — stored procedures, indexing, and integration with .NET systems.',
+            "Most of my SQL Server experience comes from integrating and extending TOTVS Protheus, where performance and reliability aren't optional.",
         },
         {
           name: 'AWS',
           description:
-            "Deploy and manage infrastructure on AWS — EC2, S3, RDS, Lambda, and more, depending on the project's needs.",
+            "Currently expanding my cloud expertise with AWS, learning how to build scalable and resilient infrastructure—not just scalable applications.",
         },
         {
           name: 'Git',
           description:
-            'Version control for every project, from solo work to coordinating large teams with branching strategies and code review.',
+            'Besides saving me from my own mistakes, Git has been essential for collaborating on large teams and complex projects.',
         },
         {
           name: 'System Design',
           description:
-            'Enjoy designing scalable architectures — from monoliths to distributed, event-driven systems — that are built to evolve.',
+            'I enjoy designing systems that stay maintainable long after the first deployment. DDD, Clean Architecture, and event-driven design are some of my favorite tools.',
         },
         {
           name: 'REST API',
           description:
-            'Designed and consumed REST APIs across dozens of projects — from public-facing endpoints to internal microservices.',
+            "I've designed and integrated dozens of REST APIs over the years, connecting everything from ERPs to third-party services and internal platforms.",
         },
       ],
       projectsAria: 'Projects',
@@ -349,82 +349,82 @@ export const translations: Record<Language, TranslationDict> = {
         {
           name: 'Node.js',
           description:
-            'Runtime principal para a maioria das APIs e serviços que construí ao longo dos anos — de endpoints REST a workers orientados a eventos.',
+            'Minha arma de escolha para construir sistemas escaláveis nos últimos 10 anos.',
         },
         {
           name: 'TypeScript',
           description:
-            'Linguagem padrão para qualquer coisa além de um script rápido — tipagem estática evita classes inteiras de bugs antes de chegarem à produção.',
+            'JavaScript é divertido. TypeScript é divertido e pega meus erros antes da produção.',
         },
         {
           name: 'React',
           description:
-            'Biblioteca principal para construir interfaces interativas, de pequenos widgets a aplicações single-page completas.',
+            'Minha forma favorita de transformar café em interfaces de usuário.',
         },
         {
           name: 'Next.js',
           description:
-            'Utilizado para aplicações React full-stack que precisam de renderização no servidor, roteamento e rotas de API em um só lugar.',
+            'Sempre que performance, SEO ou uma ótima experiência de desenvolvimento importam, o Next.js costuma garantir seu lugar na stack.',
         },
         {
           name: 'Laravel',
           description:
-            'Framework de escolha para backends em PHP — arquitetura limpa, ORM Eloquent e um ecossistema maduro para construir APIs rapidamente.',
+            'O framework PHP que me convenceu de que PHP pode ser elegante de verdade.',
         },
         {
           name: 'PHP',
           description:
-            'Anos de experiência construindo e mantendo aplicações PHP em produção, de bases de código legadas a projetos modernos em Laravel.',
+            'Um dos meus companheiros mais antigos. Nós dois crescemos bastante nos últimos 10 anos.',
         },
         {
           name: 'Docker',
           description:
-            'Containerizo todos os serviços que entrego — os ambientes de desenvolvimento local espelham a produção e os deploys se tornam previsíveis.',
+            'Funciona na minha máquina... porque minha máquina é um container.',
         },
         {
           name: 'RabbitMQ',
           description:
-            'Message broker de escolha para desacoplar serviços e construir fluxos assíncronos orientados a eventos.',
+            'Quando os serviços precisam conversar sem gritar uns com os outros.',
         },
         {
           name: 'Redis',
           description:
-            'Usado extensivamente para cache, armazenamento de sessão e rate limiting em aplicações de alto tráfego.',
+            'Precisa que fique mais rápido? Joga um Redis nisso. (Geralmente funciona.)',
         },
         {
           name: 'MySQL',
           description:
-            'Banco de dados relacional principal na maioria dos projetos — modelagem de esquema, otimização de queries e replicação.',
+            'Provavelmente já escrevi queries SQL suficientes para encher um livro pequeno. Performance tuning e modelagem de banco de dados fazem parte da diversão.',
         },
         {
           name: 'PostgreSQL',
           description:
-            'Recorro ao Postgres quando preciso de queries avançadas, forte integridade de dados ou flexibilidade com JSONB.',
+            'Minha escolha preferida sempre que um projeto precisa de recursos SQL poderosos e confiabilidade inabalável.',
         },
         {
           name: 'SQL Server',
           description:
-            'Experiência trabalhando com SQL Server em ambientes corporativos — stored procedures, indexação e integração com sistemas .NET.',
+            'A maior parte da minha experiência com SQL Server vem de integrar e estender o TOTVS Protheus, onde performance e confiabilidade não são opcionais.',
         },
         {
           name: 'AWS',
           description:
-            'Implanto e gerencio infraestrutura na AWS — EC2, S3, RDS, Lambda e outros serviços, conforme a necessidade do projeto.',
+            'Atualmente expandindo minha expertise em nuvem com AWS, aprendendo a construir infraestrutura escalável e resiliente—não apenas aplicações escaláveis.',
         },
         {
           name: 'Git',
           description:
-            'Controle de versão em todos os projetos, do trabalho individual à coordenação de grandes equipes com estratégias de branching e code review.',
+            'Além de me salvar dos meus próprios erros, o Git tem sido essencial para colaborar em grandes equipes e projetos complexos.',
         },
         {
           name: 'System Design',
           description:
-            'Gosto de projetar arquiteturas escaláveis — de monólitos a sistemas distribuídos orientados a eventos — feitas para evoluir.',
+            'Gosto de projetar sistemas que continuam fáceis de manter muito depois do primeiro deploy. DDD, Clean Architecture e design orientado a eventos estão entre minhas ferramentas favoritas.',
         },
         {
           name: 'REST API',
           description:
-            'Projetei e consumi APIs REST em dezenas de projetos — de endpoints públicos a microsserviços internos.',
+            'Projetei e integrei dezenas de APIs REST ao longo dos anos, conectando desde ERPs a serviços de terceiros e plataformas internas.',
         },
       ],
       projectsAria: 'Projetos',
