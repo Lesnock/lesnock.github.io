@@ -24,13 +24,13 @@ export function Hero() {
               <span className={styles.summaryHighlight}>{t.hero.summaryYears}</span>{' '}
               {t.hero.summaryOutro}
             </p>
-            <ul className={styles.skillTags}>
-              {SKILLS.map((item) => (
-                <li key={item} className={styles.skillTag}>
-                  {item}
-                </li>
-              ))}
-            </ul>
+            {/* <ul className={styles.skillTags}> */}
+            {/*   {SKILLS.map((item) => ( */}
+            {/*     <li key={item} className={styles.skillTag}> */}
+            {/*       {item} */}
+            {/*     </li> */}
+            {/*   ))} */}
+            {/* </ul> */}
             <div className={styles.actions}>
               <a href="#projects" className={styles.primaryButton}>
                 {t.hero.viewWork}

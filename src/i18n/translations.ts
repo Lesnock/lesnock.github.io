@@ -80,12 +80,12 @@ export const translations: Record<Language, TranslationDict> = {
     },
     hero: {
       profileAria: 'Profile',
-      title: 'Senior Software Engineer',
+      title: 'Senior Full Stack Software Engineer',
       greeting: 'Hi!👋',
       summaryIntro: "I'm Caio, a Software Engineer with",
       summaryYears: '10+ years',
       summaryOutro:
-        'of experience building scalable web applications. Feel free to explore some of my work below.',
+        'of experience building scalable web applications. Feel free to explore my projects and learn a bit more about my professional journey.',
       viewWork: 'View My Work',
       getInTouch: 'Get In Touch',
       scroll: 'Scroll',
@@ -196,12 +196,12 @@ export const translations: Record<Language, TranslationDict> = {
     },
     hero: {
       profileAria: 'Perfil',
-      title: 'Desenvolvedor Sênior',
+      title: 'Desenvolvedor Full Stack Sênior',
       greeting: 'Olá!👋',
       summaryIntro: 'Eu sou o Caio, Desenvolvedor Sênior com',
       summaryYears: '10+ anos',
       summaryOutro:
-        'de experiência construindo aplicações web escaláveis. Fique à vontade para explorar alguns dos meus trabalhos abaixo.',
+        'de experiência construindo aplicações web escaláveis. Fique à vontade para explorar meus projetos e conhecer um pouco mais sobre minha trajetória profissional.',
       viewWork: 'Ver Meus Projetos',
       getInTouch: 'Entrar em Contato',
       scroll: 'Rolar',
