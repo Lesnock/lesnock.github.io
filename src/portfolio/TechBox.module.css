@@ -128,25 +128,23 @@
   font-size: 1.6rem;
   color: var(--color-secondary);
   filter: drop-shadow(0 0 4px rgba(55, 235, 243, 0.35));
-  animation: iconGlitch 8s steps(1, end) infinite;
-  animation-delay: calc(var(--i) * -0.9s);
+}
+
+.module:hover .icon,
+.module:focus-visible .icon {
+  animation: iconGlitch 0.6s steps(1, end) 1;
 }
 
 @keyframes iconGlitch {
-  0%,
-  96%,
-  100% {
-    transform: none;
-    filter: drop-shadow(0 0 4px rgba(55, 235, 243, 0.35));
-  }
-  96.3% {
+  0% {
     transform: translateX(-2px);
     filter: drop-shadow(2px 0 rgba(243, 55, 130, 0.6)) drop-shadow(-2px 0 rgba(55, 235, 243, 0.6));
   }
-  96.7% {
+  7% {
     transform: translateX(2px);
   }
-  97.1% {
+  14%,
+  100% {
     transform: none;
     filter: drop-shadow(0 0 4px rgba(55, 235, 243, 0.35));
   }

@@ -14,8 +14,9 @@ export function Hero() {
       <div className={styles.inner}>
         <div className={styles.content}>
           <div className={styles.text}>
+            <span className={styles.eyebrow}>{t.hero.eyebrow}</span>
             <GlitchText as="h1" text={OPERATOR_NAME} className={styles.name} />
-            <p className={styles.title}>{t.hero.title}</p>
+            <p className={styles.title}>[ {t.hero.title.toUpperCase()} ]</p>
             <p className={styles.summary}>
               {t.hero.greeting} <br />
               {t.hero.summaryIntro}{' '}
@@ -34,7 +35,14 @@ export function Hero() {
           </div>
 
           <div className={styles.avatarFrame}>
+            <span className={`${styles.avatarCorner} ${styles.avatarCornerTl}`} aria-hidden="true" />
+            <span className={`${styles.avatarCorner} ${styles.avatarCornerBr}`} aria-hidden="true" />
+            <div className={styles.avatarScan} aria-hidden="true" />
             <img src="/profile.jpg" alt="Caio Lesnock" className={styles.avatar} />
+            <span className={styles.avatarStatus}>
+              <span className={styles.avatarStatusDot} aria-hidden="true" />
+              {t.hero.statusOnline}
+            </span>
           </div>
         </div>
       </div>
