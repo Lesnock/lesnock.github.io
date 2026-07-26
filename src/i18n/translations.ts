@@ -136,47 +136,47 @@ export const translations: Record<Language, TranslationDict> = {
         {
           name: 'Node.js',
           description:
-            "My weapon of choice for building scalable systems for the last 10 years.",
+            "I've made it my weapon of choice for building scalable systems over the last 10 years.",
         },
         {
           name: 'TypeScript',
           description:
-            'JavaScript is fun. TypeScript is fun and catches my mistakes before production.',
+            'I love JavaScript, but I love TypeScript even more — it catches my mistakes before they reach production.',
         },
         {
           name: 'React',
           description:
-            'My favorite way to turn coffee into user interfaces.',
+            'I use it as my favorite way to turn coffee into user interfaces.',
         },
         {
           name: 'Next.js',
           description:
-            'Whenever performance, SEO, or a great developer experience matters, Next.js usually earns its spot in the stack.',
+            'Whenever performance, SEO, or developer experience matters, I reach for Next.js.',
         },
         {
           name: 'Laravel',
           description:
-            'The PHP framework that convinced me PHP could actually be elegant.',
+            "It's the PHP framework that convinced me PHP could actually be elegant.",
         },
         {
           name: 'PHP',
           description:
-            "One of my oldest companions. We've both grown a lot over the last 10 years.",
+            "I've been writing PHP for so long it feels like one of my oldest companions — we've both grown a lot over the last 10 years.",
         },
         {
           name: 'Docker',
           description:
-            "It works on my machine... because my machine is a container.",
+            "I like to say it works on my machine... because my machine is a container.",
         },
         {
           name: 'RabbitMQ',
           description:
-            'When services need to talk without yelling at each other.',
+            'I reach for it when services need to talk without yelling at each other.',
         },
         {
           name: 'Redis',
           description:
-            'Need it faster? Throw Redis at it. (Usually works.)',
+            'Need something faster? I throw Redis at it. (Usually works.)',
         },
         {
           name: 'MySQL',
@@ -186,7 +186,7 @@ export const translations: Record<Language, TranslationDict> = {
         {
           name: 'PostgreSQL',
           description:
-            'My go-to choice whenever a project needs powerful SQL features and rock-solid reliability.',
+            "It's my go-to choice whenever a project needs powerful SQL features and rock-solid reliability.",
         },
         {
           name: 'SQL Server',
@@ -196,12 +196,12 @@ export const translations: Record<Language, TranslationDict> = {
         {
           name: 'AWS',
           description:
-            "Currently expanding my cloud expertise with AWS, learning how to build scalable and resilient infrastructure—not just scalable applications.",
+            "I'm currently expanding my cloud expertise with AWS, learning how to build scalable and resilient infrastructure—not just scalable applications.",
         },
         {
           name: 'Git',
           description:
-            'Besides saving me from my own mistakes, Git has been essential for collaborating on large teams and complex projects.',
+            "It's saved me from my own mistakes more times than I can count, and it's been essential for collaborating on large teams and complex projects.",
         },
         {
           name: 'System Design',
@@ -352,47 +352,47 @@ export const translations: Record<Language, TranslationDict> = {
         {
           name: 'Node.js',
           description:
-            'Minha arma de escolha para construir sistemas escaláveis nos últimos 10 anos.',
+            'Fiz dele minha arma de escolha para construir sistemas escaláveis nos últimos 10 anos.',
         },
         {
           name: 'TypeScript',
           description:
-            'JavaScript é divertido. TypeScript é divertido e pega meus erros antes da produção.',
+            'Eu amo JavaScript, mas amo TypeScript ainda mais — ele pega meus erros antes que cheguem à produção.',
         },
         {
           name: 'React',
           description:
-            'Minha forma favorita de transformar café em interfaces de usuário.',
+            'Uso como minha forma favorita de transformar café em interfaces de usuário.',
         },
         {
           name: 'Next.js',
           description:
-            'Sempre que performance, SEO ou uma ótima experiência de desenvolvimento importam, o Next.js costuma garantir seu lugar na stack.',
+            'Sempre que performance, SEO ou uma ótima experiência de desenvolvimento importam, eu recorro ao Next.js.',
         },
         {
           name: 'Laravel',
           description:
-            'O framework PHP que me convenceu de que PHP pode ser elegante de verdade.',
+            'É o framework PHP que me convenceu de que PHP pode ser elegante de verdade.',
         },
         {
           name: 'PHP',
           description:
-            'Um dos meus companheiros mais antigos. Nós dois crescemos bastante nos últimos 10 anos.',
+            'Escrevo PHP há tanto tempo que ele parece um dos meus companheiros mais antigos — nós dois crescemos bastante nos últimos 10 anos.',
         },
         {
           name: 'Docker',
           description:
-            'Funciona na minha máquina... porque minha máquina é um container.',
+            'Gosto de dizer que funciona na minha máquina... porque minha máquina é um container.',
         },
         {
           name: 'RabbitMQ',
           description:
-            'Quando os serviços precisam conversar sem gritar uns com os outros.',
+            'Recorro a ele quando os serviços precisam conversar sem gritar uns com os outros.',
         },
         {
           name: 'Redis',
           description:
-            'Precisa que fique mais rápido? Joga um Redis nisso. (Geralmente funciona.)',
+            'Preciso que fique mais rápido? Eu jogo um Redis nisso. (Geralmente funciona.)',
         },
         {
           name: 'MySQL',
@@ -402,7 +402,7 @@ export const translations: Record<Language, TranslationDict> = {
         {
           name: 'PostgreSQL',
           description:
-            'Minha escolha preferida sempre que um projeto precisa de recursos SQL poderosos e confiabilidade inabalável.',
+            'É minha escolha preferida sempre que um projeto precisa de recursos SQL poderosos e confiabilidade inabalável.',
         },
         {
           name: 'SQL Server',
@@ -412,12 +412,12 @@ export const translations: Record<Language, TranslationDict> = {
         {
           name: 'AWS',
           description:
-            'Atualmente expandindo minha expertise em nuvem com AWS, aprendendo a construir infraestrutura escalável e resiliente—não apenas aplicações escaláveis.',
+            'Estou atualmente expandindo minha expertise em nuvem com AWS, aprendendo a construir infraestrutura escalável e resiliente—não apenas aplicações escaláveis.',
         },
         {
           name: 'Git',
           description:
-            'Além de me salvar dos meus próprios erros, o Git tem sido essencial para colaborar em grandes equipes e projetos complexos.',
+            'Ele já me salvou dos meus próprios erros mais vezes do que consigo contar, e tem sido essencial para colaborar em grandes equipes e projetos complexos.',
         },
         {
           name: 'System Design',
