@@ -122,6 +122,9 @@ export function TechBox() {
                     <Icon className={styles.icon} aria-hidden="true" />
                     <span className={styles.name}>{name}</span>
                   </div>
+                  <span className={styles.viewDetails} aria-hidden="true">
+                    {t.resume.techShowcaseViewDetails}
+                  </span>
                 </button>
               </li>
             );

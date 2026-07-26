@@ -65,6 +65,7 @@ export interface TranslationDict {
     techShowcaseLabel: string;
     techShowcaseHint: string;
     techShowcaseBackAria: string;
+    techShowcaseViewDetails: string;
     systemAnalysisTitle: string;
     systemAnalysisBody: string;
     systemAnalysisAttributes: AttributeEntry[];
@@ -120,6 +121,7 @@ export const translations: Record<Language, TranslationDict> = {
       techShowcaseLabel: 'Toolbox',
       techShowcaseHint: 'Click a module to see more',
       techShowcaseBackAria: 'Back to toolbox',
+      techShowcaseViewDetails: 'View details',
       systemAnalysisTitle: 'System Analysis',
       systemAnalysisBody:
         'Every project presents a different challenge, but my goal remains the same: deliver software that is reliable, scalable, and enjoyable to work on. I enjoy modeling complex business domains, designing clean architectures, and leveraging Domain-Driven Design and event-driven systems to build applications that are easy to evolve and maintain.',
@@ -335,6 +337,7 @@ export const translations: Record<Language, TranslationDict> = {
       techShowcaseLabel: 'Caixa de Ferramentas',
       techShowcaseHint: 'Clique em um módulo para ver mais',
       techShowcaseBackAria: 'Voltar para a caixa de ferramentas',
+      techShowcaseViewDetails: 'Ver detalhes',
       systemAnalysisTitle: 'Análise do Sistema',
       systemAnalysisBody:
         'Cada projeto apresenta um desafio diferente, mas meu objetivo continua o mesmo: entregar software confiável, escalável e agradável de se trabalhar. Gosto de modelar domínios de negócio complexos, projetar arquiteturas limpas e utilizar Domain-Driven Design e sistemas orientados a eventos para construir aplicações fáceis de evoluir e manter.',
