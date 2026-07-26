@@ -52,6 +52,14 @@
   gap: 1.5rem;
 }
 
+.modalMeta {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--color-secondary);
+  text-transform: uppercase;
+}
+
 .modalPoints {
   margin-top: 1rem;
   padding-left: 1.1rem;

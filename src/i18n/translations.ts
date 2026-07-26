@@ -12,6 +12,15 @@ interface ProjectEntry {
   description: string;
   stack: string;
   details: string;
+  difficulty: number;
+  impact: string;
+}
+
+interface AttributeEntry {
+  label: string;
+  value: number;
+  max: number;
+  hint?: string;
 }
 
 interface ExperienceEntry {
@@ -49,7 +58,7 @@ export interface TranslationDict {
     techShowcaseLabel: string;
     systemAnalysisTitle: string;
     systemAnalysisBody: string;
-    systemAnalysisStatus: { label: string; value: string }[];
+    systemAnalysisAttributes: AttributeEntry[];
     projectsAria: string;
     projectsLabel: string;
     experienceAria: string;
@@ -59,6 +68,7 @@ export interface TranslationDict {
   };
   detailModal: {
     closeAria: string;
+    difficultyLabel: string;
   };
   boot: {
     initializing: string;
@@ -99,11 +109,12 @@ export const translations: Record<Language, TranslationDict> = {
       systemAnalysisTitle: 'System Analysis',
       systemAnalysisBody:
         'Every project presents a different challenge, but my goal remains the same: deliver software that is reliable, scalable, and enjoyable to work on. I enjoy modeling complex business domains, designing clean architectures, and leveraging Domain-Driven Design and event-driven systems to build applications that are easy to evolve and maintain.',
-      systemAnalysisStatus: [
-        { label: 'Status', value: 'Active' },
-        { label: 'Architecture', value: 'Scalable' },
-        { label: 'Maintainability', value: 'High' },
-        { label: 'Code Quality', value: 'Verified' },
+      systemAnalysisAttributes: [
+        { label: 'Technical Ability', value: 5, max: 5, hint: 'Full-stack breadth across languages and infra' },
+        { label: 'Intelligence', value: 4, max: 5, hint: 'Architecture, DDD, event-driven systems' },
+        { label: 'Cool', value: 4, max: 5, hint: 'Reliability under production pressure' },
+        { label: 'Reflexes', value: 4, max: 5, hint: 'Fast iteration, CI/CD-driven delivery' },
+        { label: 'Leadership', value: 4, max: 5, hint: '10+ years owning systems end-to-end' },
       ],
       projectsAria: 'Projects',
       projectsLabel: 'Projects',
@@ -117,6 +128,8 @@ export const translations: Record<Language, TranslationDict> = {
           stack: 'TypeScript · React · Node',
           details:
             'Placeholder expanded write-up of Project One — the problem it solved, the approach taken, and the outcome or impact once shipped.',
+          difficulty: 3,
+          impact: 'High Impact',
         },
         {
           name: 'Placeholder Project Two',
@@ -125,6 +138,8 @@ export const translations: Record<Language, TranslationDict> = {
           stack: 'Python · PostgreSQL',
           details:
             'Placeholder expanded write-up of Project Two — the problem it solved, the approach taken, and the outcome or impact once shipped.',
+          difficulty: 2,
+          impact: 'Moderate Impact',
         },
       ],
       experience: [
@@ -178,6 +193,7 @@ export const translations: Record<Language, TranslationDict> = {
     },
     detailModal: {
       closeAria: 'Close details',
+      difficultyLabel: 'Difficulty',
     },
     boot: {
       initializing: 'Initializing...',
@@ -222,11 +238,12 @@ export const translations: Record<Language, TranslationDict> = {
       systemAnalysisTitle: 'Análise do Sistema',
       systemAnalysisBody:
         'Cada projeto apresenta um desafio diferente, mas meu objetivo continua o mesmo: entregar software confiável, escalável e agradável de se trabalhar. Gosto de modelar domínios de negócio complexos, projetar arquiteturas limpas e utilizar Domain-Driven Design e sistemas orientados a eventos para construir aplicações fáceis de evoluir e manter.',
-      systemAnalysisStatus: [
-        { label: 'Status', value: 'Ativo' },
-        { label: 'Arquitetura', value: 'Escalável' },
-        { label: 'Manutenibilidade', value: 'Alta' },
-        { label: 'Qualidade do Código', value: 'Verificada' },
+      systemAnalysisAttributes: [
+        { label: 'Habilidade Técnica', value: 5, max: 5, hint: 'Amplitude full-stack em linguagens e infraestrutura' },
+        { label: 'Inteligência', value: 4, max: 5, hint: 'Arquitetura, DDD, sistemas orientados a eventos' },
+        { label: 'Sangue-Frio', value: 4, max: 5, hint: 'Confiabilidade sob pressão em produção' },
+        { label: 'Reflexos', value: 4, max: 5, hint: 'Iteração rápida, entrega orientada a CI/CD' },
+        { label: 'Liderança', value: 4, max: 5, hint: 'Mais de 10 anos responsável por sistemas de ponta a ponta' },
       ],
       projectsAria: 'Projetos',
       projectsLabel: 'Projetos',
@@ -240,6 +257,8 @@ export const translations: Record<Language, TranslationDict> = {
           stack: 'TypeScript · React · Node',
           details:
             'Descrição expandida placeholder do Projeto Um — o problema resolvido, a abordagem adotada e o resultado ou impacto após o lançamento.',
+          difficulty: 3,
+          impact: 'Alto Impacto',
         },
         {
           name: 'Projeto Placeholder Dois',
@@ -248,6 +267,8 @@ export const translations: Record<Language, TranslationDict> = {
           stack: 'Python · PostgreSQL',
           details:
             'Descrição expandida placeholder do Projeto Dois — o problema resolvido, a abordagem adotada e o resultado ou impacto após o lançamento.',
+          difficulty: 2,
+          impact: 'Impacto Moderado',
         },
       ],
       experience: [
@@ -301,6 +322,7 @@ export const translations: Record<Language, TranslationDict> = {
     },
     detailModal: {
       closeAria: 'Fechar detalhes',
+      difficultyLabel: 'Dificuldade',
     },
     boot: {
       initializing: 'Inicializando...',

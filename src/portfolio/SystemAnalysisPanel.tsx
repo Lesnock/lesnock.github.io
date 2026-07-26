@@ -1,9 +1,12 @@
 import { useLanguage } from '../i18n/LanguageContext';
+import { StatBar } from './StatBar';
 import styles from './SystemAnalysisPanel.module.css';
+
+const ATTRIBUTE_ACCENTS = ['primary', 'secondary', 'purple', 'pink', 'primary'] as const;
 
 export function SystemAnalysisPanel() {
   const { t } = useLanguage();
-  const { systemAnalysisTitle, systemAnalysisBody, systemAnalysisStatus } = t.resume;
+  const { systemAnalysisTitle, systemAnalysisBody, systemAnalysisAttributes } = t.resume;
 
   return (
     <div className={styles.hologram} role="note" aria-label={systemAnalysisTitle}>
@@ -17,13 +20,17 @@ export function SystemAnalysisPanel() {
       </h3>
       <p className={styles.body}>{systemAnalysisBody}</p>
 
-      <div className={styles.statusBar}>
-        {systemAnalysisStatus.map(({ label, value }) => (
-          <span className={styles.statusItem} key={label}>
-            <span className={styles.statusDot} aria-hidden="true" />
-            <span className={styles.statusLabel}>{label}</span>
-            <span className={styles.statusValue}>{value}</span>
-          </span>
+      <div className={styles.attributeGrid}>
+        {systemAnalysisAttributes.map(({ label, value, max, hint }, index) => (
+          <div className={styles.attributeItem} key={label}>
+            <StatBar
+              label={label}
+              value={value}
+              max={max}
+              accent={ATTRIBUTE_ACCENTS[index % ATTRIBUTE_ACCENTS.length]}
+            />
+            {hint && <span className={styles.attributeHint}>{hint}</span>}
+          </div>
         ))}
       </div>
     </div>

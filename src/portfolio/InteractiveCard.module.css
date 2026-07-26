@@ -63,6 +63,19 @@
   justify-content: center;
 }
 
+.corner {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: 14px;
+  height: 14px;
+  border-top: 2px solid var(--color-secondary);
+  border-right: 2px solid var(--color-secondary);
+  filter: drop-shadow(0 0 4px rgba(55, 235, 243, 0.6));
+  opacity: 0.75;
+  pointer-events: none;
+}
+
 .cardGlow {
   position: absolute;
   inset: 0;

@@ -1,0 +1,65 @@
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.pips {
+  display: inline-flex;
+  gap: 0.2rem;
+}
+
+.pip {
+  --pip-color: var(--color-primary);
+  width: 0.6rem;
+  height: 0.6rem;
+  clip-path: polygon(3px 0, 100% 0, 100% 100%, 3px 100%, 0 calc(100% - 3px), 0 3px);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+.pip[data-accent='secondary'] {
+  --pip-color: var(--color-secondary);
+}
+
+.pip[data-accent='purple'] {
+  --pip-color: var(--color-accent-purple);
+}
+
+.pip[data-accent='pink'] {
+  --pip-color: var(--color-accent-pink);
+}
+
+.pipFilled {
+  background: var(--pip-color);
+  border-color: var(--pip-color);
+  box-shadow: 0 0 4px var(--pip-color), 0 0 8px var(--pip-color);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pipFilled {
+    animation: pipIn 0.3s ease-out both;
+    animation-delay: calc(var(--i) * 0.05s);
+  }
+}
+
+@keyframes pipIn {
+  from {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

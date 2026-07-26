@@ -13,26 +13,74 @@
 }
 
 .entryPeriod {
-  font-size: 0.88rem;
-  color: var(--color-text-muted);
-  letter-spacing: 0.04em;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--color-secondary);
+  text-shadow: var(--glow-crisp-cyan);
+  letter-spacing: 0.06em;
 }
 
 .entryOrg {
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   font-size: 1rem;
   color: var(--color-primary);
   margin-top: 0.2rem;
 }
 
+.activeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  box-shadow: 0 0 4px var(--color-primary), 0 0 9px rgba(26, 197, 176, 0.7);
+  animation: activePulse 2.4s ease-in-out infinite;
+}
+
+@keyframes activePulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .activeDot {
+    animation: none;
+  }
+}
+
 .entryPoints {
   position: relative;
   margin-top: 0.6rem;
-  padding-left: 1.1rem;
+  padding-left: 0;
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
   color: var(--color-text-secondary);
   font-size: 1.05rem;
   line-height: 1.6;
+  list-style: none;
+}
+
+.entryPoints li {
+  position: relative;
+  padding-left: 1.1rem;
+}
+
+.entryPoints li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  transform: translateY(-50%) rotate(45deg);
+  background: var(--color-primary);
+  box-shadow: 0 0 4px rgba(26, 197, 176, 0.6);
 }

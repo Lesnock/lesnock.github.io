@@ -45,10 +45,11 @@ export function Resume() {
           <FiBriefcase aria-hidden="true" /> {t.resume.experienceLabel}
         </h2>
         <ol className={styles.timeline}>
-          {t.resume.experience.map((entry) => (
+          {t.resume.experience.map((entry, index) => (
             <ExperienceCard
               key={`${entry.role}-${entry.period}`}
               entry={entry}
+              isCurrent={index === 0}
               onSelect={() => setDetail({ kind: 'experience', entry })}
             />
           ))}
@@ -61,6 +62,9 @@ export function Resume() {
           subtitle={detail.entry.stack}
           onClose={() => setDetail(null)}
         >
+          <p className={styles.modalMeta}>
+            {t.detailModal.difficultyLabel}: {detail.entry.difficulty}/5 · {detail.entry.impact}
+          </p>
           <p>{detail.entry.details}</p>
         </DetailModal>
       )}

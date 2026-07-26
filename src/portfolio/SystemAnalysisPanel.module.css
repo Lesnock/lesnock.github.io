@@ -125,70 +125,28 @@
   line-height: 1.7;
 }
 
-.statusBar {
+.attributeGrid {
   position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 0.75rem 1.5rem;
   margin-top: 1.25rem;
   padding-top: 0.9rem;
   border-top: 1px solid rgba(55, 235, 243, 0.18);
 }
 
-.statusItem {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
+.attributeItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.attributeHint {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.08em;
-}
-
-.statusDot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--color-primary);
-  box-shadow: 0 0 4px var(--color-primary), 0 0 9px rgba(26, 197, 176, 0.7);
-  animation: dotPulse 4s ease-in-out infinite;
-}
-
-.statusItem:nth-child(2) .statusDot {
-  animation-delay: -1s;
-}
-
-.statusItem:nth-child(3) .statusDot {
-  animation-delay: -2s;
-}
-
-.statusItem:nth-child(4) .statusDot {
-  animation-delay: -3s;
-}
-
-@keyframes dotPulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.4;
-  }
-}
-
-.statusLabel {
+  font-size: 0.62rem;
+  letter-spacing: 0.02em;
   color: var(--color-text-muted);
-  text-transform: uppercase;
-}
-
-.statusLabel::after {
-  content: ':';
-  margin-right: 0.4rem;
-}
-
-.statusValue {
-  color: var(--color-primary);
-  text-transform: uppercase;
-  text-shadow: 0 0 6px rgba(26, 197, 176, 0.5);
+  line-height: 1.4;
 }
 
 /* Subtle, mostly-settled flicker with one rare holographic distortion —

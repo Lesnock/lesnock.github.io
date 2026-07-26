@@ -58,6 +58,7 @@ export function InteractiveCard({ children, footer, className, onActivate }: Int
       aria-busy={interactive ? loading : undefined}
     >
       <div className={styles.cardGlow} aria-hidden="true" />
+      <span className={styles.corner} aria-hidden="true" />
       <div className={styles.cardContent}>{children}</div>
       {footer && <div className={styles.cardFooter}>{footer}</div>}
       {loading && (
