@@ -47,7 +47,9 @@ export interface TranslationDict {
   resume: {
     techShowcaseAria: string;
     techShowcaseLabel: string;
-    techShowcaseCaption: string;
+    systemAnalysisTitle: string;
+    systemAnalysisBody: string;
+    systemAnalysisStatus: { label: string; value: string }[];
     projectsAria: string;
     projectsLabel: string;
     experienceAria: string;
@@ -94,8 +96,15 @@ export const translations: Record<Language, TranslationDict> = {
     resume: {
       techShowcaseAria: 'Toolbox',
       techShowcaseLabel: 'Toolbox',
-      techShowcaseCaption:
-        'Placeholder — a few lines about how I like to work, or whatever you want visitors to read here.',
+      systemAnalysisTitle: 'System Analysis',
+      systemAnalysisBody:
+        'Every project presents a different challenge, but my goal remains the same: deliver software that is reliable, scalable, and enjoyable to work on. I enjoy modeling complex business domains, designing clean architectures, and leveraging Domain-Driven Design and event-driven systems to build applications that are easy to evolve and maintain.',
+      systemAnalysisStatus: [
+        { label: 'Status', value: 'Active' },
+        { label: 'Architecture', value: 'Scalable' },
+        { label: 'Maintainability', value: 'High' },
+        { label: 'Code Quality', value: 'Verified' },
+      ],
       projectsAria: 'Projects',
       projectsLabel: 'Projects',
       experienceAria: 'Experience',
@@ -210,8 +219,15 @@ export const translations: Record<Language, TranslationDict> = {
     resume: {
       techShowcaseAria: 'Caixa de Ferramentas',
       techShowcaseLabel: 'Caixa de Ferramentas',
-      techShowcaseCaption:
-        'Placeholder — algumas linhas sobre como eu gosto de trabalhar, ou o que você quiser que os visitantes leiam aqui.',
+      systemAnalysisTitle: 'Análise do Sistema',
+      systemAnalysisBody:
+        'Cada projeto apresenta um desafio diferente, mas meu objetivo continua o mesmo: entregar software confiável, escalável e agradável de se trabalhar. Gosto de modelar domínios de negócio complexos, projetar arquiteturas limpas e utilizar Domain-Driven Design e sistemas orientados a eventos para construir aplicações fáceis de evoluir e manter.',
+      systemAnalysisStatus: [
+        { label: 'Status', value: 'Ativo' },
+        { label: 'Arquitetura', value: 'Escalável' },
+        { label: 'Manutenibilidade', value: 'Alta' },
+        { label: 'Qualidade do Código', value: 'Verificada' },
+      ],
       projectsAria: 'Projetos',
       projectsLabel: 'Projetos',
       experienceAria: 'Experiência',

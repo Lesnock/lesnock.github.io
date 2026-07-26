@@ -167,11 +167,3 @@
   color: var(--color-primary);
   opacity: 0.75;
 }
-
-.caption {
-  margin-top: 1.1rem;
-  max-width: 60ch;
-  color: var(--color-text-secondary);
-  font-size: 0.95rem;
-  line-height: 1.7;
-}

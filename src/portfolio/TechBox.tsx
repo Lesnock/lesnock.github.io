@@ -14,6 +14,7 @@ import {
   SiTypescript,
 } from 'react-icons/si';
 import { useLanguage } from '../i18n/LanguageContext';
+import { SystemAnalysisPanel } from './SystemAnalysisPanel';
 import styles from './TechBox.module.css';
 
 const TECHS = [
@@ -61,7 +62,7 @@ export function TechBox() {
         </ul>
       </div>
 
-      <p className={styles.caption}>{t.resume.techShowcaseCaption}</p>
+      <SystemAnalysisPanel />
     </div>
   );
 }
