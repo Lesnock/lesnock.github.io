@@ -4,8 +4,6 @@ import { OPERATOR_NAME } from '../boot/constants';
 import { useLanguage } from '../i18n/LanguageContext';
 import styles from './Hero.module.css';
 
-const SKILLS = ['Node.js', 'TypeScript', 'React', 'PHP', 'Vue'];
-
 export function Hero() {
   const { t } = useLanguage();
 
@@ -24,13 +22,6 @@ export function Hero() {
               <span className={styles.summaryHighlight}>{t.hero.summaryYears}</span>{' '}
               {t.hero.summaryOutro}
             </p>
-            {/* <ul className={styles.skillTags}> */}
-            {/*   {SKILLS.map((item) => ( */}
-            {/*     <li key={item} className={styles.skillTag}> */}
-            {/*       {item} */}
-            {/*     </li> */}
-            {/*   ))} */}
-            {/* </ul> */}
             <div className={styles.actions}>
               <a href="#projects" className={styles.primaryButton}>
                 {t.hero.viewWork}

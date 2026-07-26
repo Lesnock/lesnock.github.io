@@ -3,120 +3,175 @@
   flex-direction: column;
 }
 
-.stage {
-  --item-size: clamp(2.35rem, 5vw, 3.5rem);
-  --gap: clamp(0.6rem, 2vw, 1.1rem);
-  --box-gap: clamp(1.75rem, 6vw, 3rem);
+.panel {
   position: relative;
-  display: flex;
-  align-items: center;
-  gap: var(--box-gap);
-  min-height: calc(var(--item-size) * 1.6);
-  padding-block: 0.5rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid rgba(55, 235, 243, 0.25);
+  border-left: 2px solid rgba(26, 197, 176, 0.55);
+  background:
+    linear-gradient(180deg, rgba(55, 235, 243, 0.05), transparent 55%),
+    repeating-linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.18) 0px,
+      rgba(0, 0, 0, 0.18) 1px,
+      transparent 1px,
+      transparent 3px
+    ),
+    #1b1d24;
+  clip-path: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);
+  box-shadow: 0 0 30px rgba(55, 235, 243, 0.08), inset 0 0 40px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
 }
 
-.box {
-  position: relative;
-  flex: none;
-  width: var(--item-size);
-  height: var(--item-size);
-  perspective: 600px;
-}
-
-.crateBody {
+.panelSweep {
   position: absolute;
   inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(var(--item-size) * 0.42);
-  color: var(--color-secondary);
-  background: linear-gradient(160deg, rgba(26, 197, 176, 0.18), rgba(55, 235, 243, 0.06));
-  border: 1px solid rgba(55, 235, 243, 0.3);
-  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
-  box-shadow: 0 0 16px rgba(55, 235, 243, 0.12);
-  transition: box-shadow 0.4s ease, border-color 0.4s ease;
+  height: 14%;
+  background: linear-gradient(
+    to bottom,
+    rgba(55, 235, 243, 0) 0%,
+    rgba(55, 235, 243, 0.08) 50%,
+    rgba(55, 235, 243, 0) 100%
+  );
+  animation: panelSweep 7s linear infinite;
+  pointer-events: none;
+  will-change: transform;
 }
 
-.crateLid {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 38%;
-  transform-origin: top center;
-  background: linear-gradient(160deg, rgba(55, 235, 243, 0.4), rgba(26, 197, 176, 0.2));
-  border: 1px solid rgba(55, 235, 243, 0.4);
-  border-bottom: none;
-  clip-path: polygon(8px 0, 100% 0, 100% 100%, 0 100%, 0 8px);
-  transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+@keyframes panelSweep {
+  0% {
+    transform: translateY(-30%);
+  }
+  100% {
+    transform: translateY(820%);
+  }
 }
 
-.boxOpen .crateBody {
-  box-shadow: 0 0 26px rgba(55, 235, 243, 0.3);
-  border-color: rgba(55, 235, 243, 0.55);
-}
-
-.boxOpen .crateLid {
-  transform: rotateX(-120deg) translateY(-1px);
-}
-
-.row {
+.grid {
   position: relative;
-  flex: none;
-  height: var(--item-size);
-  width: calc((var(--count) - 1) * var(--gap) + var(--count) * var(--item-size));
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(6.5rem, 1fr));
+  gap: 0.9rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.item {
+.module {
   --i: 0;
-  position: absolute;
-  top: 0;
-  left: calc(var(--i) * (var(--item-size) + var(--gap)));
-  width: var(--item-size);
-  height: var(--item-size);
+  position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(var(--item-size) * 0.5);
-  color: var(--color-text-secondary);
-  opacity: 0;
-  transform: translateX(calc(-1 * (var(--i) * (var(--item-size) + var(--gap)) + var(--box-gap)))) scale(0.3)
-    rotate(-12deg);
-  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease, color 0.3s ease;
+  aspect-ratio: 1 / 1;
+  border: 1px solid rgba(55, 235, 243, 0.22);
+  background: linear-gradient(160deg, rgba(55, 235, 243, 0.05), rgba(0, 0, 0, 0.25));
+  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+  cursor: default;
+  transition: transform 0.2s ease-out, border-color 0.2s ease-out;
 }
 
-.itemOut {
-  opacity: 1;
-  color: var(--color-secondary);
-  transform: translateX(0) scale(1) rotate(0deg);
+.module:focus-visible {
+  outline: 1px solid rgba(55, 235, 243, 0.7);
+  outline-offset: 2px;
 }
 
-.srOnly {
+.module:hover,
+.module:focus-visible {
+  transform: translate(3px, -3px);
+  border-color: rgba(55, 235, 243, 0.85);
+}
+
+.moduleContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.led {
   position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+  top: 0.4rem;
+  right: 0.4rem;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  box-shadow: 0 0 4px var(--color-primary), 0 0 9px rgba(26, 197, 176, 0.7);
+  animation: ledFlicker 5s steps(1, end) infinite;
+  animation-delay: calc(var(--i) * -0.53s);
+}
+
+@keyframes ledFlicker {
+  0%,
+  92%,
+  100% {
+    opacity: 1;
+  }
+  93% {
+    opacity: 0.35;
+  }
+  94% {
+    opacity: 1;
+  }
+  95.5% {
+    opacity: 0.2;
+  }
+  96.5% {
+    opacity: 1;
+  }
+}
+
+.icon {
+  font-size: 1.6rem;
+  color: var(--color-secondary);
+  filter: drop-shadow(0 0 4px rgba(55, 235, 243, 0.35));
+  animation: iconGlitch 8s steps(1, end) infinite;
+  animation-delay: calc(var(--i) * -0.9s);
+}
+
+@keyframes iconGlitch {
+  0%,
+  96%,
+  100% {
+    transform: none;
+    filter: drop-shadow(0 0 4px rgba(55, 235, 243, 0.35));
+  }
+  96.3% {
+    transform: translateX(-2px);
+    filter: drop-shadow(2px 0 rgba(243, 55, 130, 0.6)) drop-shadow(-2px 0 rgba(55, 235, 243, 0.6));
+  }
+  96.7% {
+    transform: translateX(2px);
+  }
+  97.1% {
+    transform: none;
+    filter: drop-shadow(0 0 4px rgba(55, 235, 243, 0.35));
+  }
+}
+
+.name {
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  color: var(--color-text-secondary);
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
+.status {
+  font-size: 0.55rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.15em;
+  color: var(--color-primary);
+  opacity: 0.75;
 }
 
 .caption {
-  margin-top: 1.75rem;
+  margin-top: 1.1rem;
   max-width: 60ch;
-  padding: 0.9rem 1.2rem;
-  border: 1px dashed rgba(55, 235, 243, 0.3);
   color: var(--color-text-secondary);
-  font-style: italic;
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.7;
-}
-
-@media (max-width: 640px) {
-  .stage {
-    gap: clamp(1.1rem, 5vw, 1.75rem);
-  }
 }
