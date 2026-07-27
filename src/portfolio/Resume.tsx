@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { FiFolder, FiBriefcase, FiBox } from 'react-icons/fi';
+import { FiFolder, FiBriefcase, FiBox, FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import { ExperienceCard } from './ExperienceCard';
 import { ProjectCard } from './ProjectCard';
 import { TechBox } from './TechBox';
 import { DetailModal } from './DetailModal';
+import { Spinner } from './Spinner';
 import { useLanguage } from '../i18n/LanguageContext';
 import type { TranslationDict } from '../i18n/translations';
 import styles from './Resume.module.css';
@@ -12,9 +13,29 @@ type Detail =
   | { kind: 'project'; entry: TranslationDict['resume']['projects'][number] }
   | { kind: 'experience'; entry: TranslationDict['resume']['experience'][number] };
 
+const VISIBLE_PROJECT_COUNT = 3;
+const SHOW_MORE_DELAY_MS = 500;
+
 export function Resume() {
   const { t } = useLanguage();
   const [detail, setDetail] = useState<Detail | null>(null);
+  const [showAllProjects, setShowAllProjects] = useState(false);
+  const [isLoadingProjects, setIsLoadingProjects] = useState(false);
+
+  const visibleProjects = t.resume.projects.slice(0, VISIBLE_PROJECT_COUNT);
+  const hiddenProjects = t.resume.projects.slice(VISIBLE_PROJECT_COUNT);
+
+  const handleToggleProjects = () => {
+    if (showAllProjects) {
+      setShowAllProjects(false);
+      return;
+    }
+    setIsLoadingProjects(true);
+    setTimeout(() => {
+      setIsLoadingProjects(false);
+      setShowAllProjects(true);
+    }, SHOW_MORE_DELAY_MS);
+  };
 
   return (
     <main className={styles.main}>
@@ -36,14 +57,45 @@ export function Resume() {
           <FiFolder aria-hidden="true" /> {t.resume.projectsLabel}
         </h2>
         <ul className={styles.projectList}>
-          {t.resume.projects.map((project) => (
+          {visibleProjects.map((project) => (
             <ProjectCard
               key={project.name}
               project={project}
               onSelect={() => setDetail({ kind: 'project', entry: project })}
             />
           ))}
+          {showAllProjects &&
+            hiddenProjects.map((project) => (
+              <ProjectCard
+                key={project.name}
+                project={project}
+                onSelect={() => setDetail({ kind: 'project', entry: project })}
+              />
+            ))}
         </ul>
+        {hiddenProjects.length > 0 && (
+          <button
+            type="button"
+            className={styles.showMoreButton}
+            onClick={handleToggleProjects}
+            disabled={isLoadingProjects}
+            aria-expanded={showAllProjects}
+            aria-busy={isLoadingProjects}
+          >
+            {isLoadingProjects ? (
+              <Spinner className={styles.showMoreSpinner} />
+            ) : (
+              <>
+                {showAllProjects ? t.resume.showLessLabel : t.resume.showMoreLabel}
+                {showAllProjects ? (
+                  <FiChevronUp aria-hidden="true" />
+                ) : (
+                  <FiChevronDown aria-hidden="true" />
+                )}
+              </>
+            )}
+          </button>
+        )}
       </section>
 
       <section className={styles.block} aria-label={t.resume.experienceAria}>

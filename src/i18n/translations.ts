@@ -77,6 +77,8 @@ export interface TranslationDict {
     benefitsLabel: string;
     experienceAria: string;
     experienceLabel: string;
+    showMoreLabel: string;
+    showLessLabel: string;
     projects: ProjectEntry[];
     experience: ExperienceEntry[];
   };
@@ -221,6 +223,8 @@ export const translations: Record<Language, TranslationDict> = {
       benefitsLabel: 'Impact',
       experienceAria: 'Experience',
       experienceLabel: 'Experience',
+      showMoreLabel: 'Show More',
+      showLessLabel: 'Show Less',
       projects: [
         {
           name: 'Logistics and Production System',
@@ -268,6 +272,7 @@ export const translations: Record<Language, TranslationDict> = {
           details:
             'Every event flowing between systems gets sent here first, persisted, and then distributed to subscribers via RabbitMQ. I also built a retry mechanism for events that fail during execution, plus a simple Bulma frontend for listing and filtering events. It became the backbone for every microservice built afterward and the way we track an order’s full lifecycle across the company.',
           impact: 'High Impact',
+          image: '/event-system.png',
           benefits: [
             'I gave the company a way to track the full lifecycle of every order across all systems, something that simply didn’t exist before.',
             'It became the foundation other microservices were built on, centralizing all the information flowing between systems.',
@@ -276,6 +281,24 @@ export const translations: Record<Language, TranslationDict> = {
             'Dealing with duplicate events was the hardest part — I resolved it by assigning a UUID to every incoming event.',
             'I built a retry mechanism for events that failed on execution, without losing them or blocking the rest of the queue.',
             'Events could arrive out of order, so I had to make sure processing them that way never left an order in an inconsistent state.',
+          ],
+        },
+        {
+          name: 'CRM',
+          description:
+            'I built a full CRM covering products, budgets, orders, clients, projects, leads, and deliveries, synced live with the Protheus ERP.',
+          stack: 'PHP · CodeIgniter · Vue.js',
+          details:
+            'A complete CRM with friendly interfaces for managing products, budgets, orders, clients, projects, leads, and deliveries. It connects to the Protheus ERP, sending and receiving data to keep everything in sync. This was the first production project I ever worked on, so I was learning how to program in a real-world setting while building something the company would actually depend on.',
+          impact: 'High Impact',
+          image: '/crm.png',
+          benefits: [
+            'Employees got friendly, purpose-built interfaces for work that used to be scattered or manual, boosting their day-to-day productivity.',
+            'It became a central hub connecting sales, projects, and deliveries directly to the ERP.',
+          ],
+          challenges: [
+            'This was my first production project, so I had to learn how to build reliable, real-world software while already building it.',
+            'I had to design a two-way integration with Protheus so data stayed consistent between the CRM and the ERP.',
           ],
         },
       ],
@@ -473,6 +496,8 @@ export const translations: Record<Language, TranslationDict> = {
       benefitsLabel: 'Impacto',
       experienceAria: 'Experiência',
       experienceLabel: 'Experiência',
+      showMoreLabel: 'Mostrar Mais',
+      showLessLabel: 'Mostrar Menos',
       projects: [
         {
           name: 'Sistema de Produção e Logística',
@@ -520,6 +545,7 @@ export const translations: Record<Language, TranslationDict> = {
           details:
             'Todo evento que circula entre os sistemas passa primeiro por aqui, é persistido e depois distribuído para os assinantes via RabbitMQ. Também construí um mecanismo de retry para eventos que falham na execução, além de um frontend simples em Bulma para listar e filtrar eventos. Se tornou a base sobre a qual outros microsserviços foram construídos e a forma como rastreamos o ciclo de vida completo dos pedidos na empresa.',
           impact: 'Alto Impacto',
+          image: '/event-system.png',
           benefits: [
             'Dei à empresa uma forma de rastrear o ciclo de vida completo de cada pedido em todos os sistemas, algo que simplesmente não existia antes.',
             'Se tornou a base sobre a qual outros microsserviços foram construídos, centralizando toda a informação que circula entre os sistemas.',
@@ -528,6 +554,24 @@ export const translations: Record<Language, TranslationDict> = {
             'Lidar com eventos duplicados foi a parte mais difícil — resolvi atribuindo um UUID a cada evento recebido.',
             'Construí um mecanismo de retry para eventos que falhavam na execução, sem perdê-los nem bloquear o restante da fila.',
             'Os eventos podiam chegar fora de ordem, então precisei garantir que processá-los assim nunca deixasse um pedido em um estado inconsistente.',
+          ],
+        },
+        {
+          name: 'CRM',
+          description:
+            'Construí um CRM completo abrangendo produtos, orçamentos, pedidos, clientes, projetos, leads e entregas, sincronizado em tempo real com o ERP Protheus.',
+          stack: 'PHP · CodeIgniter · Vue.js',
+          details:
+            'Um CRM completo com interfaces amigáveis para gerenciar produtos, orçamentos, pedidos, clientes, projetos, leads e entregas. Ele se conecta ao ERP Protheus, enviando e recebendo dados para manter tudo sincronizado. Este foi o primeiro projeto em produção que trabalhei, então eu estava aprendendo a programar em um cenário real enquanto construía algo do qual a empresa realmente dependeria.',
+          impact: 'Alto Impacto',
+          image: '/crm.png',
+          benefits: [
+            'Os funcionários passaram a ter interfaces amigáveis e feitas sob medida para tarefas que antes eram dispersas ou manuais, aumentando a produtividade no dia a dia.',
+            'Se tornou um hub central conectando vendas, projetos e entregas diretamente ao ERP.',
+          ],
+          challenges: [
+            'Este foi meu primeiro projeto em produção, então tive que aprender a construir software confiável e real enquanto já o construía.',
+            'Precisei projetar uma integração bidirecional com o Protheus para manter os dados consistentes entre o CRM e o ERP.',
           ],
         },
       ],
