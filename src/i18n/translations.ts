@@ -260,6 +260,24 @@ export const translations: Record<Language, TranslationDict> = {
             'I wrote custom ADVPL endpoints from scratch to talk to the ERP.',
           ],
         },
+        {
+          name: 'Event System',
+          description:
+            'I built the REST API that centralizes every event emitted across the company, persisting them and distributing them to other systems over RabbitMQ.',
+          stack: 'Node.js · Express · RabbitMQ · Bulma',
+          details:
+            'Every event flowing between systems gets sent here first, persisted, and then distributed to subscribers via RabbitMQ. I also built a retry mechanism for events that fail during execution, plus a simple Bulma frontend for listing and filtering events. It became the backbone for every microservice built afterward and the way we track an order’s full lifecycle across the company.',
+          impact: 'High Impact',
+          benefits: [
+            'I gave the company a way to track the full lifecycle of every order across all systems, something that simply didn’t exist before.',
+            'It became the foundation other microservices were built on, centralizing all the information flowing between systems.',
+          ],
+          challenges: [
+            'Dealing with duplicate events was the hardest part — I resolved it by assigning a UUID to every incoming event.',
+            'I built a retry mechanism for events that failed on execution, without losing them or blocking the rest of the queue.',
+            'Events could arrive out of order, so I had to make sure processing them that way never left an order in an inconsistent state.',
+          ],
+        },
       ],
       experience: [
         {
@@ -492,6 +510,24 @@ export const translations: Record<Language, TranslationDict> = {
           challenges: [
             'Tive que entender por engenharia reversa como o Protheus gera as ordens de produção antes de construir em cima disso.',
             'Escrevi endpoints ADVPL do zero para conversar com o ERP.',
+          ],
+        },
+        {
+          name: 'Event System',
+          description:
+            'Construí a API REST que centraliza todos os eventos emitidos pela empresa, persistindo-os e distribuindo-os para outros sistemas via RabbitMQ.',
+          stack: 'Node.js · Express · RabbitMQ · Bulma',
+          details:
+            'Todo evento que circula entre os sistemas passa primeiro por aqui, é persistido e depois distribuído para os assinantes via RabbitMQ. Também construí um mecanismo de retry para eventos que falham na execução, além de um frontend simples em Bulma para listar e filtrar eventos. Se tornou a base sobre a qual outros microsserviços foram construídos e a forma como rastreamos o ciclo de vida completo dos pedidos na empresa.',
+          impact: 'Alto Impacto',
+          benefits: [
+            'Dei à empresa uma forma de rastrear o ciclo de vida completo de cada pedido em todos os sistemas, algo que simplesmente não existia antes.',
+            'Se tornou a base sobre a qual outros microsserviços foram construídos, centralizando toda a informação que circula entre os sistemas.',
+          ],
+          challenges: [
+            'Lidar com eventos duplicados foi a parte mais difícil — resolvi atribuindo um UUID a cada evento recebido.',
+            'Construí um mecanismo de retry para eventos que falhavam na execução, sem perdê-los nem bloquear o restante da fila.',
+            'Os eventos podiam chegar fora de ordem, então precisei garantir que processá-los assim nunca deixasse um pedido em um estado inconsistente.',
           ],
         },
       ],
