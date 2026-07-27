@@ -76,6 +76,16 @@ export function Resume() {
             />
           )}
           <p>{detail.entry.details}</p>
+          {detail.entry.benefits && detail.entry.benefits.length > 0 && (
+            <section className={styles.modalSection}>
+              <h3 className={styles.modalSectionTitle}>{t.resume.benefitsLabel}</h3>
+              <ul className={styles.modalPoints}>
+                {detail.entry.benefits.map((benefit) => (
+                  <li key={benefit}>{benefit}</li>
+                ))}
+              </ul>
+            </section>
+          )}
           {detail.entry.challenges && detail.entry.challenges.length > 0 && (
             <section className={styles.modalSection}>
               <h3 className={styles.modalSectionTitle}>{t.resume.challengesLabel}</h3>

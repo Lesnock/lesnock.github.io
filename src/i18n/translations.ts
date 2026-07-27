@@ -15,6 +15,7 @@ interface ProjectEntry {
   impact: string;
   image?: string;
   challenges?: string[];
+  benefits?: string[];
 }
 
 interface AttributeEntry {
@@ -73,6 +74,7 @@ export interface TranslationDict {
     projectsAria: string;
     projectsLabel: string;
     challengesLabel: string;
+    benefitsLabel: string;
     experienceAria: string;
     experienceLabel: string;
     projects: ProjectEntry[];
@@ -216,18 +218,23 @@ export const translations: Record<Language, TranslationDict> = {
       projectsAria: 'Projects',
       projectsLabel: 'Projects',
       challengesLabel: 'Challenges',
+      benefitsLabel: 'Impact',
       experienceAria: 'Experience',
       experienceLabel: 'Experience',
       projects: [
         {
           name: 'Logistics Order Scheduling System',
           description:
-            'Built with Next.js, React, and Node.js, this production scheduling and logistics platform plans an order\'s entire lifecycle, from production to delivery, integrated with an ERP and CRM via RabbitMQ.',
+            'A platform that plans an order\'s full lifecycle, from production to delivery, integrated with an ERP and CRM via RabbitMQ.',
           stack: 'Next.js · React · Node.js · RabbitMQ',
           details:
-            'Built a system that manages the full lifecycle of an order: when production should start, what should be produced, when production finishes, when the order leaves the company, and when the client should receive it. It tracks production in real time and estimates how long each vehicle will take to deliver the order, and also controls the fleet of vehicles and drivers used for deliveries, and lets users generate the Nota Fiscal for each order. The app integrates with the Protheus ERP and a CRM through RabbitMQ, keeping production, logistics, and fiscal data in sync in real time.',
+            'Manages an order\'s full lifecycle: production start and completion, fleet and driver scheduling for delivery, and Nota Fiscal generation. Integrates with the Protheus ERP and a CRM via RabbitMQ, keeping production, logistics, and fiscal data in sync in real time.',
           impact: 'High Impact',
           image: '/logistic-scheduling.png',
+          benefits: [
+            'Automated order planning that used to be done manually, freeing up the team to focus on exceptions instead of routine scheduling.',
+            'Fixed a long-standing problem for the company by virtually eliminating order delivery delays.',
+          ],
           challenges: [
             "This project was where we first introduced event-driven architecture at the company, so I had to really understand how it works under the hood before building on top of it.",
             'Handling duplicate events was a fun challenge — I had to make sure the same event being delivered twice never resulted in duplicated production steps or double deliveries.',
@@ -436,18 +443,23 @@ export const translations: Record<Language, TranslationDict> = {
       projectsAria: 'Projetos',
       projectsLabel: 'Projetos',
       challengesLabel: 'Desafios',
+      benefitsLabel: 'Impacto',
       experienceAria: 'Experiência',
       experienceLabel: 'Experiência',
       projects: [
         {
           name: 'Sistema de Logística',
           description:
-            'Construída com Next.js, React e Node.js, esta plataforma de agendamento de produção e logística planeja todo o ciclo de vida do pedido, da produção à entrega, integrada a um ERP e a um CRM via RabbitMQ.',
+            'Uma plataforma que planeja todo o ciclo de vida do pedido, da produção à entrega, integrada a um ERP e a um CRM via RabbitMQ.',
           stack: 'Next.js · React · Node.js · RabbitMQ',
           details:
-            'Desenvolvi um sistema que gerencia todo o ciclo de vida de um pedido: quando a produção deve começar, o que deve ser produzido, quando a produção termina, quando o pedido sai da empresa e quando o cliente deve recebê-lo. O sistema acompanha a produção em tempo real e estima quanto tempo cada veículo vai levar para entregar o pedido, além de controlar a frota de veículos e motoristas usados nas entregas e permitir a geração da Nota Fiscal de cada pedido. A aplicação se integra ao ERP Protheus e a um CRM via RabbitMQ, mantendo dados de produção, logística e fiscais sincronizados em tempo real.',
+            'Gerencia todo o ciclo de vida de um pedido: início e fim da produção, agendamento de frota e motoristas para entrega, e emissão da Nota Fiscal. Integra-se ao ERP Protheus e a um CRM via RabbitMQ, mantendo dados de produção, logística e fiscais sincronizados em tempo real.',
           impact: 'Alto Impacto',
           image: '/logistic-scheduling.png',
+          benefits: [
+            'Automatizou o planejamento de pedidos que antes era feito manualmente, liberando o time para focar em exceções em vez de agendamento rotineiro.',
+            'Resolveu um problema antigo da empresa ao eliminar quase por completo os atrasos na entrega dos pedidos.',
+          ],
           challenges: [
             'Este projeto foi onde introduzimos a arquitetura orientada a eventos na empresa pela primeira vez, então tive que entender bem como ela funciona antes de construir em cima dela.',
             'Lidar com a duplicidade de eventos foi um desafio divertido — precisei garantir que o mesmo evento entregue duas vezes nunca gerasse etapas de produção duplicadas ou entregas em dobro.',
