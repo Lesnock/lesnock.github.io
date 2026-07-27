@@ -301,6 +301,24 @@ export const translations: Record<Language, TranslationDict> = {
             'I had to design a two-way integration with Protheus so data stayed consistent between the CRM and the ERP.',
           ],
         },
+        {
+          name: 'CRM WhatsApp Extension',
+          description:
+            'I built a Chrome extension that embedded the CRM directly into WhatsApp Web, so sellers could register leads without ever switching tabs.',
+          stack: 'JavaScript · Chrome Extension · WhatsApp Web',
+          details:
+            "A Chrome extension that injected the CRM's lead-registration workflow straight into the WhatsApp Web interface. Sellers could capture and manage leads from inside their conversations instead of juggling tabs between WhatsApp and the CRM. To make it work, I had to figure out how to extract data from WhatsApp Web itself, which I did by cloning the whatsapp-web.js library and adapting it to run in the browser.",
+          image: '/crm-whatsapp-integration.jpg',
+          impact: 'High Impact',
+          benefits: [
+            'Sellers could register leads directly from their WhatsApp conversations, cutting out constant tab-switching and boosting their day-to-day productivity.',
+            'It made lead capture fast enough to happen in the moment, right as the conversation was happening.',
+          ],
+          challenges: [
+            'WhatsApp Web has no public API for this kind of integration, so I had to reverse-engineer how it exposes chat data internally.',
+            'I cloned and modified the whatsapp-web.js library so it could run inside a browser extension instead of a Node.js environment.',
+          ],
+        },
       ],
       experience: [
         {
@@ -572,6 +590,24 @@ export const translations: Record<Language, TranslationDict> = {
           challenges: [
             'Este foi meu primeiro projeto em produção, então tive que aprender a construir software confiável e real enquanto já o construía.',
             'Precisei projetar uma integração bidirecional com o Protheus para manter os dados consistentes entre o CRM e o ERP.',
+          ],
+        },
+        {
+          name: 'CRM WhatsApp Extension',
+          description:
+            'Construí uma extensão para o Chrome que integrava o CRM diretamente ao WhatsApp Web, permitindo que os vendedores cadastrassem leads sem nunca precisar trocar de aba.',
+          stack: 'JavaScript · Extensão Chrome · WhatsApp Web',
+          details:
+            'Uma extensão para o Chrome que injetava o fluxo de cadastro de leads do CRM diretamente na interface do WhatsApp Web. Os vendedores podiam capturar e gerenciar leads direto de dentro das conversas, em vez de ficar alternando entre o WhatsApp e o CRM. Para fazer isso funcionar, precisei descobrir como extrair dados da própria interface do WhatsApp Web, o que fiz clonando a biblioteca whatsapp-web.js e adaptando-a para rodar no navegador.',
+          image: '/crm-whatsapp-integration.jpg',
+          impact: 'Alto Impacto',
+          benefits: [
+            'Os vendedores passaram a cadastrar leads direto das conversas do WhatsApp, eliminando a troca constante de abas e aumentando a produtividade no dia a dia.',
+            'Tornou o cadastro de leads rápido o suficiente para acontecer no exato momento da conversa.',
+          ],
+          challenges: [
+            'O WhatsApp Web não tem nenhuma API pública para esse tipo de integração, então precisei fazer engenharia reversa de como ele expõe os dados das conversas internamente.',
+            'Clonei e modifiquei a biblioteca whatsapp-web.js para que ela rodasse dentro de uma extensão de navegador em vez de um ambiente Node.js.',
           ],
         },
       ],
