@@ -322,15 +322,15 @@ export const translations: Record<Language, TranslationDict> = {
       ],
       experience: [
         {
-          role: 'Senior Full-Stack Engineer',
-          org: 'Placeholder Company',
-          period: '2023 — Present',
+          role: 'Senior Software Engineer / Tech Lead',
+          org: 'Metadil',
+          period: '2015 — 2024, 2025 — Present',
           points: [
-            'Placeholder highlight about a system designed or shipped.',
-            'Placeholder highlight about scale, performance, or impact.',
+            'Started as an IT assistant and grew into the developer who founded the company\'s development department.',
+            'Now lead a team of 4, coordinating priorities from the board of directors down to delivery.',
           ],
           details:
-            'Placeholder expanded write-up of this role — scope of ownership, notable projects, and how the role evolved over time.',
+            "I joined Metadil in 2015 as an IT assistant and grew into a developer, eventually founding the company's development department from scratch. Today I work as Senior Software Engineer / Tech Lead, coordinating a team of 4. I take the needs of the business straight from the board of directors, break them down into tasks, and delegate across the team. I mentor less experienced developers, review code to keep quality high, and stay accountable for shipping entire projects to production. After a period away, I returned in 2025 to continue leading the development team.",
         },
         {
           role: 'Full-Stack Engineer',
@@ -613,15 +613,15 @@ export const translations: Record<Language, TranslationDict> = {
       ],
       experience: [
         {
-          role: 'Engenheiro Full-Stack Sênior',
-          org: 'Empresa Placeholder',
-          period: '2023 — Atual',
+          role: 'Engenheiro de Software Sênior / Tech Lead',
+          org: 'Metadil',
+          period: '2015 — 2024, 2025 — Atual',
           points: [
-            'Destaque placeholder sobre um sistema projetado ou entregue.',
-            'Destaque placeholder sobre escala, performance ou impacto.',
+            'Comecei como assistente de TI e me tornei o desenvolvedor que fundou o departamento de desenvolvimento da empresa.',
+            'Hoje lidero uma equipe de 4 pessoas, coordenando as prioridades desde a diretoria até a entrega.',
           ],
           details:
-            'Descrição expandida placeholder deste cargo — escopo de responsabilidade, projetos notáveis e como o cargo evoluiu ao longo do tempo.',
+            'Entrei na Metadil em 2015 como assistente de TI e evoluí para desenvolvedor, chegando a fundar do zero o departamento de desenvolvimento da empresa. Hoje atuo como Engenheiro de Software Sênior / Tech Lead, coordenando uma equipe de 4 pessoas. Recebo as necessidades do negócio diretamente da diretoria, desdobro em tarefas e delego para o time. Ajudo desenvolvedores menos experientes, reviso código para manter a qualidade e sou responsável por entregar projetos inteiros em produção. Após um período afastado, retornei em 2025 para continuar liderando o time de desenvolvimento.',
         },
         {
           role: 'Engenheiro Full-Stack',
