@@ -223,33 +223,42 @@ export const translations: Record<Language, TranslationDict> = {
       experienceLabel: 'Experience',
       projects: [
         {
-          name: 'Logistics Order Scheduling System',
+          name: 'Logistics and Production System',
           description:
-            'A platform that plans an order\'s full lifecycle, from production to delivery, integrated with an ERP and CRM via RabbitMQ.',
+            "I built a platform that plans an order's full lifecycle, from production to delivery, wired into an ERP and CRM via RabbitMQ.",
           stack: 'Next.js · React · Node.js · RabbitMQ',
           details:
-            'Manages an order\'s full lifecycle: production start and completion, fleet and driver scheduling for delivery, and Nota Fiscal generation. Integrates with the Protheus ERP and a CRM via RabbitMQ, keeping production, logistics, and fiscal data in sync in real time.',
+            "It covers an order's full lifecycle: production start and completion, fleet and driver scheduling, and Nota Fiscal generation. I connected it to the Protheus ERP and a CRM via RabbitMQ, keeping everything in sync in real time.",
           impact: 'High Impact',
           image: '/logistic-scheduling.png',
           benefits: [
-            'Automated order planning that used to be done manually, freeing up the team to focus on exceptions instead of routine scheduling.',
-            'Fixed a long-standing problem for the company by virtually eliminating order delivery delays.',
+            'I automated order planning that used to be done by hand, freeing the team to handle exceptions instead of routine scheduling.',
+            'I fixed a long-standing problem for the company by virtually eliminating delivery delays.',
           ],
           challenges: [
-            "This project was where we first introduced event-driven architecture at the company, so I had to really understand how it works under the hood before building on top of it.",
-            'Handling duplicate events was a fun challenge — I had to make sure the same event being delivered twice never resulted in duplicated production steps or double deliveries.',
-            "Dealing with errors inside event handlers was another one: a single failing handler couldn't be allowed to break the rest of the flow or leave the order state inconsistent.",
-            'Coordinating async communication between the app, the ERP, and the CRM through RabbitMQ meant designing around eventual consistency instead of assuming everything happens instantly.',
+            'This was the first time we introduced event-driven architecture at the company, so I had to really learn how it works under the hood before building on it.',
+            'I had to make sure a duplicate event never caused duplicated production steps or double deliveries.',
+            "I made sure a single failing event handler couldn't break the rest of the flow or leave an order's state inconsistent.",
           ],
         },
         {
-          name: 'Placeholder Project Two',
+          name: 'Production Control System (PCP)',
           description:
-            'Placeholder one-line description of what this project does and why it matters.',
-          stack: 'Python · PostgreSQL',
+            "I replaced the company's paper-based production tracking with real-time barcode appointments on tablets, hooked into the Protheus ERP.",
+          stack: 'PHP · Laravel · Vue.js · ADVPL',
           details:
-            'Placeholder expanded write-up of Project Two — the problem it solved, the approach taken, and the outcome or impact once shipped.',
+            'Operators scan barcodes on tablets to appoint their part of the production, and the system generates the barcoded production reports itself, synced live with Protheus through ADVPL endpoints I wrote for the integration.',
           impact: 'High Impact',
+          image: '/fabrica.png',
+          benefits: [
+            'I got the whole factory off paper and onto real-time tracking, used daily by more than 200 operators on the floor.',
+            'Management finally had a clear, live view of order status.',
+            'I pulled off an automation that other teams had already tried and failed at.',
+          ],
+          challenges: [
+            'I had to reverse-engineer how Protheus generates production orders before building on top of it.',
+            'I wrote custom ADVPL endpoints from scratch to talk to the ERP.',
+          ],
         },
       ],
       experience: [
@@ -448,33 +457,42 @@ export const translations: Record<Language, TranslationDict> = {
       experienceLabel: 'Experiência',
       projects: [
         {
-          name: 'Sistema de Logística',
+          name: 'Sistema de Produção e Logística',
           description:
-            'Uma plataforma que planeja todo o ciclo de vida do pedido, da produção à entrega, integrada a um ERP e a um CRM via RabbitMQ.',
+            'Construí uma plataforma que planeja todo o ciclo de vida do pedido, da produção à entrega, integrada a um ERP e a um CRM via RabbitMQ.',
           stack: 'Next.js · React · Node.js · RabbitMQ',
           details:
-            'Gerencia todo o ciclo de vida de um pedido: início e fim da produção, agendamento de frota e motoristas para entrega, e emissão da Nota Fiscal. Integra-se ao ERP Protheus e a um CRM via RabbitMQ, mantendo dados de produção, logística e fiscais sincronizados em tempo real.',
+            'Cobre todo o ciclo de vida do pedido: início e fim da produção, agendamento de frota e motoristas, e emissão da Nota Fiscal. Conectei ao ERP Protheus e a um CRM via RabbitMQ, mantendo tudo sincronizado em tempo real.',
           impact: 'Alto Impacto',
           image: '/logistic-scheduling.png',
           benefits: [
-            'Automatizou o planejamento de pedidos que antes era feito manualmente, liberando o time para focar em exceções em vez de agendamento rotineiro.',
-            'Resolveu um problema antigo da empresa ao eliminar quase por completo os atrasos na entrega dos pedidos.',
+            'Automatizei o planejamento de pedidos que antes era feito manualmente, liberando o time para focar em exceções em vez de agendamento rotineiro.',
+            'Resolvi um problema antigo da empresa ao eliminar quase por completo os atrasos na entrega dos pedidos.',
           ],
           challenges: [
-            'Este projeto foi onde introduzimos a arquitetura orientada a eventos na empresa pela primeira vez, então tive que entender bem como ela funciona antes de construir em cima dela.',
-            'Lidar com a duplicidade de eventos foi um desafio divertido — precisei garantir que o mesmo evento entregue duas vezes nunca gerasse etapas de produção duplicadas ou entregas em dobro.',
-            'Tratar erros dentro dos handlers de eventos foi outro ponto importante: uma falha em um único handler não podia quebrar o restante do fluxo nem deixar o estado do pedido inconsistente.',
-            'Coordenar a comunicação assíncrona entre a aplicação, o ERP e o CRM via RabbitMQ exigiu projetar pensando em consistência eventual, em vez de assumir que tudo acontece instantaneamente.',
+            'Foi a primeira vez que introduzimos arquitetura orientada a eventos na empresa, então tive que entender bem como ela funciona antes de construir em cima dela.',
+            'Precisei garantir que um evento duplicado nunca gerasse etapas de produção ou entregas em dobro.',
+            'Garanti que uma falha em um único handler não pudesse quebrar o restante do fluxo nem deixar o estado de um pedido inconsistente.',
           ],
         },
         {
-          name: 'Projeto Placeholder Dois',
+          name: 'Sistema de Controle de Produção (PCP)',
           description:
-            'Descrição placeholder de uma linha sobre o que este projeto faz e por que ele importa.',
-          stack: 'Python · PostgreSQL',
+            'Tirei o controle de produção da empresa do papel e implementei apontamentos com código de barras em tempo real usando tablets, integrado ao ERP Protheus.',
+          stack: 'PHP · Laravel · Vue.js · ADVPL',
           details:
-            'Descrição expandida placeholder do Projeto Dois — o problema resolvido, a abordagem adotada e o resultado ou impacto após o lançamento.',
+            'Os operadores escaneiam códigos de barras nos tablets para apontar sua etapa da produção, e o próprio sistema gera os relatórios de produção com código de barras, sincronizados em tempo real com o Protheus através de endpoints ADVPL que desenvolvi para a integração.',
           impact: 'Alto Impacto',
+          image: '/fabrica.png',
+          benefits: [
+            'Tirei a fábrica inteira do papel e coloquei no rastreamento em tempo real, usado diariamente por mais de 200 operadores no chão de fábrica.',
+            'A gestão finalmente teve uma visão clara e em tempo real do status dos pedidos.',
+            'Consegui automatizar algo que outras equipes já haviam tentado e falhado.',
+          ],
+          challenges: [
+            'Tive que entender por engenharia reversa como o Protheus gera as ordens de produção antes de construir em cima disso.',
+            'Escrevi endpoints ADVPL do zero para conversar com o ERP.',
+          ],
         },
       ],
       experience: [

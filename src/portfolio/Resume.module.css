@@ -121,9 +121,14 @@
   font-size: 0.78rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--color-secondary);
-  text-shadow: var(--glow-secondary);
+  color: var(--color-accent-pink);
+  text-shadow: 0 0 6px rgba(228, 85, 174, 0.5);
   margin-bottom: 0.6rem;
+}
+
+.modalStack.modalStack {
+  color: var(--color-accent-pink);
+  text-shadow: 0 0 6px rgba(228, 85, 174, 0.5);
 }
 
 .modalImage {

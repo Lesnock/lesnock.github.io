@@ -66,6 +66,7 @@ export function Resume() {
         <DetailModal
           title={detail.entry.name}
           subtitle={detail.entry.stack}
+          subtitleClassName={styles.modalStack}
           onClose={() => setDetail(null)}
         >
           {detail.entry.image && (

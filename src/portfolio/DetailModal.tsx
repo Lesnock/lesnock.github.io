@@ -5,11 +5,12 @@ import styles from './DetailModal.module.css';
 interface DetailModalProps {
   title: string;
   subtitle?: string;
+  subtitleClassName?: string;
   onClose: () => void;
   children: ReactNode;
 }
 
-export function DetailModal({ title, subtitle, onClose, children }: DetailModalProps) {
+export function DetailModal({ title, subtitle, subtitleClassName, onClose, children }: DetailModalProps) {
   const { t } = useLanguage();
   const closeButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -45,7 +46,9 @@ export function DetailModal({ title, subtitle, onClose, children }: DetailModalP
           <h2 id="detail-modal-title" className={styles.title}>
             {title}
           </h2>
-          {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
+          {subtitle && (
+            <p className={`${styles.subtitle} ${subtitleClassName ?? ''}`}>{subtitle}</p>
+          )}
         </header>
         <div className={styles.body}>{children}</div>
       </div>
