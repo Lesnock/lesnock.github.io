@@ -111,3 +111,26 @@
   flex-direction: column;
   gap: 0.45rem;
 }
+
+.modalSection {
+  margin-top: 1.4rem;
+}
+
+.modalSectionTitle {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  text-shadow: var(--glow-secondary);
+  margin-bottom: 0.6rem;
+}
+
+.modalImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 1.4rem;
+  border: 1px solid rgba(209, 197, 192, 0.16);
+  border-radius: 2px;
+}

@@ -12,8 +12,9 @@ interface ProjectEntry {
   description: string;
   stack: string;
   details: string;
-  difficulty: number;
   impact: string;
+  image?: string;
+  challenges?: string[];
 }
 
 interface AttributeEntry {
@@ -71,6 +72,7 @@ export interface TranslationDict {
     techExperience: TechEntry[];
     projectsAria: string;
     projectsLabel: string;
+    challengesLabel: string;
     experienceAria: string;
     experienceLabel: string;
     projects: ProjectEntry[];
@@ -78,7 +80,6 @@ export interface TranslationDict {
   };
   detailModal: {
     closeAria: string;
-    difficultyLabel: string;
   };
   boot: {
     initializing: string;
@@ -214,18 +215,25 @@ export const translations: Record<Language, TranslationDict> = {
       ],
       projectsAria: 'Projects',
       projectsLabel: 'Projects',
+      challengesLabel: 'Challenges',
       experienceAria: 'Experience',
       experienceLabel: 'Experience',
       projects: [
         {
-          name: 'Placeholder Project One',
+          name: 'Logistics Order Scheduling System',
           description:
-            'Placeholder one-line description of what this project does and why it matters.',
-          stack: 'TypeScript · React · Node',
+            'Built with Next.js, React, and Node.js, this production scheduling and logistics platform plans an order\'s entire lifecycle, from production to delivery, integrated with an ERP and CRM via RabbitMQ.',
+          stack: 'Next.js · React · Node.js · RabbitMQ',
           details:
-            'Placeholder expanded write-up of Project One — the problem it solved, the approach taken, and the outcome or impact once shipped.',
-          difficulty: 5,
+            'Built a system that manages the full lifecycle of an order: when production should start, what should be produced, when production finishes, when the order leaves the company, and when the client should receive it. It tracks production in real time and estimates how long each vehicle will take to deliver the order, and also controls the fleet of vehicles and drivers used for deliveries, and lets users generate the Nota Fiscal for each order. The app integrates with the Protheus ERP and a CRM through RabbitMQ, keeping production, logistics, and fiscal data in sync in real time.',
           impact: 'High Impact',
+          image: '/logistic-scheduling.png',
+          challenges: [
+            "This project was where we first introduced event-driven architecture at the company, so I had to really understand how it works under the hood before building on top of it.",
+            'Handling duplicate events was a fun challenge — I had to make sure the same event being delivered twice never resulted in duplicated production steps or double deliveries.',
+            "Dealing with errors inside event handlers was another one: a single failing handler couldn't be allowed to break the rest of the flow or leave the order state inconsistent.",
+            'Coordinating async communication between the app, the ERP, and the CRM through RabbitMQ meant designing around eventual consistency instead of assuming everything happens instantly.',
+          ],
         },
         {
           name: 'Placeholder Project Two',
@@ -234,7 +242,6 @@ export const translations: Record<Language, TranslationDict> = {
           stack: 'Python · PostgreSQL',
           details:
             'Placeholder expanded write-up of Project Two — the problem it solved, the approach taken, and the outcome or impact once shipped.',
-          difficulty: 5,
           impact: 'High Impact',
         },
       ],
@@ -289,7 +296,6 @@ export const translations: Record<Language, TranslationDict> = {
     },
     detailModal: {
       closeAria: 'Close details',
-      difficultyLabel: 'Difficulty',
     },
     boot: {
       initializing: 'Initializing...',
@@ -429,18 +435,25 @@ export const translations: Record<Language, TranslationDict> = {
       ],
       projectsAria: 'Projetos',
       projectsLabel: 'Projetos',
+      challengesLabel: 'Desafios',
       experienceAria: 'Experiência',
       experienceLabel: 'Experiência',
       projects: [
         {
-          name: 'Projeto Placeholder Um',
+          name: 'Sistema de Logística',
           description:
-            'Descrição placeholder de uma linha sobre o que este projeto faz e por que ele importa.',
-          stack: 'TypeScript · React · Node',
+            'Construída com Next.js, React e Node.js, esta plataforma de agendamento de produção e logística planeja todo o ciclo de vida do pedido, da produção à entrega, integrada a um ERP e a um CRM via RabbitMQ.',
+          stack: 'Next.js · React · Node.js · RabbitMQ',
           details:
-            'Descrição expandida placeholder do Projeto Um — o problema resolvido, a abordagem adotada e o resultado ou impacto após o lançamento.',
-          difficulty: 5,
+            'Desenvolvi um sistema que gerencia todo o ciclo de vida de um pedido: quando a produção deve começar, o que deve ser produzido, quando a produção termina, quando o pedido sai da empresa e quando o cliente deve recebê-lo. O sistema acompanha a produção em tempo real e estima quanto tempo cada veículo vai levar para entregar o pedido, além de controlar a frota de veículos e motoristas usados nas entregas e permitir a geração da Nota Fiscal de cada pedido. A aplicação se integra ao ERP Protheus e a um CRM via RabbitMQ, mantendo dados de produção, logística e fiscais sincronizados em tempo real.',
           impact: 'Alto Impacto',
+          image: '/logistic-scheduling.png',
+          challenges: [
+            'Este projeto foi onde introduzimos a arquitetura orientada a eventos na empresa pela primeira vez, então tive que entender bem como ela funciona antes de construir em cima dela.',
+            'Lidar com a duplicidade de eventos foi um desafio divertido — precisei garantir que o mesmo evento entregue duas vezes nunca gerasse etapas de produção duplicadas ou entregas em dobro.',
+            'Tratar erros dentro dos handlers de eventos foi outro ponto importante: uma falha em um único handler não podia quebrar o restante do fluxo nem deixar o estado do pedido inconsistente.',
+            'Coordenar a comunicação assíncrona entre a aplicação, o ERP e o CRM via RabbitMQ exigiu projetar pensando em consistência eventual, em vez de assumir que tudo acontece instantaneamente.',
+          ],
         },
         {
           name: 'Projeto Placeholder Dois',
@@ -449,7 +462,6 @@ export const translations: Record<Language, TranslationDict> = {
           stack: 'Python · PostgreSQL',
           details:
             'Descrição expandida placeholder do Projeto Dois — o problema resolvido, a abordagem adotada e o resultado ou impacto após o lançamento.',
-          difficulty: 5,
           impact: 'Alto Impacto',
         },
       ],
@@ -504,7 +516,6 @@ export const translations: Record<Language, TranslationDict> = {
     },
     detailModal: {
       closeAria: 'Fechar detalhes',
-      difficultyLabel: 'Dificuldade',
     },
     boot: {
       initializing: 'Inicializando...',

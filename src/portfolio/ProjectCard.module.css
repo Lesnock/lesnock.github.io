@@ -1,24 +1,19 @@
-.questMeta {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.5rem;
-}
-
-.impactChip {
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.08em;
-  color: var(--color-accent-pink);
-  text-shadow: 0 0 6px rgba(228, 85, 174, 0.5);
-}
-
 .projectName {
   position: relative;
   font-size: 1.15rem;
   font-weight: 600;
   color: var(--color-text);
+}
+
+.impactChip {
+  position: relative;
+  display: block;
+  margin-top: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  color: var(--color-accent-pink);
+  text-shadow: 0 0 6px rgba(228, 85, 174, 0.5);
 }
 
 .projectDescription {

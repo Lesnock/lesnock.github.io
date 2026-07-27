@@ -68,7 +68,24 @@ export function Resume() {
           subtitle={detail.entry.stack}
           onClose={() => setDetail(null)}
         >
+          {detail.entry.image && (
+            <img
+              src={detail.entry.image}
+              alt={detail.entry.name}
+              className={styles.modalImage}
+            />
+          )}
           <p>{detail.entry.details}</p>
+          {detail.entry.challenges && detail.entry.challenges.length > 0 && (
+            <section className={styles.modalSection}>
+              <h3 className={styles.modalSectionTitle}>{t.resume.challengesLabel}</h3>
+              <ul className={styles.modalPoints}>
+                {detail.entry.challenges.map((challenge) => (
+                  <li key={challenge}>{challenge}</li>
+                ))}
+              </ul>
+            </section>
+          )}
         </DetailModal>
       )}
 
