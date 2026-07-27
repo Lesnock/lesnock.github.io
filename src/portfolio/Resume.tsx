@@ -68,9 +68,6 @@ export function Resume() {
           subtitle={detail.entry.stack}
           onClose={() => setDetail(null)}
         >
-          <p className={styles.modalMeta}>
-            {t.detailModal.difficultyLabel}: {detail.entry.difficulty}/5 · {detail.entry.impact}
-          </p>
           <p>{detail.entry.details}</p>
         </DetailModal>
       )}
