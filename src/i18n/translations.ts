@@ -333,15 +333,15 @@ export const translations: Record<Language, TranslationDict> = {
             "I founded Metadil's development department from scratch and have led it ever since, working today as Senior Software Engineer / Tech Lead over a team of 4. I take the needs of the business straight from the board of directors, break them down into tasks, and delegate across the team, mentoring less experienced developers along the way. On the technical side, I develop and maintain systems spanning a range of architectures — MVC, Clean Architecture, DDD, and Event-Driven Architecture — reviewing code to keep quality high and staying accountable for shipping entire projects to production. After a period away, I returned in 2025 to continue leading the development team.",
         },
         {
-          role: 'Full-Stack Engineer',
-          org: 'Placeholder Company',
-          period: '2020 — 2023',
+          role: 'Senior Software Engineer',
+          org: 'BSN Pagamentos',
+          period: 'Nov 2024 — Mar 2025',
           points: [
-            'Placeholder highlight about ownership or cross-team work.',
-            'Placeholder highlight about a specific technical outcome.',
+            'Main reference for Clean Architecture and DDD across the team.',
+            'Reviewed code and mentored less experienced developers.',
           ],
           details:
-            'Placeholder expanded write-up of this role — scope of ownership, notable projects, and how the role evolved over time.',
+            'I worked for 5 months at this fintech as a Senior Software Engineer on Laravel projects, serving as the main reference for Clean Architecture and DDD within the team. I was responsible for developing new features, as well as helping less experienced developers by reviewing their code and teaching them. On the front end, I worked with Vue.js.',
         },
         {
           role: 'Software Engineer',
@@ -624,15 +624,15 @@ export const translations: Record<Language, TranslationDict> = {
             'Fundei o departamento de desenvolvimento da Metadil do zero e o lidero desde então, atuando hoje como Engenheiro de Software Sênior / Tech Lead à frente de uma equipe de 4 pessoas. Recebo as necessidades do negócio diretamente da diretoria, desdobro em tarefas e delego para o time, orientando desenvolvedores menos experientes pelo caminho. No lado técnico, desenvolvo e mantenho sistemas com arquiteturas variadas — MVC, Clean Architecture, DDD e Event-Driven Architecture —, revisando código para manter a qualidade e respondendo pela entrega de projetos inteiros em produção. Após um período afastado, retornei em 2025 para continuar liderando o time de desenvolvimento.',
         },
         {
-          role: 'Engenheiro Full-Stack',
-          org: 'Empresa Placeholder',
-          period: '2020 — 2023',
+          role: 'Engenheiro de Software Sênior',
+          org: 'BSN Pagamentos',
+          period: 'Nov 2024 — Mar 2025',
           points: [
-            'Destaque placeholder sobre responsabilidade ou trabalho entre equipes.',
-            'Destaque placeholder sobre um resultado técnico específico.',
+            'Principal referência de Clean Architecture e DDD na equipe.',
+            'Revisei código e orientei desenvolvedores menos experientes.',
           ],
           details:
-            'Descrição expandida placeholder deste cargo — escopo de responsabilidade, projetos notáveis e como o cargo evoluiu ao longo do tempo.',
+            'Trabalhei por 5 meses nesta fintech como Engenheiro de Software Sênior em projetos Laravel, atuando como a principal referência de Clean Architecture e DDD dentro da equipe. Fui responsável por desenvolver novas funcionalidades, além de ajudar desenvolvedores menos experientes revisando código e ensinando. No front-end, trabalhei com Vue.js.',
         },
         {
           role: 'Engenheiro de Software',
