@@ -326,11 +326,11 @@ export const translations: Record<Language, TranslationDict> = {
           org: 'Metadil',
           period: '2015 — 2024, 2025 — Present',
           points: [
-            'Started as an IT assistant and grew into the developer who founded the company\'s development department.',
-            'Now lead a team of 4, coordinating priorities from the board of directors down to delivery.',
+            'Lead a development team of 4, from priorities to delivery.',
+            'Architect and review code across every production release.',
           ],
           details:
-            "I joined Metadil in 2015 as an IT assistant and grew into a developer, eventually founding the company's development department from scratch. Today I work as Senior Software Engineer / Tech Lead, coordinating a team of 4. I take the needs of the business straight from the board of directors, break them down into tasks, and delegate across the team. I mentor less experienced developers, review code to keep quality high, and stay accountable for shipping entire projects to production. After a period away, I returned in 2025 to continue leading the development team.",
+            "I founded Metadil's development department from scratch and have led it ever since, working today as Senior Software Engineer / Tech Lead over a team of 4. I take the needs of the business straight from the board of directors, break them down into tasks, and delegate across the team, mentoring less experienced developers along the way. On the technical side, I develop and maintain systems spanning a range of architectures — MVC, Clean Architecture, DDD, and Event-Driven Architecture — reviewing code to keep quality high and staying accountable for shipping entire projects to production. After a period away, I returned in 2025 to continue leading the development team.",
         },
         {
           role: 'Full-Stack Engineer',
@@ -617,11 +617,11 @@ export const translations: Record<Language, TranslationDict> = {
           org: 'Metadil',
           period: '2015 — 2024, 2025 — Atual',
           points: [
-            'Comecei como assistente de TI e me tornei o desenvolvedor que fundou o departamento de desenvolvimento da empresa.',
-            'Hoje lidero uma equipe de 4 pessoas, coordenando as prioridades desde a diretoria até a entrega.',
+            'Lidero uma equipe de desenvolvimento de 4 pessoas, das prioridades à entrega.',
+            'Arquiteto e reviso código em todas as entregas em produção.',
           ],
           details:
-            'Entrei na Metadil em 2015 como assistente de TI e evoluí para desenvolvedor, chegando a fundar do zero o departamento de desenvolvimento da empresa. Hoje atuo como Engenheiro de Software Sênior / Tech Lead, coordenando uma equipe de 4 pessoas. Recebo as necessidades do negócio diretamente da diretoria, desdobro em tarefas e delego para o time. Ajudo desenvolvedores menos experientes, reviso código para manter a qualidade e sou responsável por entregar projetos inteiros em produção. Após um período afastado, retornei em 2025 para continuar liderando o time de desenvolvimento.',
+            'Fundei o departamento de desenvolvimento da Metadil do zero e o lidero desde então, atuando hoje como Engenheiro de Software Sênior / Tech Lead à frente de uma equipe de 4 pessoas. Recebo as necessidades do negócio diretamente da diretoria, desdobro em tarefas e delego para o time, orientando desenvolvedores menos experientes pelo caminho. No lado técnico, desenvolvo e mantenho sistemas com arquiteturas variadas — MVC, Clean Architecture, DDD e Event-Driven Architecture —, revisando código para manter a qualidade e respondendo pela entrega de projetos inteiros em produção. Após um período afastado, retornei em 2025 para continuar liderando o time de desenvolvimento.',
         },
         {
           role: 'Engenheiro Full-Stack',
