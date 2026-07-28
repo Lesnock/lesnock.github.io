@@ -7,9 +7,9 @@ export function ContactNav() {
   const { t } = useLanguage();
 
   const CONTACT_LINKS = [
-    { label: t.contactNav.github, href: 'https://github.com/', icon: FiGithub },
-    { label: t.contactNav.linkedin, href: 'https://linkedin.com/', icon: FiLinkedin },
-    { label: t.contactNav.email, href: 'mailto:caio.lesnock@outlook.com', icon: FiMail },
+    { label: t.contactNav.github, href: 'https://github.com/', icon: FiGithub, external: true },
+    { label: t.contactNav.linkedin, href: 'https://linkedin.com/', icon: FiLinkedin, external: true },
+    { label: t.contactNav.email, href: 'mailto:caio.lesnock@outlook.com', icon: FiMail, external: false },
   ];
 
   return (
@@ -18,9 +18,15 @@ export function ContactNav() {
         <li>
           <LanguageSwitcher />
         </li>
-        {CONTACT_LINKS.map(({ label, href, icon: Icon }) => (
+        {CONTACT_LINKS.map(({ label, href, icon: Icon, external }) => (
           <li key={label}>
-            <a href={href} className={styles.link} aria-label={label} title={label}>
+            <a
+              href={href}
+              className={styles.link}
+              aria-label={label}
+              title={label}
+              {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+            >
               <Icon aria-hidden="true" />
             </a>
           </li>

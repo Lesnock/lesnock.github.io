@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState, type CSSProperties } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from 'react';
 import { FaAws, FaSitemap } from 'react-icons/fa6';
 import { DiMsqlServer } from 'react-icons/di';
 import { FiArrowLeft } from 'react-icons/fi';
@@ -47,8 +47,14 @@ export function TechBox() {
   const moduleRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const flipRect = useRef<DOMRect | null>(null);
   const flipIndex = useRef<number | null>(null);
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
   const techs = t.resume.techExperience;
   const active = selected !== null ? techs[selected] : null;
+
+  useEffect(() => {
+    if (selected === null) return;
+    wrapperRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, [selected]);
 
   useLayoutEffect(() => {
     const from = flipRect.current;
@@ -93,7 +99,7 @@ export function TechBox() {
   }
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} ref={wrapperRef}>
       <div className={styles.panel}>
         <div className={styles.panelSweep} aria-hidden="true" />
         <ul className={`${styles.grid} ${selected !== null ? styles.gridDetail : ''}`}>
