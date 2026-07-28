@@ -54,4 +54,18 @@
 
   /* Caps content width on wide viewports now that the page is a single centered column. */
   --content-max-width: 75rem;
+
+  /* Shared sizing for the clip-path CTA button family (Hero actions, "show more"). */
+  --button-padding: 0.85em 1.6em;
+  --button-font-size: 0.9rem;
+
+  /* Uppercase mono section-label treatment (block headers, hologram panel titles). */
+  --label-font-size: 0.85rem;
+  --label-letter-spacing: 0.3em;
+
+  /* Heading size for card titles (experience role, project name). */
+  --font-size-card-title: 1.2rem;
+
+  /* Body copy shared by card detail lists and the modal that expands them. */
+  --font-size-body: 1.05rem;
 }

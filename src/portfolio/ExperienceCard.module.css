@@ -7,7 +7,7 @@
 }
 
 .entryRole {
-  font-size: 1.2rem;
+  font-size: var(--font-size-card-title);
   font-weight: 600;
   color: var(--color-text);
 }
@@ -63,7 +63,7 @@
   flex-direction: column;
   gap: 0.35rem;
   color: var(--color-text-secondary);
-  font-size: 1.05rem;
+  font-size: var(--font-size-body);
   line-height: 1.6;
   list-style: none;
 }

@@ -1,6 +1,6 @@
 .projectName {
   position: relative;
-  font-size: 1.15rem;
+  font-size: var(--font-size-card-title);
   font-weight: 600;
   color: var(--color-text);
 }
@@ -20,7 +20,7 @@
   position: relative;
   margin-top: 0.4rem;
   color: var(--color-text-secondary);
-  font-size: 1.05rem;
+  font-size: var(--font-size-body);
   line-height: 1.6;
   max-width: 60ch;
 }
