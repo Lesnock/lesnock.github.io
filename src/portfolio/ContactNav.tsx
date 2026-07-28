@@ -7,8 +7,8 @@ export function ContactNav() {
   const { t } = useLanguage();
 
   const CONTACT_LINKS = [
-    { label: t.contactNav.github, href: 'https://github.com/', icon: FiGithub, external: true },
-    { label: t.contactNav.linkedin, href: 'https://linkedin.com/', icon: FiLinkedin, external: true },
+    { label: t.contactNav.github, href: 'https://github.com/Lesnock', icon: FiGithub, external: true },
+    { label: t.contactNav.linkedin, href: 'https://www.linkedin.com/in/caiolesnock', icon: FiLinkedin, external: true },
     { label: t.contactNav.email, href: 'mailto:caio.lesnock@outlook.com', icon: FiMail, external: false },
   ];
 
