@@ -58,24 +58,6 @@
   padding: 0;
 }
 
-.gridDetail {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-}
-
-@media (max-width: 640px) {
-  .gridDetail {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-
-  .detailWrapper {
-    width: 100%;
-  }
-}
-
 .moduleWrapper {
   display: contents;
 }
@@ -111,63 +93,9 @@
   border-color: rgba(55, 235, 243, 0.85);
 }
 
-.moduleHidden {
-  position: absolute;
-  opacity: 0;
-  transform: scale(0.6);
-  pointer-events: none;
-}
-
-.viewDetails {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.3rem 0.25rem;
-  text-align: center;
-  font-size: 0.55rem;
-  font-family: var(--font-mono);
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  color: var(--color-secondary);
-  background: rgba(10, 14, 18, 0.88);
-  border-top: 1px solid rgba(55, 235, 243, 0.3);
-  opacity: 0;
-  transform: translateY(100%);
-  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
-  pointer-events: none;
-}
-
-.module:hover .viewDetails,
-.module:focus-visible .viewDetails {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .moduleSelected {
-  flex: 0 0 auto;
-  width: clamp(5.5rem, 22vw, 7rem);
-}
-
-.moduleSelected .viewDetails {
-  display: none;
-}
-
-.moduleSelected .name {
-  display: none;
-}
-
-.moduleSelected .icon {
-  font-size: 2.1rem;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .moduleHidden {
-    transition: none;
-  }
+  border-color: rgba(55, 235, 243, 0.85);
+  transform: translate(3px, -3px);
 }
 
 .moduleContent {
@@ -245,70 +173,65 @@
   letter-spacing: 0.01em;
 }
 
-.backWrapper {
-  order: -1;
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-}
-
-.backButton {
-  flex: 0 0 auto;
-  width: 2.1rem;
-  height: 2.1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(55, 235, 243, 0.3);
-  background: rgba(55, 235, 243, 0.06);
-  color: var(--color-secondary);
-  font-size: 1.1rem;
-  cursor: pointer;
-  clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
-  transition: border-color 0.2s ease-out, transform 0.2s ease-out, box-shadow 0.2s ease-out;
-}
-
-.backButton:hover,
-.backButton:focus-visible {
-  border-color: rgba(55, 235, 243, 0.7);
-  box-shadow: 0 0 10px rgba(55, 235, 243, 0.25);
-  transform: translateX(-2px);
-  outline: none;
-}
-
-.detailWrapper {
-  flex: 1 1 auto;
-  min-width: 0;
+.tooltip {
+  position: absolute;
+  z-index: 10;
+  width: max-content;
+  max-width: min(14rem, calc(100vw - 2rem));
+  transform: translate(-50%, calc(-100% - 0.6rem));
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
-  animation: detailFadeIn 0.3s ease-out 0.05s both;
+  gap: 0.3rem;
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+  border: 1px solid rgba(55, 235, 243, 0.4);
+  background: rgba(10, 14, 18, 0.96);
+  box-shadow: 0 0 16px rgba(55, 235, 243, 0.15);
+  clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+  animation: tooltipFadeIn 0.15s ease-out both;
+  cursor: default;
 }
 
-.detailTitle {
+.tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: rgba(10, 14, 18, 0.96);
+  border-right: 1px solid rgba(55, 235, 243, 0.4);
+  border-bottom: 1px solid rgba(55, 235, 243, 0.4);
+}
+
+.tooltipTitle {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--color-secondary);
   text-shadow: var(--glow-secondary);
+  white-space: normal;
 }
 
-.detailDescription {
-  font-size: 0.88rem;
-  line-height: 1.6;
+.tooltipDescription {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.5;
   color: var(--color-text-secondary);
+  white-space: normal;
 }
 
-@keyframes detailFadeIn {
+@keyframes tooltipFadeIn {
   from {
     opacity: 0;
-    transform: translateX(8px);
+    transform: translate(-50%, calc(-100% - 0.2rem));
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .detailWrapper {
+  .tooltip {
     animation: none;
   }
 }
