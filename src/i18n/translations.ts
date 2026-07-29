@@ -71,10 +71,12 @@ export interface TranslationDict {
     techExperience: TechEntry[];
     projectsAria: string;
     projectsLabel: string;
+    projectsHint: string;
     challengesLabel: string;
     benefitsLabel: string;
     experienceAria: string;
     experienceLabel: string;
+    experienceHint: string;
     showMoreLabel: string;
     showLessLabel: string;
     projects: ProjectEntry[];
@@ -215,10 +217,12 @@ export const translations: Record<Language, TranslationDict> = {
       ],
       projectsAria: 'Projects',
       projectsLabel: 'Projects',
+      projectsHint: 'Click a project to see more',
       challengesLabel: 'Challenges',
       benefitsLabel: 'Impact',
       experienceAria: 'Experience',
       experienceLabel: 'Experience',
+      experienceHint: 'Click an entry to see more',
       showMoreLabel: 'Show More',
       showLessLabel: 'Show Less',
       projects: [
@@ -480,10 +484,12 @@ export const translations: Record<Language, TranslationDict> = {
       ],
       projectsAria: 'Projetos',
       projectsLabel: 'Projetos',
+      projectsHint: 'Clique em um projeto para ver mais',
       challengesLabel: 'Desafios',
       benefitsLabel: 'Impacto',
       experienceAria: 'Experiência',
       experienceLabel: 'Experiência',
+      experienceHint: 'Clique em um item para ver mais',
       showMoreLabel: 'Mostrar Mais',
       showLessLabel: 'Mostrar Menos',
       projects: [

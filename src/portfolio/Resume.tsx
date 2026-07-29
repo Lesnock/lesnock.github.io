@@ -53,9 +53,15 @@ export function Resume() {
       </section>
 
       <section id="projects" className={styles.block} aria-label={t.resume.projectsAria}>
-        <h2 className={styles.blockLabel}>
-          <FiFolder aria-hidden="true" /> {t.resume.projectsLabel}
-        </h2>
+        <div className={styles.blockHeader}>
+          <h2 className={styles.blockLabel}>
+            <FiFolder aria-hidden="true" /> {t.resume.projectsLabel}
+          </h2>
+          <span className={styles.hint}>
+            <span className={styles.hintDot} aria-hidden="true" />
+            {t.resume.projectsHint}
+          </span>
+        </div>
         <ul className={styles.projectList}>
           {visibleProjects.map((project) => (
             <ProjectCard
@@ -99,9 +105,15 @@ export function Resume() {
       </section>
 
       <section className={styles.block} aria-label={t.resume.experienceAria}>
-        <h2 className={styles.blockLabel}>
-          <FiBriefcase aria-hidden="true" /> {t.resume.experienceLabel}
-        </h2>
+        <div className={styles.blockHeader}>
+          <h2 className={styles.blockLabel}>
+            <FiBriefcase aria-hidden="true" /> {t.resume.experienceLabel}
+          </h2>
+          <span className={styles.hint}>
+            <span className={styles.hintDot} aria-hidden="true" />
+            {t.resume.experienceHint}
+          </span>
+        </div>
         <ol className={styles.timeline}>
           {t.resume.experience.map((entry, index) => (
             <ExperienceCard
