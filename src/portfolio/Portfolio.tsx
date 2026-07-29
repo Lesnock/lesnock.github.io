@@ -1,6 +1,5 @@
 import { Hero } from './Hero';
 import { Resume } from './Resume';
-import { ContactNav } from './ContactNav';
 import styles from './Portfolio.module.css';
 
 interface PortfolioProps {
@@ -11,7 +10,6 @@ interface PortfolioProps {
 export function Portfolio({ interactive }: PortfolioProps) {
   return (
     <div className={styles.root} inert={!interactive}>
-      <ContactNav />
       <Hero />
       <Resume />
     </div>

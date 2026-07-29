@@ -2,7 +2,11 @@
   position: fixed;
   top: clamp(1rem, 3vw, 1.5rem);
   right: clamp(1rem, 3vw, 1.5rem);
-  z-index: 20;
+  /* Above the boot Overlay's opaque/blackout/surge layers (z-index 35/36) so
+     it stays visible and usable through every boot state, not just once
+     interactive; below BackgroundEffects (40) to keep the same CRT texture
+     over it as in the interactive state. */
+  z-index: 37;
 }
 
 .list {

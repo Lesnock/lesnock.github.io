@@ -3,6 +3,7 @@ import { Intro } from './boot/Intro';
 import { Overlay } from './boot/Overlay';
 import { BackgroundEffects } from './effects/BackgroundEffects';
 import { Portfolio } from './portfolio/Portfolio';
+import { ContactNav } from './portfolio/ContactNav';
 import type { BootState } from './boot/types';
 import styles from './App.module.css';
 
@@ -31,6 +32,7 @@ function App() {
       style={{ '--power-duration': `${powerDurationMs}ms` } as React.CSSProperties}
     >
       <Portfolio interactive={interactive} />
+      <ContactNav />
       <Overlay
         state={state}
         timings={timings}
